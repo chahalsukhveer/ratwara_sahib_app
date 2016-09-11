@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar >
+  <ion-title>
+      Videos
+    </ion-title>
+<!--   -->
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding class="videos">
+  <h2>Welcome to Ionic!</h2>
+  
+<div>
+  <div id="player" class="embed-responsive embed-responsive-16by9">
+  <p>Video here</p>
+      <div id="placeholder" style="width: 100%" class="embed-responsive-item"></div>
+      <div class="embed-responsive-item" style="width: 100%; z-index: 90;" *ngIf = "!onPlaying">Say something </div>
+    </div> 
+</div>
+  
+
+
+  <div *ngFor="let post of posts">
+      <ion-card class="adv-map">
+        <div style="position: relative">
+          <div class="sixteen-nine">
+            <div class="content">
+              <img src="{{post.snippet.thumbnails.high.url}}">
+            </div>
+          </div>
+          <button fab fab-right fab-top class="fab-map" (click)="playVideo($event, post)">
+            <ion-icon name='play'></ion-icon>
+          </button>
+        </div>
+        <ion-item style="padding-top: 26px;">
+          <ion-icon subtle large item-left name='disc' primary></ion-icon>
+          <h2 class="item-text-wrap">{{post.snippet.title}}</h2>
+        </ion-item>
+        <ion-item actions>
+          <button primary clear item-right>
+            <ion-icon name='share'></ion-icon>
+            SHARE
+          </button>
+        </ion-item>
+
+      </ion-card>
+    </div>
+  <button light>Load More...</button>
+  
+</ion-content>
