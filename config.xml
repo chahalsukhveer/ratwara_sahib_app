@@ -11,6 +11,7 @@
   <allow-intent href="sms:*"/>
   <allow-intent href="mailto:*"/>
   <allow-intent href="geo:*"/>
+  <allow-navigation href="https://*.youtube.com/*"/>
   <platform name="android">
     <allow-intent href="market:*"/>
   </platform>
