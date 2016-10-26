@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>V2 Test</name>
-  <description>An Ionic Framework and Cordova project.</description>
+  <name>Ratwara Sahib Ji</name>
+  <description>Ratwara Sahib Mobile App</description>
   <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
   <content src="index.html"/>
   <access origin="*"/>
+  <access origin="tel:*" launch-external="yes"/>
+  <access origin="mailto:*" launch-external="yes"/>
+  <access origin="sms:*" launch-external="yes"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
@@ -12,6 +15,7 @@
   <allow-intent href="mailto:*"/>
   <allow-intent href="geo:*"/>
   <allow-navigation href="https://*.youtube.com/*"/>
+  <allow-navigation href="http://ratwarasahib.in/*"/>
   <platform name="android">
     <allow-intent href="market:*"/>
   </platform>

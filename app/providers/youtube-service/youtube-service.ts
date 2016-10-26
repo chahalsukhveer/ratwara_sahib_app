@@ -1,7 +1,6 @@
 import { Http, URLSearchParams, Response } from '@angular/http';
 import { Injectable, NgZone } from '@angular/core';
 import { window } from '@angular/platform-browser/src/facade/browser';
-
 /*
   Generated class for the YoutubeService provider.
 
@@ -17,8 +16,10 @@ export class YoutubeService {
     videoId: null,
     videoTitle: null,
     playerHeight: '100%',
-    playerWidth: '100%'
+    playerWidth: '100%',
+    isPlaying:false
   }
+
 
   constructor () {
      var tag = document.createElement('script');
@@ -26,6 +27,7 @@ export class YoutubeService {
       tag.src = "https://www.youtube.com/iframe_api";
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      window.YT =undefined;
       this.setupPlayer();
   }
 
@@ -34,9 +36,13 @@ export class YoutubeService {
   };
 
   createPlayer(): void {
-    debugger;
     console.log("create player now")
-    return new window.YT.Player(this.youtube.playerId, {
+
+    if (this.youtube.ready && this.youtube.playerId) {
+      if (this.youtube.player) {
+      this.youtube.player.destroy();
+      }
+      this.youtube.player= new window.YT.Player(this.youtube.playerId, {
       height: this.youtube.playerHeight,
       width: this.youtube.playerWidth,
       playerVars: {
@@ -46,49 +52,51 @@ export class YoutubeService {
       events: {
             'onReady': this.onPlayerReady
           }
-    });
+    });   
+    }
+    
+    
   }
 
 onPlayerReady():void{
   console.log("player ready evt");
 }
-  loadPlayer(): void {
-    debugger;
-    if (this.youtube.ready && this.youtube.playerId) {
-      if (this.youtube.player) {
-      this.youtube.player.destroy();
-      }
-      this.youtube.player = this.createPlayer();
-    }
-  }
-
-  setupPlayer () {
+    setupPlayer () {
     // in production mode, the youtube iframe api script tag is loaded
     // before the bundle.js, so the 'onYouTubeIfarmeAPIReady' has
     // already been triggered
     // TODO: handle this in build or in nicer in code
     console.log ("Running Setup Player");
+
     window['onYouTubeIframeAPIReady'] = () => {
       if (window['YT']) {
          console.log('Youtube API is ready 123');
          this.youtube.ready = true;
          this.bindPlayer('placeholder');
-         this.loadPlayer();
+         this.createPlayer();
       }
     };
     if (window.YT && window.YT.Player) {
             console.log('Youtube API is ready 456');
          this.youtube.ready = true;
          this.bindPlayer('placeholder');
-         this.loadPlayer();
+         this.createPlayer();
     }
+
   }
 
   launchPlayer(id, title):void {
     this.youtube.player.loadVideoById(id);
     this.youtube.videoId = id;
     this.youtube.videoTitle = title;
+    this.youtube.isPlaying=true;
+
     return this.youtube;
+  }
+  pausePlayer():void{
+    if(this.youtube.isPlaying){
+        this.youtube.player.pauseVideo();
+    }
   }
 }
 
