@@ -17,7 +17,7 @@
 <ion-list >
             <div *ngFor ="let trackaudio of audios">
               <div *ngIf ="listId == 'santWaryamSinghJi'" >
-              <audio-track #audio *ngFor="let track of trackaudio.santWaryamSinghJi" [track]="track" (onFinish)="onTrackFinished($event)">
+              <audio-track #audio *ngFor="let track of trackaudio.santWaryamSinghJi" [track]="track"  (onFinish)="onTrackFinished($event)">
               <ion-item>
                 <ion-thumbnail item-left>
                   <audio-track-play dark [audioTrack]="audio">
@@ -32,7 +32,7 @@
              </audio-track>
               </div>
                <div *ngIf ="listId=='babaji'" >
-              <audio-track #audio *ngFor="let track of trackaudio.babaji" [track]="track" (onFinish)="onTrackFinished($event)">
+              <audio-track #audio *ngFor="let track of trackaudio.babaji" [track]="track" (onFinish)="onTrackFinished($event)" onplay="onTrackPlaying($event)">
               <ion-item>
                 <ion-thumbnail item-left>
                   <audio-track-play dark [audioTrack]="audio">

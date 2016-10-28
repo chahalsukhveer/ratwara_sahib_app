@@ -20,6 +20,7 @@ santWaryamSinghJi: any[];
   listId:string;
     allTracks:any[];
   selectedTrack: number;
+  playing:boolean =false;
   constructor(private navCtrl: NavController,public params:NavParams,public _audioProvider: AudioProvider) {
       this.audios=params.get("audioList");
       this.listId=params.get("listId");
@@ -35,7 +36,6 @@ santWaryamSinghJi: any[];
   }
   
   playSelectedTrack() {
-    // use AudioProvider to control selected track 
     this._audioProvider.play(this.selectedTrack);
   }
   
@@ -43,8 +43,10 @@ santWaryamSinghJi: any[];
      // use AudioProvider to control selected track 
      this._audioProvider.pause(this.selectedTrack);
   }
-         
+    
   onTrackFinished(track: any) {
     console.log('Track finished', track)
+
   }
+  
 }

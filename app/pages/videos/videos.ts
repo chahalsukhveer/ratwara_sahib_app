@@ -14,8 +14,8 @@ export class VideosPage {
   channelID: string = 'UC9-Wp2ANvH0aQBSGw8Zykng';
   maxResults: string = '10';
   pageToken: string; 
-  googleToken: string = '';
-  searchQuery: string = 'October';
+  googleToken: string = '';//'';
+  searchQuery: string = '';
   posts: any = [];
   onPlaying: boolean = false; 
   eventType: string ='completed';

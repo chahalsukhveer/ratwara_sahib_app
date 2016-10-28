@@ -47,7 +47,9 @@ export class YoutubeService {
       width: this.youtube.playerWidth,
       playerVars: {
         rel: 0,
-        showinfo: 0
+        showinfo: 0,
+        fs:1,
+        playsinline:0
       },
       events: {
             'onReady': this.onPlayerReady
