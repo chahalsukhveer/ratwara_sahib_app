@@ -23,6 +23,9 @@ ionic emulate ios
 ios-sim showdevicetypes
 cordova emulate ios --target="iPad-Air"
 
+ionic run ios --device
+See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-account/
+
 ##Publish
 cordova build --release android
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/android-release-unsigned.apk suk_keye
