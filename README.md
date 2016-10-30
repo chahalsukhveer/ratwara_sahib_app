@@ -16,7 +16,6 @@ ionic platform add android
 ionic platform add ios
 
 ## default IOS
-ionic hooks add
 ionic emulate ios
 
 ## particular IOS device

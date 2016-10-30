@@ -1,0 +1,33 @@
+page-videos {
+    scroll-content {
+        margin-top: 5px !important;
+    }
+    ion-card.adv-map p {
+        font-size: 0.7em !important;
+    }
+
+    .fab-map-button {
+        top: calc(100% - 35px);
+        z-index: 50;
+    }
+
+    .item-bold {
+    font-weight: bold;
+    }
+
+    ion-content.cards-bg {
+        background-color: #f4f4f7;
+    }
+
+    .item-text-wrap { /* negate the nowrap CSS from .ionic .item */
+        overflow: visible;
+        text-overflow: initial;
+        white-space: initial;
+    }
+}
+
+ion-nav > ion-page > ion-header > .youtube-player-header.toolbar.statusbar-padding:first-child {
+    padding-top: 0px;
+    height: initial !important;
+}
+
