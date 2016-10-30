@@ -33,12 +33,10 @@
       <ion-icon name="logo-whatsapp" item-left></ion-icon>
        <a href="sms:+919814612900" >+91-9814612900</a>
     </ion-item>
-    <ion-item>
-       <iframe width="300" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJawl62ojxDzkRJWq5gaim9nU&key=AIzaSyBo4ahb9-BTcHgOPCYe0wUbsVWNMl16BLY" allowfullscreen></iframe>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="logo-twitter" item-left></ion-icon>
-  <div #map id="map" style="width:300px;height:250px;"></div>
-    </ion-item>
+    <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="12">
+      <sebm-google-map-marker [latitude]="lat" [longitude]="lng" [label]="'G'">
+         <sebm-google-map-info-window [disableAutoPan]="true">Mullanpur Ratwara Sahib, Mullanpur Garibdass, Punjab 140901, India</sebm-google-map-info-window>
+      </sebm-google-map-marker>
+    </sebm-google-map>
   </ion-list>
 </ion-content>

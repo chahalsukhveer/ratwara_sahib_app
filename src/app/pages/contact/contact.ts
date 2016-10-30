@@ -6,6 +6,10 @@ declare var google;
   templateUrl: 'contact.html'
 })
 export class ContactPage {
+
+  lat: number = 30.791057;
+  lng: number = 76.728695;
+
   @ViewChild('map') mapElement: ElementRef;
   map: any;
     constructor(public navCtrl: NavController, public platform: Platform) {

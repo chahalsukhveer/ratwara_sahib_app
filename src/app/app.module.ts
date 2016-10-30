@@ -9,9 +9,8 @@ import {LivePage} from './pages/live/live';
 import {ContactPage} from './pages/contact/contact';
 import {MusicPage} from './pages/music/music';
 
+import {AgmCoreModule} from 'angular2-google-maps/core';
 // import {AudioProvider, WebAudioProvider} from 'ionic-audio/dist/ionic-audio';
-// https://angular.io/docs/ts/latest/api/core/Type-interface.html
-// import {Type, provide} from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,8 @@ import {MusicPage} from './pages/music/music';
     TabsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyBzH2CivhtNDuhHBQfQCNihnQVqlfaeW9o'})
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,4 +40,3 @@ import {MusicPage} from './pages/music/music';
 })
 export class AppModule {}
 
-// ionicBootstrap(MyApp, [provide(AudioProvider,  { useFactory: AudioProvider.factory })]);
