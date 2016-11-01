@@ -16,6 +16,9 @@
     <allow-intent href="geo:*" />
     <allow-navigation href="https://*.youtube.com/*" />
     <allow-navigation href="http://ratwarasahib.in/*" />
+    <allow-navigation href="http://maps.google.com/*" />
+    <allow-navigation href="http://maps.apple.com/*" />
+    <allow-navigation href="maps://maps.apple.com/*" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />

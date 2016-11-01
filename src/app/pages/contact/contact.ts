@@ -18,22 +18,22 @@ export class ContactPage {
     this._isAndroid = platform.is('android');
     this._isiOS = platform.is('ios');
     }
- 
+
   loadMap(){
     console.log("I am called");
 
   var coords = this.lat + "," + this.lng;
    var place = "Gurdwara Ratwara Sahib Mullanpur"
     if(this._isiOS) {
-      window.open("http://maps.apple.com/?q=" + place, '_system');
+      window.open("http://maps.apple.com/?q=" + coords, '_system');
       return;
     }
-    
+
     if(this._isAndroid) {
       window.open("http://maps.google.com/?q=" +place, '_system')
       return;
     }
-   
+
     window.open("http://maps.google.com/?q=" +place, '_system');
     return;
   }
