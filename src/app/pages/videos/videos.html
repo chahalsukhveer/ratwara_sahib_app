@@ -22,15 +22,18 @@
   <div *ngFor="let post of posts">
       <ion-card class="adv-map">
         <div style="position: relative">
-          <button ion-button fab fab-right fab-top class="fab-map" (click)="playVideo($event, post)">
-            <ion-icon name='play'></ion-icon>
-          </button>
           <div class="sixteen-nine">
             <div class="content">
               <img  src="{{post.snippet.thumbnails.high.url}}">
             </div>
           </div>
+          <ion-fab top right >
+          <button ion-fab  class="fab-map" (click)="playVideo($event, post)">
+            <ion-icon name='play'></ion-icon>
+          </button>
+          </ion-fab>
         </div>
+        
         <ion-item style="padding-top: 26px;">
           <ion-icon subtle large item-left name='disc' primary></ion-icon>
           <h2 class="item-text-wrap">{{post.snippet.title}}</h2>

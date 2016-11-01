@@ -9,28 +9,33 @@ export class ContactPage {
 
   lat: number = 30.791057;
   lng: number = 76.728695;
+  private _isAndroid: boolean;
+  private _isiOS: boolean;
 
   @ViewChild('map') mapElement: ElementRef;
   map: any;
     constructor(public navCtrl: NavController, public platform: Platform) {
-
+    this._isAndroid = platform.is('android');
+    this._isiOS = platform.is('ios');
     }
-  ionViewLoaded(){
-    this.loadMap();
-  }
+ 
   loadMap(){
-    // let directionsService = new google.maps.DirectionsService();
-    // let directionsDisplay = new google.maps.DirectionsRenderer();
-    let latLng = new google.maps.LatLng(30.79105749999999, 76.72869539999999);
+    console.log("I am called");
 
-    let mapOptions = {
-      center: latLng,
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+  var coords = this.lat + "," + this.lng;
+   var place = "Gurdwara Ratwara Sahib Mullanpur"
+    if(this._isiOS) {
+      window.open("http://maps.apple.com/?q=" + place, '_system');
+      return;
     }
-
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
- this.addMarker();
+    
+    if(this._isAndroid) {
+      window.open("http://maps.google.com/?q=" +place, '_system')
+      return;
+    }
+   
+    window.open("http://maps.google.com/?q=" +place, '_system');
+    return;
   }
   addMarker(){
  let marker = new google.maps.Marker({

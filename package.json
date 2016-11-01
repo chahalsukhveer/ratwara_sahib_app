@@ -25,6 +25,7 @@
     "@ionic/storage": "1.1.6",
     "angular2-google-maps": "^0.15.0",
     "es6-shim": "0.35.1",
+    "ionic": "^2.1.4",
     "ionic-angular": "2.0.0-rc.1",
     "ionic-audio": "2.0.9",
     "ionic-native": "2.2.3",
