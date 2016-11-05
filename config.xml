@@ -3,6 +3,7 @@
   <name>Ratwara Sahib Ji</name>
   <description>Ratwara Sahib Mobile App</description>
   <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+  <content src="index.html" />
   <access origin="*"/>
   <access launch-external="yes" origin="tel:*"/>
   <access launch-external="yes" origin="mailto:*"/>
