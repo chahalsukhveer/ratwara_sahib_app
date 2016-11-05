@@ -6,50 +6,58 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Audio List</ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>Audio List</ion-title>
+	</ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-<ion-list >
-  <div *ngFor="let audioTracks of audios">
-       <div *ngIf ="listId == 'santWaryamSinghJi'" >
-            <div *ngFor="let audio of audioTracks.santWaryamSinghJi">
-               <ion-item>
-                    <ion-thumbnail item-left>
-                      <button clear (click)="play(audio.src,audio.id)">
+	<ion-list class="card">
+		<div *ngFor="let audioTracks of audios">
+			<div *ngIf="listId == 'santWaryamSinghJi'">
+				<div *ngFor="let audio of audioTracks.santWaryamSinghJi">
+					<ion-item>
+
+
+
+						<ion-thumbnail item-left>
+							<button ion-button (click)="play(audio.src,audio.id)">
                             <ion-icon name="play" ></ion-icon>
                       </button>
-                      <button clear (click)="stop(audio.src,audio.id)">
+							<button ion-button (click)="stop(audio.src,audio.id)">
                             <ion-icon name="pause" ></ion-icon>
                       </button>
-                    </ion-thumbnail>
-                    <div item-content style="width:100%">
-                      <p><strong>{{audio.title}}</strong> &#x26AC; <em>{{audio.artist}}</em></p>
-                    </div>
-               </ion-item>
-             </div>
-         </div>
-       <div *ngIf ="listId == 'babaji'" >
-            <div *ngFor="let audio of audioTracks.babaji">
-               <ion-item>
-                    <ion-thumbnail item-left>
-                      <button clear (click)="toggle(audio)">
-                            <ion-icon name="pause" *ngIf="audio.isPlaying"></ion-icon>
-                            <ion-icon name="play" *ngIf="!audio.isPlaying"></ion-icon>
+						</ion-thumbnail>
+
+
+						<div item-content style="width:100%">
+							<p><strong>{{audio.title}}</strong> &#x26AC; <em>{{audio.artist}}</em></p>
+						</div>
+					</ion-item>
+
+				</div>
+			</div>
+			<div *ngIf="listId == 'babaji'">
+				<div *ngFor="let audio of audioTracks.babaji">
+					<ion-item>
+						<ion-thumbnail item-left>
+							<button ion-button (click)="play(audio.src,audio.id)">
+                            <ion-icon name="play" ></ion-icon>
                       </button>
-                    </ion-thumbnail>
-                    <div item-content style="width:100%">
-                      <p><strong>{{audio.title}}</strong> &#x26AC; <em>{{audio.artist}}</em></p>
-                    </div>
-               </ion-item>
-             </div>
-         </div>
-    </div> 
-            <!--<div *ngFor ="let trackaudio of audios">
+							<button ion-button (click)="stop(audio.src,audio.id)">
+                            <ion-icon name="pause" ></ion-icon>
+                      </button>
+						</ion-thumbnail>
+						<div item-content style="width:100%">
+							<p><strong>{{audio.title}}</strong> &#x26AC; <em>{{audio.artist}}</em></p>
+						</div>
+					</ion-item>
+				</div>
+			</div>
+		</div>
+		<!--<div *ngFor ="let trackaudio of audios">
               <div *ngIf ="listId == 'santWaryamSinghJi'" >
               <audio-track #audio *ngFor="let track of trackaudio.santWaryamSinghJi" [track]="track"  (onFinish)="onTrackFinished($event)">
               <ion-item>
@@ -81,6 +89,6 @@
              </audio-track>
               </div>
             </div>-->
-             
-          </ion-list> 
+
+	</ion-list>
 </ion-content>

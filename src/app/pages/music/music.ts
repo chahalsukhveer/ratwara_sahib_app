@@ -20,35 +20,40 @@ export class MusicPage {
       artist: 'Sant Waryam Singh Ji',
       title: 'Sangrad Katak',
       preload: 'metadata' ,
-      id:1
+      id:1,
+      isPlaying:false
     },
     {
       src: 'http://www.ratwarasahib.in/Audios/BabaWaryamSinghJi/0361-Payee%20Prapat%20Manukh.mp3',
       artist: 'Sant Waryam Singh Ji',
       title: 'Payee Prapat Manukh',
       preload: 'metadata' ,
-      id:2
+      id:2,
+      isPlaying:false
     },
     {
       src: 'http://www.ratwarasahib.in/Audios/BabaWaryamSinghJi/0371-Bhoomia%20Nu%20Updesh.mp3',
       artist: 'Sant Waryam Singh Ji',
       title: 'Bhoomia Nu Updesh',
       preload: 'metadata' ,
-      id:3
+      id:3,
+      isPlaying:false
     },
     {
       src: 'http://www.ratwarasahib.in/Audios/BabaWaryamSinghJi/F0319%20Bhagat%20Droo%20Ji.mp3',
       artist: 'Sant Waryam Singh Ji',
       title: 'Bhagat Droo Ji',
       preload: 'metadata' ,
-      id:4
+      id:4,
+      isPlaying:false
     },
     {
       src: 'http://www.ratwarasahib.in/Audios/BabaWaryamSinghJi/F0384%20Naam%20Kee%20Hai.mp3',
       artist: 'Sant Waryam Singh Ji',
       title: 'Naam Kee Hai',
       preload: 'metadata' ,
-      id:5
+      id:5,
+      isPlaying:false
     }],
      babaji: [{
       src: 'http://www.ratwarasahib.in/Audios/BabaJi/Aap%20Narayan%20KalaDhaar1.mp3',

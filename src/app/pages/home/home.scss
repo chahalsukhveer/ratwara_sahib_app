@@ -1,9 +1,9 @@
 page-home {
-
-img{
-  height: 70vh;
-  width: auto;
-  margin: auto;
-  display: block;
-}
+  overflow-y: scroll;
+  ion-slides {
+  height: auto;
+  }
+  ion-slide {
+  height: auto;
+  }
 }
