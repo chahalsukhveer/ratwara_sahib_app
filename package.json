@@ -44,7 +44,7 @@
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard",
-     "ionic-plugin-media"
+    "ionic-plugin-media"
   ],
   "cordovaPlatforms": [
     "ios",
