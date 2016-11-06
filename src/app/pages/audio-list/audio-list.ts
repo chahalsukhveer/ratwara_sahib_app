@@ -59,9 +59,9 @@ export class AudioListPage {
     }
   }
 
-  //   ngAfterContentInit() {     
+  //   ngAfterContentInit() {
   //     // get all tracks managed by AudioProvider so we can control playback via the API
-  //     this.allTracks = this._audioProvider.tracks; 
+  //     this.allTracks = this._audioProvider.tracks;
   //   }
 
   //   playSelectedTrack() {
@@ -69,7 +69,7 @@ export class AudioListPage {
   //   }
 
   //  pauseSelectedTrack():void {
-  //      // use AudioProvider to control selected track 
+  //      // use AudioProvider to control selected track
   //      this._audioProvider.pause(this.selectedTrack);
   //   }
 

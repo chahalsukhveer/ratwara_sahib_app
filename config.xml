@@ -20,6 +20,7 @@
   <allow-navigation href="http://maps.apple.com/*"/>
   <allow-navigation href="maps://maps.apple.com/*"/>
   <allow-navigation href="http://192.168.2.180:8100"/>
+  <allow-navigation href="about:blank"/>
   <platform name="android">
     <allow-intent href="market:*"/>
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
@@ -89,6 +90,9 @@
   </feature>
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
   <engine name="ios" spec="~4.2.1"/>
+  <plugin name="cordova-plugin-compat" spec="~1.1.0"/>
+  <plugin name="cordova-plugin-file" spec="~4.3.0"/>
+  <plugin name="cordova-plugin-media" spec="~2.4.0"/>
   <plugin name="cordova-plugin-device" spec="~1.1.3"/>
   <plugin name="cordova-plugin-console" spec="~1.0.4"/>
   <plugin name="cordova-plugin-whitelist" spec="~1.3.0"/>
