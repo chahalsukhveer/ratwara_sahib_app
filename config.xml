@@ -2,7 +2,7 @@
 <widget id="io.ionic.ratwara.sahib" version="0.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Ratwara Sahib Ji</name>
   <description>Ratwara Sahib Mobile App</description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+  <author email="chahal.sukhveer@gmail" href="http://ratwarasahib.in/">Sukhveer</author>
   <content src="index.html"/>
   <access origin="*"/>
   <access launch-external="yes" origin="tel:*"/>
