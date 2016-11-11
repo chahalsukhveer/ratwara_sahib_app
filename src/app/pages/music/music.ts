@@ -1,4 +1,3 @@
-import {AudioTrackComponent, AudioTrackPlayComponent, AudioTrackProgressComponent, AudioTrackProgressBarComponent, AudioTimePipe, AudioProvider} from 'ionic-audio/dist/ionic-audio';
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import { MediaPlugin} from 'ionic-native';

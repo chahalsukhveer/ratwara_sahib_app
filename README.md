@@ -3,6 +3,7 @@
 ## npm
 - npm install -g cordova
 - npm install -g ionic
+- npm install @ionic/app-scripts@latest --save-dev
 - ionic info
 
 ## Make it work

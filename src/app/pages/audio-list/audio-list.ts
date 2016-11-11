@@ -1,7 +1,7 @@
-import { AudioTrackComponent, AudioTrackPlayComponent, AudioTrackProgressComponent, AudioTrackProgressBarComponent, AudioTimePipe, AudioProvider } from 'ionic-audio/dist/ionic-audio';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MediaPlugin } from 'ionic-native';
+
 var media: any;
 var player = {
   key: '' // Holds a last active track,

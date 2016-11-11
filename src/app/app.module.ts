@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import {TabsPage} from './pages/tabs/tabs';
@@ -9,7 +9,7 @@ import {ContactPage} from './pages/contact/contact';
 import {MusicPage} from './pages/music/music';
 import {AudioListPage} from './pages/audio-list/audio-list';
 import {AgmCoreModule} from 'angular2-google-maps/core';
-// import {AudioProvider, WebAudioProvider} from 'ionic-audio/dist/ionic-audio';
+import { IonicAudioModule, AudioProvider, audioProviderfactory } from 'ionic-audio';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import {AgmCoreModule} from 'angular2-google-maps/core';
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyBzH2CivhtNDuhHBQfQCNihnQVqlfaeW9o'})
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyBzH2CivhtNDuhHBQfQCNihnQVqlfaeW9o'}),
+    IonicAudioModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,7 +38,8 @@ import {AgmCoreModule} from 'angular2-google-maps/core';
     AudioListPage,
     TabsPage
   ],
-  providers: []
+  providers: [ { provide: AudioProvider, useFactory: audioProviderfactory }],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule {}
 
