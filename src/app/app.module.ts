@@ -9,7 +9,8 @@ import {ContactPage} from './pages/contact/contact';
 import {MusicPage} from './pages/music/music';
 import {AudioListPage} from './pages/audio-list/audio-list';
 import {AgmCoreModule} from 'angular2-google-maps/core';
-import { IonicAudioModule, AudioProvider, audioProviderfactory } from 'ionic-audio';
+
+import { IonicAudioModule, AudioProvider, audioProviderfactory } from './ionic-audio/ionic-audio.module';
 
 @NgModule({
   declarations: [
