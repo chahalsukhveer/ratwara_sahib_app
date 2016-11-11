@@ -54,8 +54,5 @@
       "locator": "ios"
     }
   ],
-  "description": "an Ionic project",
-  "config": {
-    "ionic_rollup": "./scripts/rollup.config.js"
-  }
+  "description": "an Ionic project"
 }

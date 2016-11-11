@@ -69,6 +69,11 @@ export class AudioTrackComponent implements DoCheck {
   }
   
   play() {    
+    if(this._audioProvider.current != undefined){
+        this._audioProvider.pause(this._audioProvider.current);
+        this._audioProvider.current = undefined;
+    }
+
     this._audioTrack.play();
     this._audioProvider.current = this._audioTrack.id;
   }
