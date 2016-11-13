@@ -9,6 +9,7 @@ import {ContactPage} from './pages/contact/contact';
 import {MusicPage} from './pages/music/music';
 import {AudioListPage} from './pages/audio-list/audio-list';
 import {AgmCoreModule} from 'angular2-google-maps/core';
+import {Platform} from 'ionic-angular';
 
 import { IonicAudioModule, AudioProvider, audioProviderfactory } from './ionic-audio/ionic-audio.module';
 
@@ -39,7 +40,7 @@ import { IonicAudioModule, AudioProvider, audioProviderfactory } from './ionic-a
     AudioListPage,
     TabsPage
   ],
-  providers: [ { provide: AudioProvider, useFactory: audioProviderfactory }],
+  providers: [ { provide: AudioProvider, useFactory: audioProviderfactory, deps: [Platform] }],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule {}
