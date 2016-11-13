@@ -1,11 +1,8 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import { MediaPlugin} from 'ionic-native';
 import {AudioListPage} from '../audio-list/audio-list';
-var media:any;
-var player = {
-    key: '' // Holds a last active track,
-  }
+
+
 @Component({
   templateUrl: 'music.html'
 })

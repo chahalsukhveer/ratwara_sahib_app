@@ -5,6 +5,11 @@
   <author email="chahal.sukhveer@gmail" href="http://ratwarasahib.in/">Sukhveer</author>
   <content src="index.html"/>
   <access origin="*"/>
+
+  <allow-navigation href="*"/>
+  <allow-navigation href="data:*"/>
+  <allow-intent href="*"/>
+
   <access launch-external="yes" origin="tel:*"/>
   <access launch-external="yes" origin="mailto:*"/>
   <access launch-external="yes" origin="sms:*"/>

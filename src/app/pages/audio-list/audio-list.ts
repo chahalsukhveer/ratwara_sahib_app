@@ -2,12 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AudioProvider } from '../../ionic-audio/ionic-audio.module';
 
-
-var media: any;
-var player = {
-  key: '' // Holds a last active track,
-}
-
 /*
   Generated class for the AudioListPage page.
 
@@ -31,7 +25,7 @@ export class AudioListPage {
     this.audios = params.get("audioList");
     this.listId = params.get("listId");
   }
-  
+
   ionViewWillLeave() {
     console.log("leaving now");
    this.pauseSelectedTrack();

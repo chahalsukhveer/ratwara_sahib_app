@@ -1,4 +1,4 @@
-import {IAudioProvider, ITrackConstraint, IAudioTrack} from './ionic-audio-interfaces'; 
+import {IAudioProvider, ITrackConstraint, IAudioTrack} from './ionic-audio-interfaces';
 import {Injectable} from '@angular/core';
 import {WebAudioTrack} from './ionic-audio-web-track';
 import {CordovaAudioTrack} from './ionic-audio-cordova-track';
@@ -7,12 +7,13 @@ import {Platform} from 'ionic-angular';
 /**
  * Creates an audio provider based on the environment.
  * If running from within a browser, then defaults to HTML5 Audio. If running on a device, it will check for Cordova and Media plugins and use
- * a native audio player, otherwise falls back to HTML5 audio.  
- * 
+ * a native audio player, otherwise falls back to HTML5 audio.
+ *
  * @method factory
  * @static
- * @return {IAudioProvider} An IAudioProvider instance 
+ * @return {IAudioProvider} An IAudioProvider instance
  */
+
 export function audioProviderfactory(platform:Platform) {
   if(platform.is("ios")){
     new WebAudioProvider();
@@ -24,7 +25,7 @@ export function audioProviderfactory(platform:Platform) {
 
 /**
  * Base class for audio providers
- * 
+ *
  * @export
  * @abstract
  * @class AudioProvider
@@ -34,14 +35,15 @@ export function audioProviderfactory(platform:Platform) {
 export abstract class AudioProvider implements IAudioProvider {
   protected static tracks: IAudioTrack[] = [];
   protected _current: number;
-    
+
   constructor() {
+
   }
-  
+
   /**
    * Creates an IAudioTrack instance from a JSON object.
    * Not implemented in base class.
-   * 
+   *
    * @method create
    * @param {ITrackConstraint} track A JSON object containing at least a src property
    * @return null
@@ -50,32 +52,32 @@ export abstract class AudioProvider implements IAudioProvider {
     console.error('Not implemented in base class');
     return null;
   }
-  
+
   /**
    * Adds an existing IAudioTrack instance to the array of managed tracks.
    *
-   * @method add 
+   * @method add
    * @param {IAudioTrack} audioTrack An instance of IAudioTrack
    */
   add(audioTrack: IAudioTrack) {
-    AudioProvider.tracks.push(audioTrack);  
+    AudioProvider.tracks.push(audioTrack);
   };
-  
+
   /**
    * Plays a given track.
-   * 
+   *
    * @method play
    * @param {number} index The track id
    */
   play(index: number) {
     if (index===undefined || index > AudioProvider.tracks.length-1) return;
     this._current = index;
-    AudioProvider.tracks[index].play();  
+    AudioProvider.tracks[index].play();
   };
-  
+
   /**
    * Pauses a given track.
-   * 
+   *
    * @method pause
    * @param {number} [index] The track id, or if undefined it will pause whichever track currently playing
    */
@@ -84,10 +86,10 @@ export abstract class AudioProvider implements IAudioProvider {
     index = index || this._current;
     AudioProvider.tracks[index].pause();
   };
-  
+
   /**
    * Stops a given track.
-   * 
+   *
    * @method stop
    * @param {number} [index] The track id, or if undefined it will stop whichever track currently playing
    */
@@ -97,10 +99,10 @@ export abstract class AudioProvider implements IAudioProvider {
     AudioProvider.tracks[index].stop();
     this._current = undefined;
   };
-  
+
   /**
    * Gets an array of tracks managed by this provider
-   * 
+   *
    * @property tracks
    * @readonly
    * @type {IAudioTrack[]}
@@ -108,31 +110,31 @@ export abstract class AudioProvider implements IAudioProvider {
   public get tracks() : IAudioTrack[] {
     return AudioProvider.tracks;
   }
-  
+
   /**
    * Gets current track id
-   * 
+   *
    * @property current
    * @type {number}
    */
   public get current() : number {
     return this._current;
   }
-  
+
   /**
    * Sets current track id
-   * 
+   *
    * @property current
    */
   public set current(v : number) {
     this._current = v;
   }
-  
+
 }
 
 /**
  * Creates an HTML5 audio provider
- * 
+ *
  * @export
  * @class WebAudioProvider
  * @constructor
@@ -140,25 +142,25 @@ export abstract class AudioProvider implements IAudioProvider {
  */
 @Injectable()
 export class WebAudioProvider extends AudioProvider {
-  
+
   constructor() {
     super();
     console.log('Using Web Audio provider');
   }
-  
+
   create(track: ITrackConstraint) {
-    let audioTrack = new WebAudioTrack(track.src, track.preload);  
+    let audioTrack = new WebAudioTrack(track.src, track.preload);
     Object.assign(audioTrack, track);
     let trackId = WebAudioProvider.tracks.push(audioTrack);
-    audioTrack.id = trackId-1; 
+    audioTrack.id = trackId-1;
     return audioTrack;
   }
-  
+
 }
 
 /**
  * Creates a Cordova audio provider
- * 
+ *
  * @export
  * @class CordovaMediaProvider
  * @constructor
@@ -166,18 +168,18 @@ export class WebAudioProvider extends AudioProvider {
  */
 @Injectable()
 export class CordovaMediaProvider extends AudioProvider {
-  
+
   constructor() {
     super();
     console.log('Using Cordova Media provider');
   }
-  
+
   create(track: ITrackConstraint) {
-    let audioTrack = new CordovaAudioTrack(track.src);  
+    let audioTrack = new CordovaAudioTrack(track.src);
     Object.assign(audioTrack, track);
     let trackId = CordovaMediaProvider.tracks.push(audioTrack);
-    audioTrack.id = trackId-1; 
+    audioTrack.id = trackId-1;
     return audioTrack;
   }
-  
+
 }
