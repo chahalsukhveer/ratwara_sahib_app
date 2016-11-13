@@ -19,7 +19,7 @@
 
 ## Add platforms
 - ionic platform add android
-- ionic platform add ios
+- ionic platform add ios@4.2.1
 
 ### icon android bug
 - cordova platform update android@https://github.com/apache/cordova-android
