@@ -1,5 +1,9 @@
 # Ionic 2 Ratwara Sahib app for Android/IOS
 
+## android & ios Apps
+- https://play.google.com/store/apps/details?id=io.ionic.ratwara.sahib&hl=en
+- https://itunes.apple.com/us/app/ratwara-sahib-ji/id1176144539?ls=1&mt=8
+
 ## npm
 - npm install -g cordova
 - npm install -g ionic
