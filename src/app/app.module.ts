@@ -8,6 +8,8 @@ import {LivePage} from './pages/live/live';
 import {ContactPage} from './pages/contact/contact';
 import {MusicPage} from './pages/music/music';
 import {AudioListPage} from './pages/audio-list/audio-list';
+import {AboutPage} from './pages/about/about';
+import {AdminPage} from './pages/admin/admin';
 import {AgmCoreModule} from 'angular2-google-maps/core';
 import {Platform} from 'ionic-angular';
 
@@ -22,6 +24,8 @@ import { IonicAudioModule, AudioProvider, audioProviderfactory } from './ionic-a
     LivePage,
     MusicPage,
     AudioListPage,
+    AdminPage,
+    AboutPage,
     TabsPage
   ],
   imports: [
@@ -38,6 +42,8 @@ import { IonicAudioModule, AudioProvider, audioProviderfactory } from './ionic-a
     LivePage,
     MusicPage,
     AudioListPage,
+    AdminPage,
+    AboutPage,
     TabsPage
   ],
   providers: [ { provide: AudioProvider, useFactory: audioProviderfactory, deps: [Platform] }],
