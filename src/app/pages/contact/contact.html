@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Contact
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+      <ion-item>
+      <ion-icon name="link" item-left></ion-icon>
+      <a href="http://www.ratwarasahib.in">http://www.ratwarasahib.in</a>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="call" item-left></ion-icon>
+      <a ion-button href="tel:+919814612900" >+91-9814612900</a>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="mail" item-left></ion-icon>
+       <a href="mailto:sratwarasahib.in@gmail.com">sratwarasahib.in@gmail.com</a>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="logo-facebook" item-left></ion-icon>
+       <a href="https://www.facebook.com/ratwarasahib1">Ratwara Sahib</a>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="logo-youtube" item-left></ion-icon>
+       <a href="https://www.youtube.com/user/babalakhbirsingh">https://www.youtube.com/user/babalakhbirsingh</a>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="logo-whatsapp" item-left></ion-icon>
+       <a href="sms:+919814612900" >+91-9814612900</a>
+    </ion-item>
+    <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="12">
+      <sebm-google-map-info-window [isOpen]="true"  #window>
+          <a href="#" (click)="loadMap()"> Get Directions s</a>
+      </sebm-google-map-info-window>
+      <sebm-google-map-marker [latitude]="lat" [longitude]="lng"  [title]="Gurudwara" [label]="'R'">
+         <sebm-google-map-info-window  [disableAutoPan]="false">Gurudwara Ratwara Sahib,Mullanpur Garibdas </sebm-google-map-info-window>
+      </sebm-google-map-marker>
+    </sebm-google-map>
+  </ion-list>
+</ion-content>

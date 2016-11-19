@@ -7,6 +7,9 @@ platforms/
 plugins/
 *.swp
 .DS_Store
+.tmp
 Thumbs.db
-
 *.keystore
+*.log
+www/*
+

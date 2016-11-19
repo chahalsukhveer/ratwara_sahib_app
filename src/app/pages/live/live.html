@@ -1,0 +1,34 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Live <div>{{title}}</div>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content >
+   <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+      <div>Pull down Refresh</div>
+
+    <div id="playerlive" class="embed-responsive embed-responsive-16by9">
+      <div id="placeholderlive" style="width: 100%" class="embed-responsive-item"></div>
+      <div *ngIf = "!onPlayingLive" class="embed-responsive-item" style="width: 100%; z-index: 90; background-color: black; background-image: url(assets/images/liveRS.png); " ></div>
+    </div>
+    <div *ngIf = "!onPlayingLive">
+      <h3>Live Diwan is not available</h3>
+    </div>
+    <div>
+      <h2>Read Atammarg</h2>
+       <p><a href="http://www.ratwarasahib.com/Atammargmagazine/2016/09%20September%202016.pdf">Atammarg September 2016</a></p>
+       <p><a href="http://www.ratwarasahib.com/Atammargmagazine/2016/08%20August%202016.pdf">Atammarg August 2016</a></p>
+    </div>
+</ion-content>
