@@ -9,7 +9,7 @@ import { AudioProvider } from '../../ionic-audio/ionic-audio.module';
   Ionic pages and navigation.
 */
 @Component({
-    selector: 'page-audio-list',
+  selector: 'page-audio-list',
   templateUrl: 'audio-list.html'
 
 })

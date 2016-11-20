@@ -6,6 +6,7 @@ import {ContactPage} from '../contact/contact';
 import {MusicPage} from '../music/music';
 
 @Component({
+  selector: 'page-tabs',
   templateUrl: 'tabs.html',
 })
 export class TabsPage {

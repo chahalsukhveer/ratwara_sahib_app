@@ -4,6 +4,7 @@ import {AudioListPage} from '../audio-list/audio-list';
 
 
 @Component({
+  selector: 'page-music',
   templateUrl: 'music.html'
 })
 export class MusicPage {

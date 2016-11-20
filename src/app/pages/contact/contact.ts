@@ -3,6 +3,7 @@ import { NavController, Platform } from 'ionic-angular';
 
 declare var google;
 @Component({
+  selector: 'page-contact',
   templateUrl: 'contact.html'
 })
 export class ContactPage {
