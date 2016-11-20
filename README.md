@@ -38,7 +38,19 @@
 ionic run ios --device
 See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-account/
 
-##Publish
+##Publish android
 - cordova build --release android
 - jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/android-release-unsigned.apk suk_keye
 - C:\Users\chaha\AppData\Local\Android\sdk\build-tools\24.0.1\zipalign -v 4 c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/android-release-unsigned.apk c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/ratwara_sahib_app-release.apk
+
+##Publish IOS
+- ionic build ios --release
+- open xcode
+- open project
+- select generic IOS device
+- deselect automatically auto signing
+- Product -> Scheme -> Edit Scheme to open the scheme editor. Next, select the Archive from the list on the left hand side. Make sure that the Build configuration is set to Release
+- Product -> Archive
+- Validate
+- Upload
+- goto https://itunesconnect.apple.com/
