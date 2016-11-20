@@ -25,6 +25,8 @@
   <allow-navigation href="http://maps.apple.com/*"/>
   <allow-navigation href="maps://maps.apple.com/*"/>
   <allow-navigation href="http://192.168.2.180:8100"/>
+  <allow-navigation href="https://*.dropbox.com/*"/>
+  <allow-navigation href="https://*.dl.dropboxusercontent.com/*"/>
   <allow-navigation href="about:blank"/>
   <platform name="android">
     <allow-intent href="market:*"/>

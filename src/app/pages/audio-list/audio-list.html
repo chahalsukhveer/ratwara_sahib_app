@@ -7,7 +7,7 @@
 <ion-header>
 
 	<ion-navbar>
-		<ion-title>Audio List</ion-title>
+		<ion-title>Audio List - {{title}}</ion-title>
 	</ion-navbar>
 
 </ion-header>
@@ -16,9 +16,9 @@
 <ion-content padding>
 	<ion-list>
 
-<div *ngFor ="let trackaudio of audios">
-      <div *ngIf ="listId == 'santWaryamSinghJi'" >
-        <audio-track #audio *ngFor="let track of trackaudio.santWaryamSinghJi" [track]="track" (onFinish)="onTrackFinished($event)">
+<!--<div *ngFor ="let trackaudio of audios">
+      <div *ngIf ="listId == 'santWaryamSinghJi'" >-->
+        <audio-track #audio *ngFor="let track of audios" [track]="track" (onFinish)="onTrackFinished($event)">
           <ion-item>
             <ion-thumbnail item-left>
               <audio-track-play dark [audioTrack]="audio">
@@ -26,14 +26,14 @@
               </audio-track-play>
             </ion-thumbnail>
             <div item-content style="width:100%">
-              <p><strong>{{audio.title}}</strong> &#x26AC; <em>{{audio.artist}}</em></p>
+              <p><strong>{{audio.title}}</strong></p>
               <audio-track-progress-bar duration progress [audioTrack]="audio"></audio-track-progress-bar>
               <em style="font-size:.5em">Track ID: {{audio.id}}</em>
             </div>
           </ion-item>
         </audio-track>
-       </div>
-       <div *ngIf ="listId == 'babaji'" >
+      <!--// </div>-->
+       <!--<div *ngIf ="listId == 'babaji'" >
         <audio-track #audio *ngFor="let track of trackaudio.babaji" [track]="track" (onFinish)="onTrackFinished($event)">
           <ion-item>
             <ion-thumbnail item-left>
@@ -49,7 +49,7 @@
           </ion-item>
         </audio-track>
        </div>
- </div>           
+ </div>           -->
 
 	</ion-list>
 </ion-content>

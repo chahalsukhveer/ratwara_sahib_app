@@ -16,14 +16,22 @@ import { AudioProvider } from '../../ionic-audio/ionic-audio.module';
 export class AudioListPage {
   santWaryamSinghJi: any[];
   babaji: any[];
-  audios: any[];
-  listId: string;
+  audios=[];
+  baseUrl: string;
   allTracks: any[];
   selectedTrack: number;
   playing: boolean = false;
+  title:string;
   constructor(private navCtrl: NavController, public params: NavParams, private _audioProvider: AudioProvider) {
-    this.audios = params.get("audioList");
-    this.listId = params.get("listId");
+    let  audioList = params.get("audioList");
+    this.baseUrl = params.get("baseUrl");
+    this.title=params.get("title");
+    audioList.forEach(element => {
+      let url =this.baseUrl+element.file;
+      this.audios.push({src:url,title:element.name})
+    });
+    console.log('we got our videos here ',this.audios)
+    
   }
 
   ionViewWillLeave() {

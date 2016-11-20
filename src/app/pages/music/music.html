@@ -4,12 +4,11 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding >
-   <ion-list>
-    <ion-item>
-        <a href="#" (click)="showSongList($event)" id="santWaryamSinghJi">Sant Waryam Singh Ji</a>
-    </ion-item>
-    <ion-item>
-        <a href="#" (click)="showSongList($event)" id="babaji">BabaJi</a>
-     </ion-item>
-  </ion-list>
+  <ion-list>
+    <div *ngFor ="let sub of folderList">
+      <ion-item>
+        <a href="#" (click)="showSongList($event)" id="{{sub.url}}">{{sub.description}}</a>
+      </ion-item>
+    </div>
+  </ion-list>   
 </ion-content>
