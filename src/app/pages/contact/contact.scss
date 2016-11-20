@@ -1,20 +1,11 @@
 page-contact {
     overflow-y: scroll;
 
-    #map {
-        height: 100%;
+    ion-app._gmaps_cdv_ .nav-decor{
+      background-color: transparent !important;
     }
 
-    .button-md {
-        background-color: orange;
+    .sebm-google-map-container {
+      height: 300px;
     }
-
-}
-
-ion-app._gmaps_cdv_ .nav-decor{
-  background-color: transparent !important;
-}
-
-.sebm-google-map-container {
-  height: 300px;
 }
