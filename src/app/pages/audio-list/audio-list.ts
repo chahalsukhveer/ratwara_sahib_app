@@ -28,7 +28,7 @@ export class AudioListPage {
     this.title=params.get("title");
     audioList.forEach(element => {
       let url =this.baseUrl+element.file;
-      this.audios.push({src:url,title:element.name})
+      this.audios.push({src:url,title:element.name,preload: 'metadata'})
     });
     console.log('we got our videos here ',this.audios)
     
