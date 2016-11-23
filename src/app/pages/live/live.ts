@@ -16,7 +16,7 @@ export class LivePage {
   channelID: string = 'UC9-Wp2ANvH0aQBSGw8Zykng';
   maxResults: string = '1';
   pageToken: string;
-  googleToken: string = GlobalVariable.API_KEY_ANDROID;
+  googleToken: string = GlobalVariable.API_KEY;
   posts: any = [];
   onPlayingLive: boolean = false;
   eventType: string ='live';
