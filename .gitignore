@@ -13,3 +13,4 @@ Thumbs.db
 *.log
 www/*
 
+src/app/globals.ts

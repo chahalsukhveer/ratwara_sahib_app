@@ -5,6 +5,8 @@ import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import {YoutubeService} from '../../providers/youtube-service/youtube-service';
+import { GlobalVariable } from '../../globals';
+
 
 @Component({
   templateUrl: 'videos.html',
@@ -14,7 +16,7 @@ export class VideosPage {
   channelID: string = 'UC9-Wp2ANvH0aQBSGw8Zykng';
   maxResults: string = '10';
   pageToken: string;
-  googleToken: string = '';//'';
+  googleToken: string = GlobalVariable.API_KEY_ANDROID;
   searchQuery: string = '';
   posts: any = [];
   onPlaying: boolean = false;

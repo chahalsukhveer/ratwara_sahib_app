@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
-// import { window } from '@angular/platform-browser/src/facade/browser';
+import { GlobalVariable } from '../../globals';
 
 import {YoutubeServiceLive} from '../../providers/youtube-service-live/youtube-service-live';
 
@@ -16,7 +16,7 @@ export class LivePage {
   channelID: string = 'UC9-Wp2ANvH0aQBSGw8Zykng';
   maxResults: string = '1';
   pageToken: string;
-  googleToken: string = '';
+  googleToken: string = GlobalVariable.API_KEY_ANDROID;
   posts: any = [];
   onPlayingLive: boolean = false;
   eventType: string ='live';

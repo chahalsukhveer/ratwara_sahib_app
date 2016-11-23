@@ -12,6 +12,8 @@ import {AboutPage} from './pages/about/about';
 import {AdminPage} from './pages/admin/admin';
 import {AgmCoreModule} from 'angular2-google-maps/core';
 import {Platform} from 'ionic-angular';
+import {Ng2PaginationModule} from 'ng2-pagination';
+
 
 import { IonicAudioModule, AudioProvider, audioProviderfactory } from './ionic-audio/ionic-audio.module';
 
@@ -31,7 +33,8 @@ import { IonicAudioModule, AudioProvider, audioProviderfactory } from './ionic-a
   imports: [
     IonicModule.forRoot(MyApp),
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBzH2CivhtNDuhHBQfQCNihnQVqlfaeW9o'}),
-    IonicAudioModule
+    IonicAudioModule,
+    Ng2PaginationModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
