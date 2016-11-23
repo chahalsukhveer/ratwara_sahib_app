@@ -16,7 +16,7 @@ export class VideosPage {
   channelID: string = 'UC9-Wp2ANvH0aQBSGw8Zykng';
   maxResults: string = '10';
   pageToken: string;
-  googleToken: string = GlobalVariable.API_KEY_ANDROID;
+  googleToken: string = GlobalVariable.API_KEY;
   searchQuery: string = '';
   posts: any = [];
   onPlaying: boolean = false;
