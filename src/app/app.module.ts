@@ -13,10 +13,20 @@ import {AdminPage} from './pages/admin/admin';
 import {AgmCoreModule} from 'angular2-google-maps/core';
 import {Platform} from 'ionic-angular';
 import {Ng2PaginationModule} from 'ng2-pagination';
+import { AuthConfig, AuthHttp } from 'angular2-jwt';
+import { AuthService } from './providers/auth/auth.service';
+import { Http } from '@angular/http';
+import { Storage } from '@ionic/storage';
 
+let storage: Storage = new Storage();
 
 import { IonicAudioModule, AudioProvider, audioProviderfactory } from './ionic-audio/ionic-audio.module';
-
+export function getAuthHttp(http) {
+  return new AuthHttp(new AuthConfig({
+    globalHeaders: [{'Accept': 'application/json'}],
+    tokenGetter: (() => storage.get('id_token'))
+  }), http);
+}
 @NgModule({
   declarations: [
     MyApp,
@@ -49,7 +59,12 @@ import { IonicAudioModule, AudioProvider, audioProviderfactory } from './ionic-a
     AboutPage,
     TabsPage
   ],
-  providers: [ { provide: AudioProvider, useFactory: audioProviderfactory, deps: [Platform] }],
+  providers: [AuthService,
+    {
+      provide: AuthHttp,
+      useFactory: getAuthHttp,
+      deps: [Http]
+    }, { provide: AudioProvider, useFactory: audioProviderfactory, deps: [Platform] }],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule {}

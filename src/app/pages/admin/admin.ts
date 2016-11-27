@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
 import { NavController,MenuController } from 'ionic-angular';
 import {TabsPage} from '../tabs/tabs';
-
+import {AuthService} from '../../providers/auth/auth.service';
 
 
 /*
@@ -16,7 +16,7 @@ import {TabsPage} from '../tabs/tabs';
 })
 export class AdminPage {
 
-  constructor(public navCtrl: NavController,public menu: MenuController) {}
+  constructor(public navCtrl: NavController,public menu: MenuController,public auth: AuthService) {}
 
   ionViewDidLoad() {
     console.log('Hello AdminPage Page');
