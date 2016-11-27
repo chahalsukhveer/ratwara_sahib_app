@@ -23,7 +23,7 @@
 
 ## Add platforms
 - ionic platform add android
-- ionic platform add ios
+- ionic platform add ios@4.3.0
 - ionic plugin add cordova-plugin-inappbrowser
 
 ### icon android bug
@@ -57,3 +57,12 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 - Validate
 - Upload
 - goto https://itunesconnect.apple.com/
+
+
+## Push
+- npm install @ionic/cloud-angular --save
+- ionic io init
+- gem install cocoapods
+- pod setup
+- npm install -g cocoapods-cli
+- cordova plugin add phonegap-plugin-push --variable SENDER_ID=12341234 --save

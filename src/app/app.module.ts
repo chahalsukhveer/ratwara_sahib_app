@@ -17,6 +17,26 @@ import { AuthConfig, AuthHttp } from 'angular2-jwt';
 import { AuthService } from './providers/auth/auth.service';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': 'ad8d2b4e',
+  },
+  'push': {
+    'sender_id': '169616509593',
+    'pluginConfig': {
+      'ios': {
+        'badge': true,
+        'sound': true
+      },
+      'android': {
+        'iconColor': '#343434'
+      }
+    }
+  }
+};
+
 
 let storage: Storage = new Storage();
 
