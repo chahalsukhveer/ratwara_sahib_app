@@ -62,6 +62,7 @@ export function getAuthHttp(http) {
   ],
   imports: [
     IonicModule.forRoot(MyApp),
+    CloudModule.forRoot(cloudSettings),
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBzH2CivhtNDuhHBQfQCNihnQVqlfaeW9o'}),
     IonicAudioModule,
     Ng2PaginationModule
