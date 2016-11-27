@@ -23,7 +23,7 @@
 
 ## Add platforms
 - ionic platform add android
-- ionic platform add ios@4.3.0
+- ionic platform add ios@4.2.1
 - ionic plugin add cordova-plugin-inappbrowser
 
 ### icon android bug
