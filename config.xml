@@ -5,20 +5,11 @@
   <author email="chahal.sukhveer@gmail" href="http://ratwarasahib.in/">Sukhveer</author>
   <content src="index.html"/>
   <access origin="*"/>
-
-  <allow-navigation href="*"/>
-  <allow-navigation href="data:*"/>
-  <allow-intent href="*"/>
-
   <access launch-external="yes" origin="tel:*"/>
   <access launch-external="yes" origin="mailto:*"/>
   <access launch-external="yes" origin="sms:*"/>
-  <allow-intent href="http://*/*"/>
-  <allow-intent href="https://*/*"/>
-  <allow-intent href="tel:*"/>
-  <allow-intent href="sms:*"/>
-  <allow-intent href="mailto:*"/>
-  <allow-intent href="geo:*"/>
+  <allow-navigation href="*"/>
+  <allow-navigation href="data:*"/>
   <allow-navigation href="https://*.youtube.com/*"/>
   <allow-navigation href="http://ratwarasahib.in/*"/>
   <allow-navigation href="http://maps.google.com/*"/>
@@ -28,6 +19,14 @@
   <allow-navigation href="https://*.dropbox.com/*"/>
   <allow-navigation href="https://*.dl.dropboxusercontent.com/*"/>
   <allow-navigation href="about:blank"/>
+  <allow-navigation href="http://192.168.2.133:8100"/>
+  <allow-intent href="*"/>
+  <allow-intent href="http://*/*"/>
+  <allow-intent href="https://*/*"/>
+  <allow-intent href="tel:*"/>
+  <allow-intent href="sms:*"/>
+  <allow-intent href="mailto:*"/>
+  <allow-intent href="geo:*"/>
   <platform name="android">
     <allow-intent href="market:*"/>
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
@@ -92,14 +91,14 @@
   <preference name="FadeSplashScreenDuration" value="0"/>
   <preference name="SplashScreenBackgroundColor" value="0xFFFFFFFF"/>
   <preference name="SplashScreen" value="screen"/>
-  <preference name="StatusBarBackgroundColor" value="orange" />
+  <preference name="StatusBarBackgroundColor" value="orange"/>
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>
   <feature name="InAppBrowser">
-    <param name="ios-package" value="CDVInAppBrowser" />
-    <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
-</feature>
+    <param name="ios-package" value="CDVInAppBrowser"/>
+    <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser"/>
+  </feature>
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
   <engine name="ios" spec="~4.2.1"/>
   <plugin name="cordova-plugin-compat" spec="~1.1.0"/>

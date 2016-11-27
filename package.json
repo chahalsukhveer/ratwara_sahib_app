@@ -25,6 +25,8 @@
     "@ionic/storage": "1.1.6",
     "angular2-google-maps": "^0.15.0",
     "angular2-jwt": "^0.1.23",
+    "auth0-js": "^7.5.0",
+    "auth0-lock": "^10.7.1",
     "es6-shim": "0.35.1",
     "ionic": "^2.1.4",
     "ionic-angular": "2.0.0-rc.3",
@@ -33,9 +35,7 @@
     "ionicons": "3.0.0",
     "ng2-pagination": "^1.0.1",
     "rxjs": "5.0.0-beta.12",
-    "zone.js": "0.6.26",
-    "auth0-js": "7.4.0",
-    "auth0-lock": "10.5.1"
+    "zone.js": "0.6.26"
   },
   "devDependencies": {
     "@ionic/app-scripts": "0.0.43",

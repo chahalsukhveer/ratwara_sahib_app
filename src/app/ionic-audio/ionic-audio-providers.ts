@@ -15,12 +15,7 @@ import {Platform} from 'ionic-angular';
  */
 
 export function audioProviderfactory(platform:Platform) {
-  if(platform.is("ios")){
-    return new WebAudioProvider();
-  }
-  else{
-    return window.hasOwnProperty('cordova') && window.hasOwnProperty('Media') ? new CordovaMediaProvider() : new WebAudioProvider();
-  }
+  return window.hasOwnProperty('cordova') && window.hasOwnProperty('Media') ? new CordovaMediaProvider() : new WebAudioProvider();
 }
 
 /**

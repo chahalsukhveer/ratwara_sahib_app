@@ -13,7 +13,8 @@ import {AboutPage} from './pages/about/about';
 export class MyApp {
    @ViewChild(Nav) nav: Nav;
   rootPage: any = HomePage;
-pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any}>;
+
   constructor(platform: Platform,public menu: MenuController) {
     this.rootPage = TabsPage;
     platform.ready().then(() => {
@@ -34,7 +35,7 @@ pages: Array<{title: string, component: any}>;
     this.nav.setRoot(page.component);
   }
   closeMenu(){
-        this.menu.close();
+    this.menu.close();
     console.log("Close page event")
     this.nav.setRoot(TabsPage);
   }

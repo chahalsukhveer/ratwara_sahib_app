@@ -23,7 +23,7 @@
 
 ## Add platforms
 - ionic platform add android
-- ionic platform add ios@4.2.1
+- ionic platform add ios
 
 ### icon android bug
 - cordova platform update android@https://github.com/apache/cordova-android
@@ -33,7 +33,9 @@
 
 ## particular IOS device
 - ios-sim showdevicetypes
+- ionic emulate ios -l -c -s
 - cordova emulate ios --target="iPad-Air"
+- cordova emulate ios --target="iPhone-7"
 
 ionic run ios --device
 See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-account/
