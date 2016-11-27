@@ -36,7 +36,10 @@
 - ios-sim showdevicetypes
 - ionic emulate ios -l -c -s
 - cordova emulate ios --target="iPad-Air"
-- cordova emulate ios --target="iPhone-7"
+- cordova emulate ios --target="iPhone-7" --provisioningProfile="AppStore.Ratwara" --codeSignIdentity="iPhone Distribution: Edwin Biemond (4VKB92ESAR)"
+- ionic run ios
+- rvm use system
+- cordova run ios --provisioningProfile="AppStore.Ratwara" --codeSignIdentity="iPhone Distribution: Edwin Biemond (4VKB92ESAR)" --device
 
 ionic run ios --device
 See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-account/
