@@ -16,9 +16,8 @@
 
   <button *ngIf="!auth.authenticated()" ion-button block (click)="auth.login()">Login</button>
 
-<div *ngIf="auth.authenticated()">
-  <div *ngIf="auth.user.app_metadata.roles.indexOf('admin') > -1">
-  <ion-card>
+<div *ngIf="auth.authenticated() ">
+  <ion-card >
 
     <ion-item *ngIf="auth.user">
       <ion-avatar item-left>
@@ -53,10 +52,7 @@
         <ion-col>{{noti.config.notification.title}}</ion-col>
         <ion-col width-60> {{noti.config.notification.message}}</ion-col>
       </ion-row>
-    </div>  
-    </div>
-     <div *ngIf="auth.user.app_metadata.roles.indexOf('admin') === -1">
-        <p>You don't have Admin permission</p>
+
     </div>
 </div>
   <button ion-button block (click)="auth.logout()" *ngIf="auth.authenticated()">Logout</button>
