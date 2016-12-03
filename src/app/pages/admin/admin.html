@@ -13,11 +13,11 @@
 </ion-header>
 
 <ion-content padding>
-  
+
   <button *ngIf="!auth.authenticated()" ion-button block (click)="auth.login()">Login</button>
 
-  
-  <ion-card *ngIf="auth.authenticated()">
+<div *ngIf="auth.authenticated()">
+  <ion-card >
 
     <ion-item *ngIf="auth.user">
       <ion-avatar item-left>
@@ -26,9 +26,35 @@
       <h2>{{ auth.user.nickname }}</h2>
       <p>{{ auth.user.email }}</p>
     </ion-item>
-  
-  </ion-card>
-  
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Title</ion-label>
+        <ion-input type="text" placeholder="title here" [(ngModel)]="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Message</ion-label>
+        <ion-textarea rows="3" placeholder="Enter message here..." [(ngModel)]="message"></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <button ion-button (click)="sendNotifications()">Send</button>
+      </ion-card>
+
+    <h1>Last 5 notifications</h1>
+    <ion-row class="header">
+      <ion-col><b>Time</b></ion-col>
+      <ion-col><b>Tile</b></ion-col>
+      <ion-col width-60><b>Message</b></ion-col>
+    </ion-row>
+    <div *ngFor="let noti of notifications">
+
+      <ion-row class="header">
+        <ion-col>{{noti.created | date:'medium'}}</ion-col>
+        <ion-col>{{noti.config.notification.title}}</ion-col>
+        <ion-col width-60> {{noti.config.notification.message}}</ion-col>
+      </ion-row>
+
+    </div>
+</div>
   <button ion-button block (click)="auth.logout()" *ngIf="auth.authenticated()">Logout</button>
-  
+
 </ion-content>
