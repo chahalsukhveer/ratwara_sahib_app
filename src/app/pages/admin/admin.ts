@@ -1,4 +1,4 @@
-import { Component, PipeTransform, Pipe } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, MenuController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { AuthService } from '../../providers/auth/auth.service';
