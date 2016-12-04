@@ -61,10 +61,21 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 - Upload
 - goto https://itunesconnect.apple.com/
 
+##Ionic.io
+- ionic package build ios/android --profile dev
+- ionic package build ios/android --profile prod --release
+- ionic package list
+- ionic package info x
 
 ## Push
 - npm install @ionic/cloud-angular --save
 - ionic io init
+
+###IOS phonegap-plugin-push
+- ionic platform add ios@4.2.1
+- cordova plugin add phonegap-plugin-push --variable SENDER_ID=12341234 --save
+
+###IOS phonegap-plugin-push latest
 - gem install cocoapods
 - pod setup
 - npm install -g cocoapods-cli
