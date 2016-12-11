@@ -31,20 +31,19 @@
     </ion-item>
   </ion-list>
 
-  <ion-list *ngFor="let mag of issues">
+  <ion-list *ngFor="let mag of issuesCloud">
     <ion-list-header>
       Atammarg magazine year {{mag.label}}
     </ion-list-header>
-
     <ion-item *ngFor="let issue of mag.editions">
       <ion-label>
-        <a href="{{issue.link}}">  <p>{{issue.description}}</p></a>
+         <button ion-button large (click)="openPDF(issue.link)">
+            {{issue.description}}
+          </button>
       </ion-label>
       <div item-content>
-        <img src="{{issue.img}}">
+        <img src="{{issue.img}}" style="width: 50%; height: 50%"/>​
       </div>
     </ion-item>
-
   </ion-list>
-
 </ion-content>

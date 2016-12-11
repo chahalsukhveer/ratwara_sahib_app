@@ -1,15 +1,14 @@
-import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
-import {Http} from '@angular/http';
+import { Component } from '@angular/core';
+import { NavController, Platform } from 'ionic-angular';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { GlobalVariable } from '../../globals';
-
-import {YoutubeServiceLive} from '../../providers/youtube-service-live/youtube-service-live';
-
+import { YoutubeServiceLive } from '../../providers/youtube-service-live/youtube-service-live';
+import { InAppBrowser } from 'ionic-native';
 
 @Component({
   templateUrl: 'live.html',
-  providers:[YoutubeServiceLive]
+  providers: [YoutubeServiceLive]
 })
 export class LivePage {
 
@@ -19,73 +18,57 @@ export class LivePage {
   googleToken: string = GlobalVariable.API_KEY;
   posts: any = [];
   onPlayingLive: boolean = false;
-  eventType: string ='live';
-  title:string
+  eventType: string = 'live';
+  title: string
 
-  issues =  
-    [ 
-      {  label:  "2016",
-         editions: [
-                  { link: "http://www.ratwarasahib.com/Atammargmagazine/2016/09%20September%202016.pdf", 
-                    description: "September",
-                    img: "http://www.ratwarasahib.com/AtamMargMagazine/2016/Image/09%20September%202016.jpg" 
-                  },
-                  { link: "http://www.ratwarasahib.com/Atammargmagazine/2016/08%20August%202016.pdf", 
-                    description: "August",
-                    img: "http://www.ratwarasahib.com/AtamMargMagazine/2016/Image/08%20August%202016.jpg" 
-                  },
-                  { link: "http://www.ratwarasahib.com/Atammargmagazine/2016/07%20July%202016.pdf", 
-                    description: "July",
-                    img: "http://www.ratwarasahib.com/AtamMargMagazine/2016/Image/07%20July%202016.jpg" 
-                  },
-                  { link: "http://www.ratwarasahib.com/Atammargmagazine/2016/06%20June%202016.pdf", 
-                    description: "June",
-                    img: "http://www.ratwarasahib.com/AtamMargMagazine/2016/Image/06%20June%202016.jpg" 
-                  }
-                ]
-      }
-   ];
+  issuesCloud: any;
 
-  constructor(public http: Http, public nav:NavController,public ytPlayer:YoutubeServiceLive) {
-    console.log("constructor for youtube videos.ts")  ;
-    //ytPlayer.setupPlayer('placeholderlive');
-
+  constructor(public http: Http, public nav: NavController, public ytPlayer: YoutubeServiceLive, public platform: Platform) {
+    console.log("constructor for youtube videos.ts");
+    this.http.get('https://dl.dropboxusercontent.com/sh/ras4s06ypc920ac/AAA5qkoHv6RFpBQ58NsHr7iRa/magazines.json').map(res => res.json()).subscribe(data => {
+      this.issuesCloud = data.magazines;
+      console.log("my list ", this.issuesCloud);
+    });
+    this.platform = platform;
     this.loadSettings();
-
   }
 
+  openPDF(url): void {
+    console.log(url);
+    this.platform.ready().then(() => {
+      let browser = new InAppBrowser(url, "_system", "location=true");
+      browser.show();
+    });
+  }
 
   launchYTPlayer(id, title): void {
     this.ytPlayer.launchPlayer(id, title);
   }
   fetchData(): void {
+    let url = 'https://www.googleapis.com/youtube/v3/search?part=id,snippet&channelId=' + this.channelID + '&type=video&order=viewCount&maxResults=' + this.maxResults + '&key=' + this.googleToken + '&eventType=' + this.eventType;
 
-    let url = 'https://www.googleapis.com/youtube/v3/search?part=id,snippet&channelId=' + this.channelID + '&type=video&order=viewCount&maxResults=' + this.maxResults + '&key=' + this.googleToken+'&eventType='+this.eventType;
-
-    if(this.pageToken) {
+    if (this.pageToken) {
       url += '&pageToken=' + this.pageToken;
     }
-
     this.http.get(url).map(res => res.json()).subscribe(data => {
-
-      console.log (data.items);
+      console.log(data.items);
       this.posts = this.posts.concat(data.items);
-      if(data.items.length>0){
-          this.playVideo(null,this.posts[0]);
+      if (data.items.length > 0) {
+        this.playVideo(null, this.posts[0]);
       }
     });
   }
   loadSettings(): void {
-      this.fetchData();
+    this.fetchData();
   }
   openSettings(): void {
-      console.log("TODO: Implement openSettings()");
+    console.log("TODO: Implement openSettings()");
   }
   playVideo(e, post): void {
-      console.log(post);
-      this.onPlayingLive = true;
-      this.title=post.snippet.title;
-      this.ytPlayer.postValue(post.id, post.snippet.title);
+    console.log(post);
+    this.onPlayingLive = true;
+    this.title = post.snippet.title;
+    this.ytPlayer.postValue(post.id, post.snippet.title);
   }
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
@@ -95,5 +78,4 @@ export class LivePage {
       refresher.complete();
     }, 2000);
   }
-
 }

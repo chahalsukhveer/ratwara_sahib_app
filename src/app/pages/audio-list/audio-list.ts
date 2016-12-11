@@ -16,43 +16,42 @@ import { AudioProvider } from '../../ionic-audio/ionic-audio.module';
 export class AudioListPage {
   santWaryamSinghJi: any[];
   babaji: any[];
-  audios=[];
+  audios = [];
   baseUrl: string;
   allTracks: any[];
   selectedTrack: number;
   playing: boolean = false;
-  title:string;
+  title: string;
   constructor(private navCtrl: NavController, public params: NavParams, private _audioProvider: AudioProvider) {
-    let  audioList = params.get("audioList");
+    let audioList = params.get("audioList");
     this.baseUrl = params.get("baseUrl");
-    this.title=params.get("title");
+    this.title = params.get("title");
     audioList.forEach(element => {
-      let url =this.baseUrl+element.file;
-      this.audios.push({src:url,title:element.name,preload: 'metadata'})
+      let url = this.baseUrl + element.file;
+      this.audios.push({ src: url, title: element.name, preload: 'metadata' })
     });
-    console.log('we got our videos here ',this.audios)
-    
+    console.log('we got our videos here ', this.audios)
+
   }
 
   ionViewWillLeave() {
     console.log("leaving now");
-   this.pauseSelectedTrack();
+    this.pauseSelectedTrack();
   }
 
+  ngAfterContentInit() {
+    // get all tracks managed by AudioProvider so we can control playback via the API
+    this.allTracks = this._audioProvider.tracks;
+  }
 
-    ngAfterContentInit() {
-      // get all tracks managed by AudioProvider so we can control playback via the API
-      this.allTracks = this._audioProvider.tracks;
-    }
+  playSelectedTrack() {
+    this._audioProvider.play(this.selectedTrack);
+  }
 
-    playSelectedTrack() {
-      this._audioProvider.play(this.selectedTrack);
-    }
-
-   pauseSelectedTrack():void {
-       // use AudioProvider to control selected track
-       this._audioProvider.pause(this.selectedTrack);
-    }
+  pauseSelectedTrack(): void {
+    // use AudioProvider to control selected track
+    this._audioProvider.pause(this.selectedTrack);
+  }
 
   onTrackFinished(track: any) {
     console.log('Track finished', track)
