@@ -22,6 +22,29 @@ export class LivePage {
   eventType: string ='live';
   title:string
 
+  issues =  
+    [ 
+      {  label:  "2016",
+         editions: [
+                  { link: "http://www.ratwarasahib.com/Atammargmagazine/2016/09%20September%202016.pdf", 
+                    description: "September",
+                    img: "http://www.ratwarasahib.com/AtamMargMagazine/2016/Image/09%20September%202016.jpg" 
+                  },
+                  { link: "http://www.ratwarasahib.com/Atammargmagazine/2016/08%20August%202016.pdf", 
+                    description: "August",
+                    img: "http://www.ratwarasahib.com/AtamMargMagazine/2016/Image/08%20August%202016.jpg" 
+                  },
+                  { link: "http://www.ratwarasahib.com/Atammargmagazine/2016/07%20July%202016.pdf", 
+                    description: "July",
+                    img: "http://www.ratwarasahib.com/AtamMargMagazine/2016/Image/07%20July%202016.jpg" 
+                  },
+                  { link: "http://www.ratwarasahib.com/Atammargmagazine/2016/06%20June%202016.pdf", 
+                    description: "June",
+                    img: "http://www.ratwarasahib.com/AtamMargMagazine/2016/Image/06%20June%202016.jpg" 
+                  }
+                ]
+      }
+   ];
 
   constructor(public http: Http, public nav:NavController,public ytPlayer:YoutubeServiceLive) {
     console.log("constructor for youtube videos.ts")  ;
