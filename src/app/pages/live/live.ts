@@ -20,7 +20,6 @@ export class LivePage {
   onPlayingLive: boolean = false;
   eventType: string = 'live';
   title: string
-
   issuesCloud: any;
 
   constructor(public http: Http, public nav: NavController, public ytPlayer: YoutubeServiceLive, public platform: Platform) {
