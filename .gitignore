@@ -14,3 +14,5 @@ Thumbs.db
 www/*
 
 src/app/globals.ts
+
+.io-config.json
