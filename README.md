@@ -35,8 +35,9 @@
 ## particular IOS device
 - ios-sim showdevicetypes
 - ionic emulate ios -l -c -s
-- ionic emulate ios --target="iPad-Air"
-- ionic emulate ios --target="iPhone-7" --provisioningProfile="AppStore.Ratwara" --codeSignIdentity="iPhone Distribution: Edwin Biemond (4VKB92ESAR)"
+- ionic build ios
+- cordova emulate ios --target="iPad-Air"
+- cordova emulate ios --target="iPhone-7" --provisioningProfile="AppStore.Ratwara" --codeSignIdentity="iPhone Distribution: Edwin Biemond (4VKB92ESAR)"
 - ionic run ios
 - rvm use system
 - cordova run ios --provisioningProfile="AppStore.Ratwara" --codeSignIdentity="iPhone Distribution: Edwin Biemond (4VKB92ESAR)" --device
