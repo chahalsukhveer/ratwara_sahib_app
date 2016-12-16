@@ -45,12 +45,12 @@ ionic run ios --device
 See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-account/
 
 ##Publish android
-- cordova build --release android
+- ionic build android --prod
 - jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/android-release-unsigned.apk suk_keye
 - C:\Users\chaha\AppData\Local\Android\sdk\build-tools\24.0.1\zipalign -v 4 c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/android-release-unsigned.apk c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/ratwara_sahib_app-release.apk
 
 ##Publish IOS
-- ionic build ios --release
+- ionic build ios --prod
 - open xcode
 - open project
 - select generic IOS device
