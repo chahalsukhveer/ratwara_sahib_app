@@ -30,7 +30,7 @@
       </div>
     </ion-item>
   </ion-list>
-
+<div *ngIf="!platform.is('android')">
   <ion-list *ngFor="let mag of issuesCloud">
     <ion-list-header>
       Atammarg magazine year {{mag.label}}
@@ -43,4 +43,6 @@
       <button ion-button large clear item-right (click)="openPDF(issue.link)">View</button>
     </ion-item>
   </ion-list>
+</div>
+
 </ion-content>
