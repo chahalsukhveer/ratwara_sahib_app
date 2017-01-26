@@ -5,6 +5,7 @@
 - https://itunes.apple.com/us/app/ratwara-sahib-ji/id1176144539?ls=1&mt=8
 
 ## npm
+- npm uninstall -g ionic
 - npm install -g cordova
 - npm install -g ionic
 - npm install @ionic/app-scripts@latest --save-dev
@@ -34,6 +35,7 @@
 
 ## particular IOS device
 - ios-sim showdevicetypes
+- xcrun simctl list devicetypes
 - ionic emulate ios -l -c -s
 - ionic build ios
 - cordova emulate ios --target="iPad-Air"
