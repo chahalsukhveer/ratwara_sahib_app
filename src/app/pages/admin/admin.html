@@ -16,28 +16,28 @@
 
   <button *ngIf="!auth.authenticated()" ion-button block (click)="auth.login()">Login</button>
 
-<div *ngIf="auth.authenticated() ">
-  <ion-card >
+  <div *ngIf="auth.authenticated() ">
+    <ion-card>
 
-    <ion-item *ngIf="auth.user">
-      <ion-avatar item-left>
-        <img src="{{ auth.user.picture }}">
-      </ion-avatar>
-      <h2>{{ auth.user.nickname }}</h2>
-      <p>{{ auth.user.email }}</p>
-    </ion-item>
-    <ion-list>
-      <ion-item>
-        <ion-label fixed>Title</ion-label>
-        <ion-input type="text" placeholder="title here" [(ngModel)]="title"></ion-input>
+      <ion-item *ngIf="auth.user">
+        <ion-avatar item-left>
+          <img src="{{ auth.user.picture }}">
+        </ion-avatar>
+        <h2>{{ auth.user.nickname }}</h2>
+        <p>{{ auth.user.email }}</p>
       </ion-item>
-      <ion-item>
-        <ion-label>Message</ion-label>
-        <ion-textarea rows="3" placeholder="Enter message here..." [(ngModel)]="message"></ion-textarea>
-      </ion-item>
-    </ion-list>
-    <button ion-button (click)="sendNotifications()">Send</button>
-      </ion-card>
+      <ion-list>
+        <ion-item>
+          <ion-label fixed>Title</ion-label>
+          <ion-input type="text" placeholder="title here" [(ngModel)]="title"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Message</ion-label>
+          <ion-textarea rows="3" placeholder="Enter message here..." [(ngModel)]="message"></ion-textarea>
+        </ion-item>
+      </ion-list>
+      <button ion-button (click)="sendNotifications()">Send</button>
+    </ion-card>
 
     <h1>Last 5 notifications</h1>
     <ion-row class="header">
@@ -54,7 +54,7 @@
       </ion-row>
 
     </div>
-</div>
+  </div>
   <button ion-button block (click)="auth.logout()" *ngIf="auth.authenticated()">Logout</button>
 
 </ion-content>
