@@ -21,11 +21,4 @@ export class HomePage {
     { img: "assets/images/samagam01.jpg", 
       text: "published books and brought out audio-videos" }
   ];
-
-  mySlideOptions = {
-    pagination: true,
-    pager: true,
-    autoplay: 5000,
-    loop: true
-  };
 }
