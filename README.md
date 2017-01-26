@@ -54,8 +54,8 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 
 ##Publish IOS
 - ionic build ios --prod --release
-- open xcode
-- open project
+- open xcode 
+- open workspace , not project
 - select generic IOS device
 - deselect automatically auto signing
 - Product -> Scheme -> Edit Scheme to open the scheme editor. Next, select the Archive from the list on the left hand side. Make sure that the Build configuration is set to Release
@@ -76,10 +76,12 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 
 ###IOS phonegap-plugin-push
 - ionic platform add ios@4.2.1
-- cordova plugin add phonegap-plugin-push --variable SENDER_ID=12341234 --save
+- cordova plugin add phonegap-plugin-push --variable SENDER_ID=xxx --save
 
 ###IOS phonegap-plugin-push latest
 - gem install cocoapods
 - pod setup
+- cd platforms/ios
+- pod install
 - npm install -g cocoapods-cli
-- cordova plugin add phonegap-plugin-push --variable SENDER_ID=12341234 --save
+- cordova plugin add phonegap-plugin-push --variable SENDER_ID=xxx --save
