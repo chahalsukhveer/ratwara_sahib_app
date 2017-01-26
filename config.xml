@@ -105,7 +105,6 @@
     <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser"/>
   </feature>
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
-  <engine name="ios" spec="~4.2.1"/>
   <plugin name="cordova-plugin-compat" spec="~1.1.0"/>
   <plugin name="cordova-plugin-file" spec="~4.3.0"/>
   <plugin name="cordova-plugin-media" spec="~2.4.0"/>
