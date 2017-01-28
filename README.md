@@ -53,6 +53,8 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 - C:\Users\chaha\AppData\Local\Android\sdk\build-tools\24.0.1\zipalign -v 4 c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/android-release-unsigned.apk c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/ratwara_sahib_app-release.apk
 
 ##Publish IOS
+- open terminal, not vs
+- rvm use systen
 - ionic build ios --prod --release
 - open xcode 
 - open workspace , not project
