@@ -24,7 +24,7 @@
 
 ## Add platforms
 - ionic platform add android
-- ionic platform add ios@4.2.1
+- ionic platform add ios
 - ionic plugin add cordova-plugin-inappbrowser
 
 ### icon android bug
@@ -54,7 +54,7 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 
 ##Publish IOS
 - open terminal, not vs
-- rvm use systen
+- rvm use system
 - ionic build ios --prod --release
 - open xcode 
 - open workspace , not project

@@ -1,22 +1,20 @@
 
-import {Component,ViewChild } from '@angular/core';
-import {Platform,Nav,MenuController} from 'ionic-angular';
-import {StatusBar} from 'ionic-native';
-import {TabsPage} from './pages/tabs/tabs';
-import {HomePage} from './pages/home/home';
-import {AdminPage} from './pages/admin/admin';
-import {AboutPage} from './pages/about/about';
-import { Push, PushToken} from '@ionic/cloud-angular';
-
-
+import { Component, ViewChild } from '@angular/core';
+import { Platform, Nav, MenuController } from 'ionic-angular';
+import { StatusBar } from 'ionic-native';
+import { TabsPage } from './pages/tabs/tabs';
+import { HomePage } from './pages/home/home';
+import { AdminPage } from './pages/admin/admin';
+import { AboutPage } from './pages/about/about';
+import { Push, PushToken } from '@ionic/cloud-angular';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-   @ViewChild(Nav) nav: Nav;
+  @ViewChild(Nav) nav: Nav;
   rootPage: any = HomePage;
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
   constructor(platform: Platform, public menu: MenuController, public push: Push) {
     this.rootPage = TabsPage;
@@ -36,7 +34,7 @@ export class MyApp {
     this.push.rx.notification()
       .subscribe((msg) => {
         alert(msg.title + ': ' + msg.text);
-    });
+      });
 
     this.pages = [
       { title: 'Admin Page', component: AdminPage },
@@ -49,7 +47,7 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-  closeMenu(){
+  closeMenu() {
     this.menu.close();
     console.log("Close page event")
     this.nav.setRoot(TabsPage);

@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      News
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <ion-avatar item-left>
+        <img src="{{item.post_thumbnail.URL}}">
+      </ion-avatar>
+       <ion-label>{{item.title}}</ion-label> 
+    </button>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,15 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{selectedItem.title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+  <ion-row responsive-sm *ngIf="selectedItem" class="selection">
+    <div [innerHTML]="selectedItem.content"></div>
+  </ion-row>
+  </ion-grid>
+</ion-content>

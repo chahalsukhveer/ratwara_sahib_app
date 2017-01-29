@@ -1,18 +1,20 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
-import {TabsPage} from './pages/tabs/tabs';
-import {HomePage} from './pages/home/home';
-import {VideosPage} from './pages/videos/videos';
-import {LivePage} from './pages/live/live';
-import {ContactPage} from './pages/contact/contact';
-import {MusicPage} from './pages/music/music';
-import {AudioListPage} from './pages/audio-list/audio-list';
-import {AboutPage} from './pages/about/about';
-import {AdminPage} from './pages/admin/admin';
-import {AgmCoreModule} from 'angular2-google-maps/core';
-import {Platform} from 'ionic-angular';
-import {Ng2PaginationModule} from 'ng2-pagination';
+import { TabsPage } from './pages/tabs/tabs';
+import { HomePage } from './pages/home/home';
+import { VideosPage } from './pages/videos/videos';
+import { LivePage } from './pages/live/live';
+import { ContactPage } from './pages/contact/contact';
+import { MusicPage } from './pages/music/music';
+import { AudioListPage } from './pages/audio-list/audio-list';
+import { AboutPage } from './pages/about/about';
+import { AdminPage } from './pages/admin/admin';
+import { NewsPage } from './pages/news/news';
+import { NewsItemPage } from './pages/news-item/news-item';
+import { AgmCoreModule } from 'angular2-google-maps/core';
+import { Platform } from 'ionic-angular';
+import { Ng2PaginationModule } from 'ng2-pagination';
 import { AuthConfig, AuthHttp } from 'angular2-jwt';
 import { AuthService } from './providers/auth/auth.service';
 import { Http } from '@angular/http';
@@ -43,7 +45,7 @@ let storage: Storage = new Storage();
 import { IonicAudioModule, AudioProvider, audioProviderfactory } from './ionic-audio/ionic-audio.module';
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
-    globalHeaders: [{'Accept': 'application/json'}],
+    globalHeaders: [{ 'Accept': 'application/json' }],
     tokenGetter: (() => storage.get('id_token'))
   }), http);
 }
@@ -58,12 +60,14 @@ export function getAuthHttp(http) {
     AudioListPage,
     AdminPage,
     AboutPage,
+    NewsPage,
+    NewsItemPage,
     TabsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
     CloudModule.forRoot(cloudSettings),
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyBzH2CivhtNDuhHBQfQCNihnQVqlfaeW9o'}),
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyBzH2CivhtNDuhHBQfQCNihnQVqlfaeW9o' }),
     IonicAudioModule,
     Ng2PaginationModule
   ],
@@ -78,6 +82,8 @@ export function getAuthHttp(http) {
     AudioListPage,
     AdminPage,
     AboutPage,
+    NewsPage,
+    NewsItemPage,
     TabsPage
   ],
   providers: [AuthService,
@@ -86,7 +92,6 @@ export function getAuthHttp(http) {
       useFactory: getAuthHttp,
       deps: [Http]
     }, { provide: AudioProvider, useFactory: audioProviderfactory, deps: [Platform] }],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule {}
-
+export class AppModule { }

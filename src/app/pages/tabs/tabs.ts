@@ -1,9 +1,10 @@
-import {Component} from '@angular/core';
-import {HomePage} from '../home/home';
-import {VideosPage} from '../videos/videos';
-import {LivePage} from '../live/live';
-import {ContactPage} from '../contact/contact';
-import {MusicPage} from '../music/music';
+import { Component } from '@angular/core';
+import { HomePage } from '../home/home';
+import { NewsPage } from '../news/news';
+import { VideosPage } from '../videos/videos';
+import { LivePage } from '../live/live';
+import { ContactPage } from '../contact/contact';
+import { MusicPage } from '../music/music';
 
 @Component({
   selector: 'page-tabs',
@@ -12,10 +13,11 @@ import {MusicPage} from '../music/music';
 export class TabsPage {
 
   tab1Root: any = HomePage;
-  tab2Root: any = VideosPage;
-  tab3Root: any = LivePage;
-  tab4Root: any = ContactPage;
-  tab5Root: any = MusicPage;
+  tab2Root: any = NewsPage;
+  tab3Root: any = VideosPage;
+  tab4Root: any = LivePage;
+  tab5Root: any = ContactPage;
+  tab6Root: any = MusicPage;
 
   constructor() {
   }
