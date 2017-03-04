@@ -12,9 +12,15 @@ export class MusicPage {
   folderList: any;
   url: string = 'https://dl.dropboxusercontent.com/sh/c2t05crfvuyuevw/';
   awdioUrl: string = 'https://query.yahooapis.com/v1/public/yql?q=select%20title%2Cenclosure%2Citunes:keywords%20from%20rss%20where%20url%3D%22https%3A%2F%2Fwww.awdio.com%2Fapi%2Fservices%2Fv1%2Fchannel%2F101301%2Ffeed%2Frss_2.0%22&format=json';
+  awdioDataList: any;
 
   audioListPage = AudioListPage;
   constructor(private navCtrl: NavController, public http: Http) {
+    this.http.get(this.awdioUrl).map(res => res.json()).subscribe(data => {
+      this.awdioDataList = data.query.results;
+      console.log("my awdio list new", this.awdioDataList);
+    });
+
     this.http.get(this.url + 'AABTp_VdE0rmee6k6pCbAEuMa/folder.json').map(res => res.json()).subscribe(data => {
       this.folderList = data.subfolders;
       console.log("my list new", this.folderList);
