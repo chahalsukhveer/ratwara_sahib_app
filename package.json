@@ -27,7 +27,7 @@
     "auth0-lock": "10.8.1",
     "es6-shim": "0.35.1",
     "ionic": "2.2.1",
-    "ionic-angular": "2.0.1",
+    "ionic-angular": "2.1.0",
     "ionic-audio": "2.1.4",
     "ionic-native": "2.4.1",
     "ionicons": "3.0.0",
@@ -37,7 +37,7 @@
     "zone.js": "0.6.26"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "^1.0.1",
+    "@ionic/app-scripts": "^1.1.4",
     "typescript": "2.0.9"
   },
   "cordovaPlugins": [
