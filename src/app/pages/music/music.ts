@@ -19,11 +19,15 @@ export class MusicPage {
     this.http.get(this.awdioUrl).map(res => res.json()).subscribe(data => {
       this.awdioDataList = data.query.results;
       console.log("my awdio list new", this.awdioDataList);
-      debugger;
-      for (let item of this.awdioDataList) {
-        console.log(item); // 1, "string", false
+      for (let item of this.awdioDataList.item) {
+        console.log(item);
+        var title = item.title;
+        var mp3Url = item.enclosure.url;
+        // var fields = item.keywords.split(',');
+        // for (let key of fields) {
+        //    console.log(key);
+        // }
       }
-      // var fields = keywords.split(',');
     });
 
     this.http.get(this.url + 'AABTp_VdE0rmee6k6pCbAEuMa/folder.json').map(res => res.json()).subscribe(data => {
