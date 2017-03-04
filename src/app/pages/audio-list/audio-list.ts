@@ -24,18 +24,15 @@ export class AudioListPage {
   title: string;
   constructor(private navCtrl: NavController, public params: NavParams, private _audioProvider: AudioProvider) {
     let audioList = params.get("audioList");
-    this.baseUrl = params.get("baseUrl");
     this.title = params.get("title");
     audioList.forEach(element => {
-      let url = this.baseUrl + element.file;
-      this.audios.push({ src: url, title: element.name, preload: 'metadata' })
+      this.audios.push({ src: element.src, title: element.title, preload: 'metadata' })
     });
-    console.log('we got our videos here ', this.audios)
-
+    // console.log('we got our videos here ', this.audios)
   }
 
   ionViewWillLeave() {
-    console.log("leaving now");
+    // console.log("leaving now");
     this.pauseSelectedTrack();
   }
 
@@ -54,8 +51,6 @@ export class AudioListPage {
   }
 
   onTrackFinished(track: any) {
-    console.log('Track finished', track)
-
+    // console.log('Track finished', track)
   }
-
 }
