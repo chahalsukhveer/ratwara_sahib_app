@@ -1,57 +1,55 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
+import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng, GoogleMapsMarkerOptions, GoogleMapsMarker } from 'ionic-native';
 
-declare var google;
 @Component({
   selector: 'page-contact',
   templateUrl: 'contact.html'
 })
 export class ContactPage {
 
+  map: GoogleMap;
+
   lat: number = 30.79519;
   lng: number = 76.7267223;
-  private _isAndroid: boolean;
-  private _isiOS: boolean;
 
-  @ViewChild('map') mapElement: ElementRef;
-  map: any;
   constructor(public navCtrl: NavController, public platform: Platform) {
-    this._isAndroid = platform.is('android');
-    this._isiOS = platform.is('ios');
+    platform.ready().then(() => {
+      this.loadMap();
+    });
   }
 
   loadMap() {
-    console.log("I am called");
-    var coords = this.lat + "," + this.lng;
-    var place = "Gurdwara Ratwara Sahib Mullanpur"
-    if (this._isiOS) {
-      window.open("http://maps.apple.com/?q=" + coords, '_system');
-      return;
-    }
-    if (this._isAndroid) {
-      window.open("http://maps.google.com/?q=" + place, '_system')
-      return;
-    }
-    window.open("http://maps.google.com/?q=" + place, '_system');
-    return;
-  }
+    let location = new GoogleMapsLatLng(this.lat, this.lng);
 
-  addMarker() {
-    let marker = new google.maps.Marker({
-      map: this.map,
-      animation: google.maps.Animation.DROP,
-      position: this.map.getCenter()
+    this.map = new GoogleMap('map', {
+      backgroundColor: 'white',
+      fullscreenControl: true,
+      zoomControl: true,
+      controls: {
+        compass: true,
+        myLocationButton: true,
+        indoorPicker: true,
+        zoom: true
+      },
+      camera: {
+        latLng: location,
+        tilt: 30,
+        zoom: 14,
+        bearing: 50
+      }
     });
-    let content = "<h4>Gurudwara Ratwara Sahib!</h4>";
-    this.addInfoWindow(marker, content);
-  }
 
-  addInfoWindow(marker, content) {
-    let infoWindow = new google.maps.InfoWindow({
-      content: content
-    });
-    google.maps.event.addListener(marker, 'click', () => {
-      infoWindow.open(this.map, marker);
+    let markerOptions: GoogleMapsMarkerOptions = {
+      title: 'Gurdwara Ratwara Sahib Mullanpur',
+      position: location
+    };
+
+    this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
+      console.log('Map is ready!');
+      this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
+        marker.showInfoWindow();
+       });
     });
   }
 }

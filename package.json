@@ -21,7 +21,6 @@
     "@angular/platform-server": "2.2.1",
     "@ionic/cloud-angular": "^0.8.0",
     "@ionic/storage": "1.1.7",
-    "angular2-google-maps": "0.17.0",
     "angular2-jwt": "0.1.28",
     "auth0-js": "7.6.1",
     "auth0-lock": "10.8.1",

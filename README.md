@@ -10,6 +10,7 @@
 - npm install -g ionic
 - npm install @ionic/app-scripts@latest --save-dev
 - ionic info
+- npm info cordova
 
 ## Make it work
 - git clone https://github.com/chahalsukhveer/ratwara_sahib_app
@@ -38,6 +39,7 @@
 - xcrun simctl list devicetypes
 - ionic emulate ios -l -c -s
 - ionic build ios
+- ionic emulate ios --target="iPhone-7-Plus"
 - cordova emulate ios --target="iPad-Air"
 - cordova emulate ios --target="iPhone-7" --provisioningProfile="AppStore.Ratwara" --codeSignIdentity="iPhone Distribution: Edwin Biemond (4VKB92ESAR)"
 - ionic run ios
