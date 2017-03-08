@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AudioListPage } from '../audio-list/audio-list';
 import { Http } from '@angular/http';
-import { AudioProvider } from '../../ionic-audio/ionic-audio.module';
-
 
 @Component({
   selector: 'page-music',
