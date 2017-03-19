@@ -28,11 +28,9 @@
     "zone.js": "0.7.2",
     "@ionic/cloud-angular": "^0.8.0",
     "angular2-jwt": "0.1.28",
-    "auth0-js": "7.6.1",
-    "auth0-lock": "10.8.1",
+    "auth0-lock": "10.13.0",
     "es6-shim": "0.35.1",
     "ionic": "2.2.1",
-    "ionic-audio": "2.1.4",
     "ng2-pagination": "^1.0.1",
     "angular2-google-maps": "0.17.0"
   },

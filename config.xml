@@ -21,6 +21,7 @@
   <allow-navigation href="https://*.dl.dropboxusercontent.com/*"/>
   <allow-navigation href="about:blank"/>
   <allow-navigation href="http://192.168.2.133:8100"/>
+  <allow-navigation href="https://api.ionic.io/insights"/>
   <allow-intent href="*"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>

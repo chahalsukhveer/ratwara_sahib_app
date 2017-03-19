@@ -13,13 +13,12 @@ import { AdminPage } from './pages/admin/admin';
 import { NewsPage } from './pages/news/news';
 import { NewsItemPage } from './pages/news-item/news-item';
 import { AgmCoreModule } from 'angular2-google-maps/core';
-import { Platform } from 'ionic-angular';
 import { Ng2PaginationModule } from 'ng2-pagination';
 import { AuthConfig, AuthHttp } from 'angular2-jwt';
 import { AuthService } from './providers/auth/auth.service';
 import { Http } from '@angular/http';
-import { Storage } from '@ionic/storage';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+import { Platform } from 'ionic-angular';
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -40,15 +39,8 @@ const cloudSettings: CloudSettings = {
 };
 
 
-let storage: Storage = new Storage();
-
 import { IonicAudioModule, AudioProvider, audioProviderfactory } from './ionic-audio/ionic-audio.module';
-export function getAuthHttp(http) {
-  return new AuthHttp(new AuthConfig({
-    globalHeaders: [{ 'Accept': 'application/json' }],
-    tokenGetter: (() => storage.get('id_token'))
-  }), http);
-}
+
 @NgModule({
   declarations: [
     MyApp,
@@ -86,12 +78,19 @@ export function getAuthHttp(http) {
     NewsItemPage,
     TabsPage
   ],
-  providers: [AuthService,
-    {
-      provide: AuthHttp,
-      useFactory: getAuthHttp,
-      deps: [Http]
-    }, { provide: AudioProvider, useFactory: audioProviderfactory, deps: [Platform] }],
+  providers: [
+      { provide: AuthHttp, 
+        useFactory: (http) => {
+          return new AuthHttp(new AuthConfig(), http);
+        },
+        deps: [Http]
+      },
+      { provide: AudioProvider, 
+        useFactory: audioProviderfactory, 
+        deps: [Platform]
+      },
+      AuthService
+    ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
