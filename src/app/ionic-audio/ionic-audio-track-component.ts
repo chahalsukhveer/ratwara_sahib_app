@@ -5,7 +5,6 @@ import {CordovaAudioTrack} from './ionic-audio-cordova-track';
 
 import {Component, DoCheck, EventEmitter, Output, Input} from '@angular/core';
 
-
 /**
  * # ```<audio-track>``` 
  * 
@@ -68,12 +67,11 @@ export class AudioTrackComponent implements DoCheck {
     this.track.id = this._audioTrack.id; 
   }
   
-  play() {    
-    if(this._audioProvider.current != undefined){
-        this._audioProvider.pause(this._audioProvider.current);
-        this._audioProvider.current = undefined;
-    }
-
+  play() {
+    if( this._audioProvider.current !=undefined ) {
+      this._audioProvider.pause(this._audioProvider.current);
+      this._audioProvider.current = undefined;
+    }    
     this._audioTrack.play();
     this._audioProvider.current = this._audioTrack.id;
   }

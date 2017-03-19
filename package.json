@@ -28,7 +28,6 @@
     "zone.js": "0.7.2",
     "@ionic/cloud-angular": "^0.8.0",
     "angular2-jwt": "0.1.28",
-    "auth0-lock": "10.13.0",
     "es6-shim": "0.35.1",
     "ionic": "2.2.1",
     "ng2-pagination": "^1.0.1",

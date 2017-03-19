@@ -18,7 +18,6 @@ import { AuthConfig, AuthHttp } from 'angular2-jwt';
 import { AuthService } from './providers/auth/auth.service';
 import { Http } from '@angular/http';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
-import { Platform } from 'ionic-angular';
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -38,8 +37,11 @@ const cloudSettings: CloudSettings = {
   }
 };
 
+import { IonicAudioModule, AudioProvider, audioProviderFactory } from './ionic-audio';
 
-import { IonicAudioModule, AudioProvider, audioProviderfactory } from './ionic-audio/ionic-audio.module';
+export function getAuthHttp(http) {
+  return new AuthHttp(new AuthConfig(), http);
+}
 
 @NgModule({
   declarations: [
@@ -58,6 +60,7 @@ import { IonicAudioModule, AudioProvider, audioProviderfactory } from './ionic-a
   ],
   imports: [
     IonicModule.forRoot(MyApp),
+    IonicAudioModule.forRoot({ provide: AudioProvider, useFactory: audioProviderFactory }), 
     CloudModule.forRoot(cloudSettings),
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBzH2CivhtNDuhHBQfQCNihnQVqlfaeW9o' }),
     IonicAudioModule,
@@ -80,14 +83,8 @@ import { IonicAudioModule, AudioProvider, audioProviderfactory } from './ionic-a
   ],
   providers: [
       { provide: AuthHttp, 
-        useFactory: (http) => {
-          return new AuthHttp(new AuthConfig(), http);
-        },
+        useFactory: getAuthHttp,
         deps: [Http]
-      },
-      { provide: AudioProvider, 
-        useFactory: audioProviderfactory, 
-        deps: [Platform]
       },
       AuthService
     ],

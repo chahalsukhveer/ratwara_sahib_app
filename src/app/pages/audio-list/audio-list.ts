@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { AudioProvider } from '../../ionic-audio/ionic-audio.module';
+import { AudioProvider } from '../../ionic-audio';
 
 /*
   Generated class for the AudioListPage page.

@@ -2,15 +2,16 @@ import { Storage } from '@ionic/storage';
 import { AuthHttp, JwtHelper, tokenNotExpired } from 'angular2-jwt';
 import { Injectable, NgZone } from '@angular/core';
 import { GlobalVariable } from '../../globals';
-import { Auth0Lock } from 'auth0-lock';
-import { Auth0 } from 'auth0-js';
 import { Observable } from 'rxjs/Rx';
+
+declare var Auth0Lock: any;
+declare var auth0: any;
 
 @Injectable()
 export class AuthService {
 
   jwtHelper: JwtHelper = new JwtHelper();
-  auth0 = new Auth0.WebAuth({clientID: GlobalVariable.AUTH0_CLIENT_ID, domain: GlobalVariable.AUTH0_DOMAIN });
+  auth0 = new auth0.WebAuth({clientID: GlobalVariable.AUTH0_CLIENT_ID, domain: GlobalVariable.AUTH0_DOMAIN });
   lock = new Auth0Lock(GlobalVariable.AUTH0_CLIENT_ID, GlobalVariable.AUTH0_DOMAIN, {
     auth: {
       redirect: false,
