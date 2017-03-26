@@ -18,6 +18,7 @@ import { AuthConfig, AuthHttp } from 'angular2-jwt';
 import { AuthService } from './providers/auth/auth.service';
 import { Http } from '@angular/http';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+import { OrderBy } from "./orderby"
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -56,7 +57,8 @@ export function getAuthHttp(http) {
     AboutPage,
     NewsPage,
     NewsItemPage,
-    TabsPage
+    TabsPage,
+    OrderBy
   ],
   imports: [
     IonicModule.forRoot(MyApp),

@@ -3,9 +3,9 @@
     <ion-title>Our Audio Gallery</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding >
+<ion-content padding>
   <ion-list>
- <audio-track #audio *ngFor="let track of radioMap" [track]="track" (onFinish)="onTrackFinished($event)">
+    <audio-track #audio *ngFor="let track of radioMap" [track]="track" (onFinish)="onTrackFinished($event)">
       <ion-item>
         <ion-thumbnail item-left>
           <audio-track-play dark [audioTrack]="audio">
@@ -14,15 +14,15 @@
         </ion-thumbnail>
         <div item-content style="width:100%">
           <p><strong>{{audio.title}}</strong></p>
-          <audio-track-progress-bar  progress [audioTrack]="audio"></audio-track-progress-bar>
+          <audio-track-progress-bar progress [audioTrack]="audio"></audio-track-progress-bar>
         </div>
       </ion-item>
     </audio-track>
 
-    <div *ngFor ="let sub of folderList">
+    <div *ngFor="let sub of folderList | orderBy : '+'">
       <ion-item>
         <a href="#" (click)="showSongList($event)" id="{{sub}}">{{sub}}</a>
       </ion-item>
     </div>
-  </ion-list>   
+  </ion-list>
 </ion-content>

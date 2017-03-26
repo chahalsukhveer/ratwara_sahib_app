@@ -6,6 +6,7 @@
 
 <ion-content>
   <ion-list>
+    <ion-list-header>Our audios of {{title}}</ion-list-header>
     <audio-track #audio *ngFor="let track of audios | paginate: { itemsPerPage: 4, currentPage: p }" [track]="track" (onFinish)="onTrackFinished($event)">
       <ion-item>
         <ion-thumbnail item-left>
