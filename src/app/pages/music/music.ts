@@ -2,6 +2,20 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AudioListPage } from '../audio-list/audio-list';
 import { Http } from '@angular/http';
+import { Storage } from '@ionic/storage';
+
+export class AudioKey {
+  src: string;
+  title: string;
+  key: string;
+  constructor(_src: string, _title: string, _key: string) {
+     // assign local variables to class members
+     this.src = _src;
+     this.title = _title;
+     this.key = _key;
+  }
+}
+
 
 @Component({
   selector: 'page-music',
@@ -9,17 +23,110 @@ import { Http } from '@angular/http';
 })
 export class MusicPage {
   audios: any;
-  folderList = [];
   awdioUrl: string = 'https://query.yahooapis.com/v1/public/yql?q=select%20title%2Cenclosure%2Citunes:keywords%20from%20rss%20where%20url%3D%22https%3A%2F%2Fwww.awdio.com%2Fapi%2Fservices%2Fv1%2Fchannel%2F101301%2Ffeed%2Frss_2.0%22&format=json';
   awdioDataList: any;
   dropBoxUrl: string;
   dropBoxDataList: any;
-  audioMap = [];
-  radioMap =[];
+  audioMap: AudioKey[] = [];
+  radioMap = [];
+  folderList = [];
 
   audioListPage = AudioListPage;
-  constructor(private navCtrl: NavController, public http: Http) {
 
+  constructor(private navCtrl: NavController, public http: Http, private storage: Storage) {
+
+    this.storage.ready().then(() => {
+      var folderKey = this.storage.get('folderList');
+      var audioKey = this.storage.get('audioList');
+      var audioRefreshKey = this.storage.get('audioRefresh');
+
+      if ( audioRefreshKey ) {
+        audioRefreshKey.then((val) => {
+          if ( val != null) {
+            console.log('found audioRefreshKey in storage ' + val);
+            var compareDate = new Date(new Date().getTime() - 14*24*60*60000).toLocaleString("en-US");
+            console.log( val + ' > ' + compareDate);
+            if ( val < compareDate) {
+               console.log('cache is too old, need a refresh');
+               var displayDate = new Date().toLocaleString("en-US");
+               console.log('set refresh time '+ displayDate);
+               this.storage.set('audioRefresh',displayDate);
+               this.storage.remove('audioList');
+               this.storage.remove('folderList');
+               this.audioMap = [];
+               this.folderList = [];
+               this.retrieveDropBox();
+               this.retrieveAwdio();
+            } else {
+                if ( folderKey ) {
+                  folderKey.then((val) => {
+                    if ( val != null) {
+                      console.log('found folderList key in storage ' + val);      
+                      this.folderList = val;
+                    }
+                    if ( audioKey ) {
+                      audioKey.then((val2) => {
+                        if ( val2 != null) {
+                          console.log('found audioMap key in storage');      
+                          this.audioMap = val2;
+                        }
+                        // we checked folder and audio cache
+                        this.retrieveDropBox();
+                        this.retrieveAwdio();
+                      })
+                    } else {
+                      // no audioKey found, so just refresh
+                      this.retrieveDropBox();
+                      this.retrieveAwdio();
+                    }  
+                  })
+                } else {
+                    // no folderKey found, so just refresh
+                    this.retrieveDropBox();
+                    this.retrieveAwdio();
+                }
+            }
+          } else {
+            // no refresh time found, just set new time and do refresh 
+            var displayDate = new Date().toLocaleString("en-US");
+            console.log('set refresh time '+ displayDate);
+            this.storage.set('audioRefresh',displayDate);
+            this.retrieveDropBox();
+            this.retrieveAwdio();
+          }  
+        });   
+      }
+    });    
+
+    this.radioMap= [{
+      src: 'http://s8.myradiostream.com/15656/listen.mp3',
+      title: 'Radio'
+    }]
+  }
+
+  retrieveAwdio(){
+    // console.log("my awdio list new", this.awdioDataList);
+    this.http.get(this.awdioUrl).map(res => res.json()).subscribe(data => {
+      this.awdioDataList = data.query.results;
+      for (let item2 of this.awdioDataList.item) {
+        // console.log(item);
+        if (item2.keywords == null) {
+          var key = 'Not Categorized';
+          this.storeEntry(item2.enclosure.url, item2.title, key )
+          this.storeKey(key);
+        }
+        else {
+          var fields = item2.keywords.split(',');
+          for (let key of fields) {
+            this.storeEntry(item2.enclosure.url, item2.title, key.trim() )
+            this.storeKey(key.trim());
+          }
+        }
+      }
+    });      
+  }
+
+  retrieveDropBox() {
     this.http.get('assets/data/dropbox.json').map(res => res.json()).subscribe(data => {
       this.dropBoxDataList = data;
       // console.log("my dropBox list new", this.dropBoxDataList);
@@ -27,43 +134,37 @@ export class MusicPage {
       for (let item of this.dropBoxDataList.subfolders) {
         // console.log(item);
         for (let entry of item.entries) {
-          this.audioMap.push({ src: this.dropBoxUrl + entry.file, title: entry.name, key: item.description });
-          if (this.folderList.indexOf(item.description.trim()) == -1) {
-              this.folderList.push(item.description.trim());
-          }
+          this.storeEntry(this.dropBoxUrl + entry.file, entry.name, item.description.trim())
+          this.storeKey(item.description.trim());
         }
       }
     });
-
-    this.http.get(this.awdioUrl).map(res => res.json()).subscribe(data => {
-      this.awdioDataList = data.query.results;
-      // console.log("my awdio list new", this.awdioDataList);
-      for (let item of this.awdioDataList.item) {
-        // console.log(item);
-        if (item.keywords == null) {
-          var key = 'Not Categorized';
-          this.audioMap.push({ src: item.enclosure.url, title: item.title, key: key });
-          if (this.folderList.indexOf(key) == -1) {
-            this.folderList.push(key);
-          }
-        }
-        else {
-          var fields = item.keywords.split(',');
-          for (let key of fields) {
-            this.audioMap.push({ src: item.enclosure.url, title: item.title, key: key.trim() });
-            if (this.folderList.indexOf(key.trim()) == -1) {
-              this.folderList.push(key.trim());
-            }
-          }
-        }
-      }
-    });
-
-    this.radioMap= [{
-      src: 'http://s8.myradiostream.com/15656/listen.mp3',
-      title: 'Radio'
-    }]
   }
+
+  storeEntry(url, title, key ) {
+      var entry = new AudioKey( url, title, key );
+      var found = false;
+      for (let existingEntry of this.audioMap) {
+         if (( entry.key == existingEntry.key ) &&  ( entry.src == existingEntry.src ))  {
+           found = true;
+         }
+      }  
+      if (found == false) {
+        // console.log('update new audioMap key ' + title)
+        this.audioMap.push(entry);
+        this.storage.set('audioList', this.audioMap);
+      }
+  }
+
+  storeKey(key) {
+    console.log('check for key ' + key + ' in folderList')
+    if (this.folderList.indexOf(key) == -1) {
+      console.log('update new folderList key ' + key + ' in storage')
+      this.folderList.push(key);
+      this.storage.set('folderList', this.folderList);
+    }
+  }
+
   showSongList(event) {
     // console.log('showSongList');
     // console.log("Clicked now is " + event.target.innerText);

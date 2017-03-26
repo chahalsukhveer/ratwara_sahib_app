@@ -18,7 +18,8 @@ import { AuthConfig, AuthHttp } from 'angular2-jwt';
 import { AuthService } from './providers/auth/auth.service';
 import { Http } from '@angular/http';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
-import { OrderBy } from "./orderby"
+import { OrderBy } from "./orderby";
+import { IonicStorageModule } from '@ionic/storage';
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -66,7 +67,8 @@ export function getAuthHttp(http) {
     CloudModule.forRoot(cloudSettings),
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBzH2CivhtNDuhHBQfQCNihnQVqlfaeW9o' }),
     IonicAudioModule,
-    Ng2PaginationModule
+    Ng2PaginationModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

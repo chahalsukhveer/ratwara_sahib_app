@@ -9,6 +9,7 @@
 - npm install -g cordova
 - npm install -g ionic
 - npm install @ionic/app-scripts@latest --save-dev
+- cordova plugin add cordova-sqlite-storage --save
 - ionic info
 - npm info cordova
 

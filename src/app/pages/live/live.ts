@@ -24,10 +24,12 @@ export class LivePage {
 
   constructor(public http: Http, public nav: NavController, public ytPlayer: YoutubeServiceLive, public platform: Platform) {
     console.log("constructor for youtube videos.ts");
-    this.http.get('https://dl.dropboxusercontent.com/sh/ras4s06ypc920ac/AAA5qkoHv6RFpBQ58NsHr7iRa/magazines.json').map(res => res.json()).subscribe(data => {
+
+    this.http.get('assets/data/magazines.json').map(res => res.json()).subscribe(data => {
       this.issuesCloud = data.magazines;
       console.log("my list ", this.issuesCloud);
     });
+
     this.platform = platform;
     this.loadSettings();
   }
