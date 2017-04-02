@@ -7,6 +7,7 @@ import { HomePage } from './pages/home/home';
 import { AdminPage } from './pages/admin/admin';
 import { AboutPage } from './pages/about/about';
 import { Push, PushToken } from '@ionic/cloud-angular';
+import { GoogleAnalytics } from 'ionic-native';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +22,11 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-
+      GoogleAnalytics.startTrackerWithId('UA-2832203-9').then(() => {
+         console.log('Google analytics is ready now');
+         // Tracker is ready
+         // You can now track pages or set additional information such as AppVersion or UserId
+      }).catch(e => console.log('Error starting GoogleAnalytics', e));
       StatusBar.styleDefault();
     });
 

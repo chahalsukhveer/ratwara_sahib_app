@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
+import { GoogleAnalytics } from 'ionic-native';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  constructor(private navCtrl: NavController) {
+  constructor(private navCtrl: NavController, public platform: Platform) {
+  }
+
+  ionViewDidEnter() {
+    this.platform.ready().then(() => {
+          // Okay, so the platform is ready and our plugins are available.
+          GoogleAnalytics.trackView("Home Page");
+    });
   }
 
   images = [

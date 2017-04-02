@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { YoutubeService } from '../../providers/youtube-service/youtube-service';
 import { GlobalVariable } from '../../globals';
 import { Storage } from '@ionic/storage';
+import { GoogleAnalytics } from 'ionic-native';
 
 @Component({
   templateUrl: 'videos.html',
@@ -21,7 +22,7 @@ export class VideosPage {
   eventType: string = 'completed';
   videoSyndicated: boolean = true;
 
-  constructor(public http: Http, public nav: NavController, public ytPlayer: YoutubeService, private storage: Storage) {
+  constructor(public http: Http, public nav: NavController, public ytPlayer: YoutubeService, private storage: Storage, public platform: Platform) {
     console.log("constructor for youtube videos.ts");
     this.storage.ready().then(() => {
         var video_items = this.storage.get('videoList');
@@ -39,6 +40,13 @@ export class VideosPage {
         } else {
             this.loadSettings();
         }
+    });
+  }
+
+  ionViewDidEnter() {
+    this.platform.ready().then(() => {
+          // Okay, so the platform is ready and our plugins are available.
+          GoogleAnalytics.trackView("Videos Page");
     });
   }
 

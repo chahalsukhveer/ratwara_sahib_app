@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { GlobalVariable } from '../../globals';
 import { YoutubeServiceLive } from '../../providers/youtube-service-live/youtube-service-live';
-import { InAppBrowser } from 'ionic-native';
+import { InAppBrowser, GoogleAnalytics } from 'ionic-native';
 
 @Component({
   templateUrl: 'live.html',
@@ -30,8 +30,14 @@ export class LivePage {
       console.log("my list ", this.issuesCloud);
     });
 
-    this.platform = platform;
     this.loadSettings();
+  }
+
+  ionViewDidEnter() {
+    this.platform.ready().then(() => {
+          // Okay, so the platform is ready and our plugins are available.
+          GoogleAnalytics.trackView("Live Page");
+    });
   }
 
   openPDF(url): void {

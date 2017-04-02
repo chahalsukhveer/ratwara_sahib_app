@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
 import { AudioListPage } from '../audio-list/audio-list';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
+import { GoogleAnalytics } from 'ionic-native';
 
 export class AudioKey {
   src: string;
@@ -15,7 +16,6 @@ export class AudioKey {
      this.key = _key;
   }
 }
-
 
 @Component({
   selector: 'page-music',
@@ -33,8 +33,7 @@ export class MusicPage {
 
   audioListPage = AudioListPage;
 
-  constructor(private navCtrl: NavController, public http: Http, private storage: Storage) {
-
+  constructor(private navCtrl: NavController, public http: Http, private storage: Storage, public platform: Platform) {
     this.storage.ready().then(() => {
       var folderKey = this.storage.get('folderList');
       var audioKey = this.storage.get('audioList');
@@ -102,6 +101,13 @@ export class MusicPage {
       src: 'http://s8.myradiostream.com/15656/listen.mp3',
       title: 'Radio'
     }]
+  }
+
+  ionViewDidEnter() {
+    this.platform.ready().then(() => {
+          // Okay, so the platform is ready and our plugins are available.
+          GoogleAnalytics.trackView("Music Page");
+    });
   }
 
   retrieveAwdio(){

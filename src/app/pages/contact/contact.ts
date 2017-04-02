@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
-import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng, GoogleMapsMarkerOptions, GoogleMapsMarker } from 'ionic-native';
+import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng, GoogleMapsMarkerOptions, GoogleMapsMarker, GoogleAnalytics } from 'ionic-native';
 
 @Component({
   selector: 'page-contact',
@@ -14,10 +14,15 @@ export class ContactPage {
   lng: number = 76.7267223;
 
   constructor(public navCtrl: NavController, public platform: Platform) {
-    platform.ready().then(() => {
-      this.loadMap();
+  }
+
+  ionViewDidEnter() {
+    this.platform.ready().then(() => {
+          // Okay, so the platform is ready and our plugins are available.
+          GoogleAnalytics.trackView("Contact Page");
     });
   }
+
 
   loadMap() {
     let location = new GoogleMapsLatLng(this.lat, this.lng);

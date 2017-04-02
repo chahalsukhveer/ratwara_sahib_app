@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { NewsItemPage } from '../news-item/news-item';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { GoogleAnalytics } from 'ionic-native';
 
 @Component({
     selector: 'page-news',
@@ -14,7 +15,7 @@ export class NewsPage {
     url: string = 'https://public-api.wordpress.com/rest/v1.1/sites/ratwarasahibblog.wordpress.com/posts/?number=10&pretty=true';
     items: any;
 
-    constructor(public navCtrl: NavController, private http: Http, private nav: NavController, private storage: Storage) {
+    constructor(public navCtrl: NavController, private http: Http, private nav: NavController, private storage: Storage, public platform: Platform) {
         this.storage.ready().then(() => {
             var news_items = this.storage.get('newsList');
             if (news_items) {
@@ -35,6 +36,10 @@ export class NewsPage {
     }
 
     ionViewDidEnter() {
+       this.platform.ready().then(() => {
+         // Okay, so the platform is ready and our plugins are available.
+         GoogleAnalytics.trackView("News Page");
+       });
     }
 
     refreshData(){
