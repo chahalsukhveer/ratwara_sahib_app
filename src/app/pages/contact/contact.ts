@@ -14,6 +14,9 @@ export class ContactPage {
   lng: number = 76.7267223;
 
   constructor(public navCtrl: NavController, public platform: Platform) {
+    platform.ready().then(() => {
+      this.loadMap();
+    });
   }
 
   ionViewDidEnter() {
