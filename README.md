@@ -28,7 +28,7 @@
 - ionic platform add android
 - ionic platform add ios
 - ionic plugin add cordova-plugin-inappbrowser
-- ionic plugin add cordova-plugin-google-analytics
+- ionic plugin add cordova-plugin-google-analytics@1.0.0
 
 ### icon android bug
 - cordova platform update android@https://github.com/apache/cordova-android
