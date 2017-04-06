@@ -79,6 +79,12 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 ## maps
 - ionic plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="" --variable API_KEY_FOR_IOS=""
 
+## auth0
+- https://github.com/darkyen/pkce-demos/tree/master/CordovaApp
+- https://auth0.com/forum/t/google-disallowed-useragent-on-embedded-ionic-2-ios/4392/12
+- ionic plugin add cordova-plugin-safariviewcontroller
+- ionic plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=io.ionic.ratwara.sahib
+
 ## Push
 - npm install @ionic/cloud-angular --save
 - ionic io init
