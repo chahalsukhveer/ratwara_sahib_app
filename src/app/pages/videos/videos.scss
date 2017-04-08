@@ -1,24 +1,4 @@
 page-videos {
-    scroll-content {
-        margin-top: 5px !important;
-    }
-    ion-card.adv-map p {
-        font-size: 0.7em !important;
-    }
-
-    .item-bold {
-        font-weight: bold;
-    }
-
-    ion-content.cards-bg {
-        background-color: #f4f4f7;
-    }
-
-    .item-text-wrap { /* negate the nowrap CSS from .ionic .item */
-        overflow: visible;
-        text-overflow: initial;
-        white-space: initial;
-    }
 }
 
 ion-nav > ion-page > ion-header > .youtube-player-header.toolbar.statusbar-padding:first-child {
@@ -26,3 +6,20 @@ ion-nav > ion-page > ion-header > .youtube-player-header.toolbar.statusbar-paddi
     height: initial !important;
 }
 
+.card-background{
+  ion-card{
+    position: relative;
+    text-align: center;
+  }
+  .card-title{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    font-weight: bold;
+    h1{
+      font-size: 2.0em;
+      background-color: rgba(136,136,136,.37);
+      color: #fff;
+    }
+  }
+}

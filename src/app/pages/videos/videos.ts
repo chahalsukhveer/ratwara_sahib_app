@@ -8,8 +8,7 @@ import { Storage } from '@ionic/storage';
 import { GoogleAnalytics } from 'ionic-native';
 
 @Component({
-  templateUrl: 'videos.html',
-  providers: [YoutubeService]
+  templateUrl: 'videos.html'
 })
 export class VideosPage {
   channelID: string = 'UC9-Wp2ANvH0aQBSGw8Zykng';

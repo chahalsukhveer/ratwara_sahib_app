@@ -22,26 +22,26 @@
 
     <ion-item>
       <div id="playerlive" class="embed-responsive embed-responsive-16by9">
-      <div id="placeholderlive" style="width: 100%" class="embed-responsive-item"></div>
-<div *ngIf="!onPlayingLive" class="embed-responsive-item" style="width: 100%; z-index: 90; background-color: black; background-image: url(assets/images/liveRS.png); "></div>
-</div>
-<div *ngIf="!onPlayingLive">
-  <h4>Live Diwan is not available, Pull to refresh</h4>
-</div>
-</ion-item>
-</ion-list>
-<div *ngIf="!platform.is('android')">
-  <ion-list *ngFor="let mag of issuesCloud">
-    <ion-list-header>
-      Atammarg magazine year {{mag.label}}
-    </ion-list-header>
-    <button ion-item *ngFor="let issue of mag.editions" (click)="openPDF(issue.link)">
+        <div id="placeholderlive" style="width: 100%" class="embed-responsive-item"></div>
+        <div *ngIf="!onPlayingLive" class="embed-responsive-item" style="width: 100%; z-index: 90; background-color: black; background-image: url(assets/images/liveRS.png); "></div>
+      </div>
+      <div *ngIf="!onPlayingLive">
+        <h4>Live Diwan is not available, Pull to refresh</h4>
+      </div>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="!platform.is('android')">
+    <ion-list *ngFor="let mag of issuesCloud">
+      <ion-list-header>
+        Atammarg magazine year {{mag.label}}
+      </ion-list-header>
+      <button ion-item *ngFor="let issue of mag.editions" (click)="openPDF(issue.link)">
       <ion-thumbnail item-left>
         <img src="{{issue.img}}">
       </ion-thumbnail> 
       {{issue.description}}    
     </button>
-  </ion-list>
-</div>
+    </ion-list>
+  </div>
 
 </ion-content>

@@ -7,8 +7,7 @@ import { YoutubeServiceLive } from '../../providers/youtube-service-live/youtube
 import { InAppBrowser, GoogleAnalytics } from 'ionic-native';
 
 @Component({
-  templateUrl: 'live.html',
-  providers: [YoutubeServiceLive]
+  templateUrl: 'live.html'
 })
 export class LivePage {
 

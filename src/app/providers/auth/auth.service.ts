@@ -23,14 +23,13 @@ export class AuthService {
     }
   });
 
-  storage: Storage = new Storage();
   user: Object;
   idToken: string;
   accessToken: string;
   refreshSubscription: any;
   zoneImpl: NgZone;
 
-  constructor(private authHttp: AuthHttp, zone: NgZone) {
+  constructor(private authHttp: AuthHttp, zone: NgZone, private storage: Storage) {
     this.zoneImpl = zone;
     console.log('auth');
     // If there is a profile saved in storage storage

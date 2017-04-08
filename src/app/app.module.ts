@@ -16,10 +16,15 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 import { Ng2PaginationModule } from 'ng2-pagination';
 import { AuthConfig, AuthHttp } from 'angular2-jwt';
 import { AuthService } from './providers/auth/auth.service';
-import { Http } from '@angular/http';
+import { Http, HttpModule } from '@angular/http';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { OrderBy } from "./orderby";
 import { IonicStorageModule } from '@ionic/storage';
+import { BrowserModule } from '@angular/platform-browser';
+import { WindowRef } from './providers/window-ref';
+import { YoutubeService } from './providers/youtube-service/youtube-service';
+import { YoutubeServiceLive } from './providers/youtube-service-live/youtube-service-live';
+
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -62,11 +67,12 @@ export function getAuthHttp(http) {
     OrderBy
   ],
   imports: [
+    BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     IonicAudioModule.forRoot({ provide: AudioProvider, useFactory: audioProviderFactory }), 
     CloudModule.forRoot(cloudSettings),
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBzH2CivhtNDuhHBQfQCNihnQVqlfaeW9o' }),
-    IonicAudioModule,
     Ng2PaginationModule,
     IonicStorageModule.forRoot()
   ],
@@ -90,7 +96,10 @@ export function getAuthHttp(http) {
         useFactory: getAuthHttp,
         deps: [Http]
       },
-      AuthService
+      AuthService,
+      WindowRef,
+      YoutubeService,
+      YoutubeServiceLive
     ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
