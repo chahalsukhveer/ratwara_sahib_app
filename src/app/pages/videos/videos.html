@@ -3,16 +3,16 @@
     <ion-title>
       Videos
     </ion-title>
-    <div class="embed-responsive-item" style="width: 100%; z-index: 90; background-color: black;background-size:cover;" *ngIf="!onPlaying"></div>
+    <!--<div class="embed-responsive-item" style="width: 100%; z-index: 90; background-color: black;background-size:cover;" *ngIf="!onPlaying"></div>-->
   </ion-navbar>
 
 </ion-header>
-<ion-content class="card-background">
+<ion-content center text-center class="card-background">
 
   <div>
     <div id="player" class="embed-responsive embed-responsive-16by9">
-      <div id="placeholder" style="width: 100%" class="embed-responsive-item"></div>
-      <div class="embed-responsive-item" style="width: 100%; z-index: 90; background-color: black; background-size:cover;" *ngIf="!onPlaying"></div>
+      <div id="placeholder" style="width: 100%;  max-width: 711px; max-height: 400px" class="embed-responsive-item"></div>
+      <div class="embed-responsive-item" style="width: 100%;max-width: 711px; max-height: 400px; z-index: 90; background-color: black; background-size:cover;" *ngIf="!onPlaying"></div>
     </div>
   </div>
 
