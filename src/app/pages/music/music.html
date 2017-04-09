@@ -5,7 +5,7 @@
 </ion-header>
 <ion-content padding>
   <ion-list>
-    <audio-track #audio *ngFor="let track of radioMap" [track]="track" (onFinish)="onTrackFinished($event)">
+    <!--<audio-track #audio *ngFor="let track of radioMap" [track]="track" (onFinish)="onTrackFinished($event)">
       <ion-item>
         <ion-thumbnail item-left>
           <audio-track-play dark [audioTrack]="audio">
@@ -17,7 +17,7 @@
           <audio-track-progress-bar progress [audioTrack]="audio"></audio-track-progress-bar>
         </div>
       </ion-item>
-    </audio-track>
+    </audio-track>-->
 
     <div *ngFor="let sub of folderList | orderBy : '+'">
       <ion-item>
