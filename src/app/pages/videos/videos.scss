@@ -6,13 +6,14 @@ ion-nav > ion-page > ion-header > .youtube-player-header.toolbar.statusbar-paddi
     height: initial !important;
 }
 
+
 .card-background{
 
   ion-card{
     position: relative;
     text-align: center;
-    max-width: 711px;
-    max-height: 400px;
+    max-width: 480px;
+    max-height: 360px;
   }
   .card-title{
     position: absolute;

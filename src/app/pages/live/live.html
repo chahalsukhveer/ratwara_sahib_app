@@ -22,7 +22,7 @@
 
     <ion-item>
       <div id="playerlive" class="embed-responsive embed-responsive-16by9">
-        <div id="placeholderlive" style="width: 100%" class="embed-responsive-item"></div>
+        <div id="placeholderlive" style="width: 100%;  max-width: 480px; max-height: 360px" class="embed-responsive-item"></div>
         <div *ngIf="!onPlayingLive" class="embed-responsive-item" style="width: 100%; z-index: 90; background-color: black; background-image: url(assets/images/liveRS.png); "></div>
       </div>
       <div *ngIf="!onPlayingLive">
