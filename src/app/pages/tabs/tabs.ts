@@ -5,6 +5,7 @@ import { VideosPage } from '../videos/videos';
 import { LivePage } from '../live/live';
 import { ContactPage } from '../contact/contact';
 import { MusicPage } from '../music/music';
+import { Platform } from 'ionic-angular';
 
 @Component({
   selector: 'page-tabs',
@@ -19,7 +20,7 @@ export class TabsPage {
   tab5Root: any = ContactPage;
   tab6Root: any = MusicPage;
 
-  constructor() {
+  constructor( public platform: Platform ) {
   }
 
 }
