@@ -18,11 +18,8 @@
         </div>
       </ion-item>
     </audio-track>-->
-
-    <div *ngFor="let sub of folderList | orderBy : '+'">
-      <ion-item>
-        <a href="#" (click)="showSongList($event)" id="{{sub}}">{{sub}}</a>
-      </ion-item>
-    </div>
+    <button *ngFor="let sub of folderList | orderBy : '+'" ion-item (click)="showSongList(sub)">
+        {{ sub }}
+    </button>
   </ion-list>
 </ion-content>

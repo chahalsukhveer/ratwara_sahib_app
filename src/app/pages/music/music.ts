@@ -172,11 +172,10 @@ export class MusicPage {
   }
 
   showSongList(event) {
-    // console.log('showSongList');
-    // console.log("Clicked now is " + event.target.innerText);
+    console.log("Clicked now is " + event);
     let entries = this.audioMap.filter(
-      audio => audio.key === event.target.innerText
+      audio => audio.key === event
     );
-    this.navCtrl.push(this.audioListPage, { audioList: entries, title: event.target.innerText });
+    this.navCtrl.push(this.audioListPage, { audioList: entries, title: event });
   }
 }
