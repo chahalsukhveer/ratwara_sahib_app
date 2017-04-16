@@ -8,13 +8,11 @@
 
 <ion-content>
   <ion-list>
-  <template ngFor let-item [ngForOf]="items" >
-    <button ion-item (click)="itemTapped($event, item)">
-         <ion-avatar *ngIf=item.featured_image item-left>
-           <img src="{{item.post_thumbnail.URL}}">
-         </ion-avatar>
+    <button *ngFor="let item of items" ion-item (click)="itemTapped($event, item)">
+      <ion-avatar *ngIf=item.featured_image item-left>
+        <img src="{{item.post_thumbnail.URL}}">
+      </ion-avatar>
       <ion-label>{{item.title}}</ion-label> 
-    </button>  
-  </template>
+    </button>
   </ion-list>
 </ion-content>

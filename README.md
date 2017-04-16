@@ -90,3 +90,6 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 - pod install
 - npm install -g cocoapods-cli
 - cordova plugin add phonegap-plugin-push --variable SENDER_ID=xxx --save
+
+## audio
+- ionic plugin add nl.kingsquare.cordova.background-audio

@@ -5,19 +5,6 @@
 </ion-header>
 <ion-content padding>
   <ion-list>
-    <!--<audio-track #audio *ngFor="let track of radioMap" [track]="track" (onFinish)="onTrackFinished($event)">
-      <ion-item>
-        <ion-thumbnail item-left>
-          <audio-track-play dark [audioTrack]="audio">
-            <ion-spinner></ion-spinner>
-          </audio-track-play>
-        </ion-thumbnail>
-        <div item-content style="width:100%">
-          <p><strong>{{audio.title}}</strong></p>
-          <audio-track-progress-bar progress [audioTrack]="audio"></audio-track-progress-bar>
-        </div>
-      </ion-item>
-    </audio-track>-->
     <button *ngFor="let sub of folderList | orderBy : '+'" ion-item (click)="showSongList(sub)">
         {{ sub }}
     </button>

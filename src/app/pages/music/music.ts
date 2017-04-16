@@ -35,6 +35,8 @@ export class MusicPage {
 
   constructor(private navCtrl: NavController, public http: Http, private storage: Storage, public platform: Platform) {
     this.storage.ready().then(() => {
+
+      console.log('storage is ready ');
       var folderKey = this.storage.get('folderList');
       var audioKey = this.storage.get('audioList');
       var audioRefreshKey = this.storage.get('audioRefresh');
@@ -43,13 +45,13 @@ export class MusicPage {
         audioRefreshKey.then((val) => {
           if ( val != null) {
             console.log('found audioRefreshKey in storage ' + val);
-            var compareDate = new Date(new Date().getTime() - 14*24*60*60000).toLocaleString("en-US");
+            var compareDate = new Date(new Date().getTime() - 14*24*60*60000).toISOString().substring(0, 10);
             console.log( val + ' > ' + compareDate);
-            if ( val < compareDate) {
+            if ( val < compareDate || val.indexOf("\/2017,") >= 0 ) {
                console.log('cache is too old, need a refresh');
-               var displayDate = new Date().toLocaleString("en-US");
-               console.log('set refresh time '+ displayDate);
-               this.storage.set('audioRefresh',displayDate);
+               var displayDate = new Date().toISOString().substring(0, 10);
+               console.log('set new refresh time '+ displayDate);
+               this.storage.set('audioRefresh', displayDate);
                this.storage.remove('audioList');
                this.storage.remove('folderList');
                this.audioMap = [];
