@@ -6,6 +6,8 @@ import { GlobalVariable } from '../../globals';
 import { YoutubeServiceLive } from '../../providers/youtube-service-live/youtube-service-live';
 import { InAppBrowser, GoogleAnalytics } from 'ionic-native';
 
+declare var AndroidNativePdfViewer: any;
+
 @Component({
   templateUrl: 'live.html'
 })
@@ -42,8 +44,22 @@ export class LivePage {
   openPDF(url): void {
     console.log(url);
     this.platform.ready().then(() => {
-      let browser = new InAppBrowser(url, "_system", "location=true");
-      browser.show();
+      if ( this.platform.is('android') ) { 
+        var options = { 
+                headerColor:"#000000",
+                showScroll:true, 
+                swipeHorizontal:false 
+              };
+        AndroidNativePdfViewer.openPdfUrl(url, 'magazine', options,
+                function(success){
+                  console.log(url)
+                }, function(error){
+                  console.log("It didn't work!")
+                });
+      } else {
+        let browser = new InAppBrowser(url, "_system", "location=true");
+        browser.show();
+      }
     });
   }
 

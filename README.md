@@ -93,3 +93,6 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 
 ## audio
 - ionic plugin add nl.kingsquare.cordova.background-audio
+
+## pdf android
+-  ionic plugin add cordova-plugin-android-native-pdfviewer
