@@ -89,7 +89,7 @@ export class MusicPage {
             }
           } else {
             // no refresh time found, just set new time and do refresh 
-            var displayDate = new Date().toLocaleString("en-US");
+            var displayDate = new Date().toISOString().substring(0, 10);
             console.log('set refresh time '+ displayDate);
             this.storage.set('audioRefresh',displayDate);
             this.retrieveDropBox();
