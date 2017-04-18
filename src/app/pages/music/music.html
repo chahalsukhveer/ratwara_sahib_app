@@ -6,7 +6,9 @@
 <ion-content padding>
   <ion-list>
     <button *ngFor="let sub of folderList | orderBy : '+'" ion-item (click)="showSongList(sub)">
-        {{ sub }}
+      <ion-icon name='musical-notes' item-left style="color: #d03e84"></ion-icon>
+       {{ sub }}
+      <ion-badge item-right>{{showSongCounter(sub)}}</ion-badge>
     </button>
   </ion-list>
 </ion-content>

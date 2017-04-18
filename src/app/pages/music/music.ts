@@ -180,4 +180,12 @@ export class MusicPage {
     );
     this.navCtrl.push(this.audioListPage, { audioList: entries, title: event });
   }
+
+  showSongCounter(event) {
+    console.log("Clicked now is " + event);
+    let entries = this.audioMap.filter(
+      audio => audio.key === event
+    );
+    return entries.length;
+  }
 }
