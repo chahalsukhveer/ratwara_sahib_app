@@ -21,5 +21,8 @@
       </ion-item>
     </audio-track>
   </ion-list>
-  <pagination-controls (pageChange)="p = $event" #api></pagination-controls>
+  <pagination-controls (pageChange)="p = $event" #api
+                      autoHide="true" 
+                      maxSize="5"
+                      class="my-pagination" ></pagination-controls>
 </ion-content>

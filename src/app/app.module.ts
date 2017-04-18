@@ -13,7 +13,6 @@ import { AdminPage } from './pages/admin/admin';
 import { NewsPage } from './pages/news/news';
 import { NewsItemPage } from './pages/news-item/news-item';
 import { AgmCoreModule } from 'angular2-google-maps/core';
-import { Ng2PaginationModule } from 'ng2-pagination';
 import { AuthConfig, AuthHttp } from 'angular2-jwt';
 import { AuthService } from './providers/auth/auth.service';
 import { Http, HttpModule } from '@angular/http';
@@ -24,7 +23,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { WindowRef } from './providers/window-ref';
 import { YoutubeService } from './providers/youtube-service/youtube-service';
 import { YoutubeServiceLive } from './providers/youtube-service-live/youtube-service-live';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -73,7 +72,7 @@ export function getAuthHttp(http) {
     IonicAudioModule.forRoot({ provide: AudioProvider, useFactory: audioProviderFactory }), 
     CloudModule.forRoot(cloudSettings),
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBzH2CivhtNDuhHBQfQCNihnQVqlfaeW9o' }),
-    Ng2PaginationModule,
+    NgxPaginationModule,
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
