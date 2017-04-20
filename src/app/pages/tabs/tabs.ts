@@ -5,7 +5,9 @@ import { VideosPage } from '../videos/videos';
 import { LivePage } from '../live/live';
 import { ContactPage } from '../contact/contact';
 import { MusicPage } from '../music/music';
+import { TranslateService } from 'ng2-translate';
 import { Platform } from 'ionic-angular';
+import { defaultLanguage } from '../../i18n.constants';
 
 @Component({
   selector: 'page-tabs',
@@ -20,7 +22,10 @@ export class TabsPage {
   tab5Root: any = ContactPage;
   tab6Root: any = MusicPage;
 
-  constructor( public platform: Platform ) {
+  constructor( platform: Platform,
+               translate: TranslateService ) {
+    platform.ready().then(() => {
+        translate.setDefaultLang(defaultLanguage);
+    });
   }
-
 }

@@ -24,6 +24,7 @@ import { WindowRef } from './providers/window-ref';
 import { YoutubeService } from './providers/youtube-service/youtube-service';
 import { YoutubeServiceLive } from './providers/youtube-service-live/youtube-service-live';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -47,6 +48,10 @@ import { IonicAudioModule, AudioProvider, audioProviderFactory } from './ionic-a
 
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig(), http);
+}
+
+export function createTranslateLoader(http: Http) {
+    return new TranslateStaticLoader(http, 'assets/i18n', '.json');
 }
 
 @NgModule({
@@ -73,7 +78,12 @@ export function getAuthHttp(http) {
     CloudModule.forRoot(cloudSettings),
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyBzH2CivhtNDuhHBQfQCNihnQVqlfaeW9o' }),
     NgxPaginationModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: (createTranslateLoader),
+      deps: [Http]
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
