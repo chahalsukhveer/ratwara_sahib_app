@@ -1,13 +1,20 @@
 import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { GoogleAnalytics } from 'ionic-native';
+import { TranslateService } from 'ng2-translate';
+import { defaultLanguage } from '../../i18n.constants';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  constructor(private navCtrl: NavController, public platform: Platform) {
+  constructor(private navCtrl: NavController, 
+              public platform: Platform,
+              translate: TranslateService ) {
+    platform.ready().then(() => {
+        translate.setDefaultLang(defaultLanguage);
+    });
   }
 
   ionViewDidEnter() {
@@ -19,14 +26,14 @@ export class HomePage {
 
   images = [
     { img: "assets/images/samagam04.jpg", 
-      text: "VGRMC Trust was founded by Sant Waryam Singh Ji inspired by his mentor Sant Isher Singh Ji of Rara Sahib." },
+      text: "HOME_TEXT_1" },
     { img: "assets/images/samagam.jpg", 
-      text: "The Samparada is	linked with Bhai Sahib Bhai Daya Singh Ji, leading Piara (Beloved) of the Five, selected by Guru Gobind Singh Ji."},
+      text: "HOME_TEXT_2"},
     { img: "assets/images/samagam02.jpg", 
-      text: "Sant Maharaj Ji founded Gurmat Parchar Centre, Gurudwara Isher Parkash at Ratwara Sahib in 1986 for spreading Gurmat (Sikh Teachings) in India and abroad" },
+      text: "HOME_TEXT_3" },
     { img: "assets/images/samagam03.jpg", 
-      text: "Started publishing monthly magazine 'ATAM MARG' in 1995" },
+      text: "HOME_TEXT_4" },
     { img: "assets/images/samagam01.jpg", 
-      text: "published books and brought out audio-videos" }
+      text: "HOME_TEXT_5" }
   ];
 }

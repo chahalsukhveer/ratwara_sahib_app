@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>About</ion-title>
+    <ion-title>{{ 'ABOUT' | translate }}</ion-title>
     <ion-buttons end>
       <button ion-button primary (click)="closeMenu()">
       <ion-icon name="close"></ion-icon>
@@ -14,10 +14,10 @@
 
 <ion-content padding>
   <ion-list>
-    <p>Developed by Sukhveer Kaur & Edwin Biemond for Ratwara Sahib Ji</p>
-    <p>Current version 0.0.25</p>
-    <p>Supported on Android 4.4+</p>
-    <p>Supported on IOS 9+ (IPhone & IPad)</p>
+    <p>{{ 'ABOUT_DEVS' | translate }}</p>
+    <p>{{ 'ABOUT_VERSION' | translate }} 0.0.25</p>
+    <p>{{ 'ABOUT_SUPPORT' | translate }} Android 4.4+</p>
+    <p>{{ 'ABOUT_SUPPORT' | translate }} IOS 9+ (IPhone & IPad)</p>
     <ion-item>
       <ion-icon name="link" item-left></ion-icon>
       <a href="http://www.ratwarasahib.in">www.ratwarasahib.in</a>

@@ -3,9 +3,7 @@
 		<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-		<ion-title>
-			Ratwara Sahib Ji
-		</ion-title>
+		<ion-title>Ratwara Sahib Ji</ion-title>
 	</ion-navbar>
 </ion-header>
 
@@ -13,7 +11,7 @@
 	<ion-slides pager="true" pagination="true" autoplay="5000" loop="true">
 		<ion-slide *ngFor="let image of images">
 			<img [src]="image.img">
-			<p>{{image.text}}</p>
+			<p>{{ image.text | translate }}</p>
 		</ion-slide>
 	</ion-slides>
 </ion-content>

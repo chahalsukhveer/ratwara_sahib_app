@@ -1,12 +1,12 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Audio List - {{title}}</ion-title>
+    <ion-title>{{ 'AUDIO_LIST' | translate }} - {{title}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-list-header>Our audios of {{title}}</ion-list-header>
+    <ion-list-header>{{ 'AUDIO_LIST_OF' | translate }} {{title}}</ion-list-header>
     <audio-track #audio *ngFor="let track of audios | paginate: { itemsPerPage: 4, currentPage: p }" [track]="track" (onFinish)="onTrackFinished($event)">
       <ion-item>
         <ion-thumbnail item-left>
@@ -24,5 +24,7 @@
   <pagination-controls (pageChange)="p = $event" #api
                       autoHide="true" 
                       maxSize="5"
-                      class="my-pagination" ></pagination-controls>
+                      class="my-pagination" 
+                      [previousLabel]="'PREVIOUS' | translate"
+                      [nextLabel]="'NEXT' | translate"></pagination-controls>
 </ion-content>

@@ -1,8 +1,8 @@
 {
-    "TAB_HOME": "Home",
-    "TAB_NEWS": "Nieuws",
-    "TAB_VIDEOS": "Videos",
-    "TAB_LIVE": "Live/Mag",
-    "TAB_CONTACT": "Contact",
-    "TAB_AUDIO": "Audio"
+    "HOME": "Home",
+    "NEWS": "Nieuws",
+    "VIDEOS": "Videos",
+    "LIVE": "Live/Mag",
+    "CONTACT": "Contact",
+    "AUDIO": "Audio"
 }

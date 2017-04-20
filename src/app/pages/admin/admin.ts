@@ -4,6 +4,9 @@ import { TabsPage } from '../tabs/tabs';
 import { AuthService } from '../../providers/auth/auth.service';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { GlobalVariable } from '../../globals';
+import { TranslateService } from 'ng2-translate';
+import { Platform } from 'ionic-angular';
+import { defaultLanguage } from '../../i18n.constants';
 
 /*
   Generated class for the AdminPage page.
@@ -21,19 +24,27 @@ export class AdminPage {
   notifications: any = [];
   title: string = '';
   message: string = '';
-  constructor(public navCtrl: NavController, public menu: MenuController, public auth: AuthService, public http: Http) { }
-
-  ionViewDidLoad() {
-    console.log('Hello AdminPage Page');
+  constructor(public navCtrl: NavController, 
+              public menu: MenuController, 
+              public auth: AuthService, 
+              public http: Http,
+              platform: Platform,
+              translate: TranslateService ) {
+    platform.ready().then(() => {
+        translate.setDefaultLang(defaultLanguage);
+    });
   }
+
   closeMenu() {
     this.menu.close();
     console.log("Close page event admin page")
     this.navCtrl.setRoot(TabsPage);
   }
+
   ionViewWillEnter() {
     this.listNotifications();
   }
+
   listNotifications() {
     console.log("Notifications here");
     var token = GlobalVariable.PUSH_TOKEN;

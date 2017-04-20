@@ -8,6 +8,9 @@ import { AdminPage } from './pages/admin/admin';
 import { AboutPage } from './pages/about/about';
 import { Push, PushToken } from '@ionic/cloud-angular';
 import { GoogleAnalytics } from 'ionic-native';
+import { TranslateService } from 'ng2-translate';
+import { defaultLanguage } from './i18n.constants';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -17,7 +20,10 @@ export class MyApp {
   rootPage: any = HomePage;
   pages: Array<{ title: string, component: any }>;
 
-  constructor(platform: Platform, public menu: MenuController, public push: Push) {
+  constructor(platform: Platform, 
+              public menu: MenuController, 
+              public push: Push,
+              translate: TranslateService ){
     this.rootPage = TabsPage;
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -28,6 +34,7 @@ export class MyApp {
          // You can now track pages or set additional information such as AppVersion or UserId
       }).catch(e => console.log('Error starting GoogleAnalytics', e));
       StatusBar.styleDefault();
+      translate.setDefaultLang(defaultLanguage);
     });
 
     this.push.register().then((t: PushToken) => {
@@ -42,10 +49,11 @@ export class MyApp {
       });
 
     this.pages = [
-      { title: 'Admin Page', component: AdminPage },
-      { title: 'About', component: AboutPage },
+      { title: 'ADMIN', component: AdminPage },
+      { title: 'ABOUT', component: AboutPage },
     ];
   }
+
   openPage(page) {
     this.menu.close();
     // Reset the content nav to have just this page
@@ -54,7 +62,6 @@ export class MyApp {
   }
   closeMenu() {
     this.menu.close();
-    console.log("Close page event")
     this.nav.setRoot(TabsPage);
   }
 }
