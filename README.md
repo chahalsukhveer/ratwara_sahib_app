@@ -96,6 +96,3 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 
 ## pdf android
 -  ionic plugin add cordova-plugin-android-native-pdfviewer
-
-i18n
-- ionic plugin add cordova-plugin-globalization
