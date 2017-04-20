@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng, GoogleMapsMarkerOptions, GoogleMapsMarker, GoogleAnalytics } from 'ionic-native';
+import { TranslateService } from 'ng2-translate';
+import { defaultLanguage } from '../../i18n.constants';
 
 @Component({
   selector: 'page-contact',
@@ -13,8 +15,11 @@ export class ContactPage {
   lat: number = 30.79519;
   lng: number = 76.7267223;
 
-  constructor(public navCtrl: NavController, public platform: Platform) {
+  constructor(public navCtrl: NavController, 
+              public platform: Platform,
+              translate: TranslateService ) {
     platform.ready().then(() => {
+      translate.setDefaultLang(defaultLanguage);
       this.loadMap();
     });
   }

@@ -4,6 +4,8 @@ import { AudioListPage } from '../audio-list/audio-list';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { GoogleAnalytics } from 'ionic-native';
+import { TranslateService } from 'ng2-translate';
+import { defaultLanguage } from '../../i18n.constants';
 
 export class AudioKey {
   src: string;
@@ -33,7 +35,16 @@ export class MusicPage {
 
   audioListPage = AudioListPage;
 
-  constructor(private navCtrl: NavController, public http: Http, private storage: Storage, public platform: Platform) {
+  constructor(private navCtrl: NavController,
+              public http: Http,
+              private storage: Storage, 
+              public platform: Platform,
+              translate: TranslateService ) {
+
+    platform.ready().then(() => {
+        translate.setDefaultLang(defaultLanguage);
+    });
+
     this.storage.ready().then(() => {
 
       console.log('storage is ready ');
