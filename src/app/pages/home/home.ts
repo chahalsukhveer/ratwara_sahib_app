@@ -3,6 +3,7 @@ import { NavController, Platform } from 'ionic-angular';
 import { GoogleAnalytics } from 'ionic-native';
 import { TranslateService } from 'ng2-translate';
 import { defaultLanguage } from '../../i18n.constants';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -11,11 +12,30 @@ import { defaultLanguage } from '../../i18n.constants';
 export class HomePage {
   constructor(private navCtrl: NavController, 
               public platform: Platform,
-              translate: TranslateService ) {
+              private translate: TranslateService,
+              private storage: Storage ) {
     platform.ready().then(() => {
         translate.setDefaultLang(defaultLanguage);
     });
+
+    storage.ready().then(() => {
+        var locale_item = storage.get('locale');
+        if (locale_item) {
+            locale_item.then((val) => {
+                if (val != null) {
+                    console.log('retrieved from cache');
+                    console.log(val);
+                    this.translate.use(val);
+                } 
+            });
+        } 
+    });
   }
+
+  changeLanguage(key) {
+		this.translate.use(key);
+    this.storage.set('locale', key);
+	}
 
   ionViewDidEnter() {
     this.platform.ready().then(() => {

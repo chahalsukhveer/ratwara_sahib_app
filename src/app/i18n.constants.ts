@@ -8,10 +8,6 @@ export const availableLanguages = [
         name: 'Nederlands'
     },
     {
-        code: 'hi_IN',
-        name: 'Hindi'
-    },
-    {
         code: 'pa_IN',
         name: 'Punjab'
     }    
