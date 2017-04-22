@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, Platform } from 'ionic-angular';
 import { AudioProvider } from '../../ionic-audio';
-import { TranslateService } from 'ng2-translate';
-import { defaultLanguage } from '../../i18n.constants';
 
 @Component({
   selector: 'page-audio-list',
@@ -21,10 +19,8 @@ export class AudioListPage {
   constructor(private navCtrl: NavController, 
               public params: NavParams,
               private _audioProvider: AudioProvider,
-              public platform: Platform,
-              translate: TranslateService ) {
+              public platform: Platform ) {
     platform.ready().then(() => {
-        translate.setDefaultLang(defaultLanguage);
     });
 
     let audioList = params.get("audioList");

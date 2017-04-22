@@ -4,9 +4,7 @@ import { TabsPage } from '../tabs/tabs';
 import { AuthService } from '../../providers/auth/auth.service';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { GlobalVariable } from '../../globals';
-import { TranslateService } from 'ng2-translate';
 import { Platform } from 'ionic-angular';
-import { defaultLanguage } from '../../i18n.constants';
 
 /*
   Generated class for the AdminPage page.
@@ -28,10 +26,8 @@ export class AdminPage {
               public menu: MenuController, 
               public auth: AuthService, 
               public http: Http,
-              platform: Platform,
-              translate: TranslateService ) {
+              platform: Platform ) {
     platform.ready().then(() => {
-        translate.setDefaultLang(defaultLanguage);
     });
   }
 

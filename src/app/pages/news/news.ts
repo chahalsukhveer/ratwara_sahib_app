@@ -5,8 +5,6 @@ import { NewsItemPage } from '../news-item/news-item';
 import { NavController, Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { GoogleAnalytics } from 'ionic-native';
-import { TranslateService } from 'ng2-translate';
-import { defaultLanguage } from '../../i18n.constants';
 
 @Component({
     selector: 'page-news',
@@ -21,11 +19,9 @@ export class NewsPage {
                 private http: Http,
                 private nav: NavController,
                 private storage: Storage, 
-                public platform: Platform,
-                translate: TranslateService ) {
+                public platform: Platform ) {
 
         platform.ready().then(() => {
-            translate.setDefaultLang(defaultLanguage);
         });
 
         this.storage.ready().then(() => {

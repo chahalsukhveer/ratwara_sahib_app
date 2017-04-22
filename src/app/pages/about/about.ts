@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
-import { TranslateService } from 'ng2-translate';
 import { Platform } from 'ionic-angular';
-import { defaultLanguage } from '../../i18n.constants';
 
 @Component({
   selector: 'page-about',
@@ -13,10 +11,8 @@ export class AboutPage {
 
   constructor(public navCtrl: NavController, 
               public menu: MenuController,
-              platform: Platform,
-              translate: TranslateService ) {
+              platform: Platform ) {
     platform.ready().then(() => {
-        translate.setDefaultLang(defaultLanguage);
     });
   }
 

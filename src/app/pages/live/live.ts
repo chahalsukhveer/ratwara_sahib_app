@@ -5,8 +5,6 @@ import 'rxjs/add/operator/map';
 import { GlobalVariable } from '../../globals';
 import { YoutubeServiceLive } from '../../providers/youtube-service-live/youtube-service-live';
 import { InAppBrowser, GoogleAnalytics } from 'ionic-native';
-import { TranslateService } from 'ng2-translate';
-import { defaultLanguage } from '../../i18n.constants';
 
 declare var AndroidNativePdfViewer: any;
 
@@ -28,10 +26,8 @@ export class LivePage {
   constructor(public http: Http, 
               public nav: NavController, 
               public ytPlayer: YoutubeServiceLive, 
-              public platform: Platform,
-              translate: TranslateService ) {
+              public platform: Platform ) {
     platform.ready().then(() => {
-        translate.setDefaultLang(defaultLanguage);
     });
   
     console.log("constructor for youtube videos.ts");

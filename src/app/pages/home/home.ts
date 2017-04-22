@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { GoogleAnalytics } from 'ionic-native';
-import { TranslateService } from 'ng2-translate';
+import { TranslateService } from '@ngx-translate/core';
 import { defaultLanguage } from '../../i18n.constants';
 import { Storage } from '@ionic/storage';
 

@@ -8,9 +8,8 @@ import { AdminPage } from './pages/admin/admin';
 import { AboutPage } from './pages/about/about';
 import { Push, PushToken } from '@ionic/cloud-angular';
 import { GoogleAnalytics } from 'ionic-native';
-import { TranslateService } from 'ng2-translate';
+import { TranslateService } from '@ngx-translate/core';
 import { defaultLanguage } from './i18n.constants';
-
 
 @Component({
   templateUrl: 'app.html'

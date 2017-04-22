@@ -6,8 +6,6 @@ import { YoutubeService } from '../../providers/youtube-service/youtube-service'
 import { GlobalVariable } from '../../globals';
 import { Storage } from '@ionic/storage';
 import { GoogleAnalytics } from 'ionic-native';
-import { TranslateService } from 'ng2-translate';
-import { defaultLanguage } from '../../i18n.constants';
 
 @Component({
   templateUrl: 'videos.html'
@@ -27,11 +25,9 @@ export class VideosPage {
               public nav: NavController,
               public ytPlayer: YoutubeService,
               private storage: Storage,
-              public platform: Platform,
-              translate: TranslateService ) {
+              public platform: Platform ) {
 
     platform.ready().then(() => {
-        translate.setDefaultLang(defaultLanguage);
     });
 
     console.log("constructor for youtube videos.ts");

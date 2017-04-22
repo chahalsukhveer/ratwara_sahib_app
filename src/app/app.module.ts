@@ -24,7 +24,8 @@ import { WindowRef } from './providers/window-ref';
 import { YoutubeService } from './providers/youtube-service/youtube-service';
 import { YoutubeServiceLive } from './providers/youtube-service-live/youtube-service-live';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -50,8 +51,8 @@ export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig(), http);
 }
 
-export function createTranslateLoader(http: Http) {
-    return new TranslateStaticLoader(http, 'assets/i18n', '.json');
+export function customTranslateLoader(http: Http) {
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -80,10 +81,13 @@ export function createTranslateLoader(http: Http) {
     NgxPaginationModule,
     IonicStorageModule.forRoot(),
     TranslateModule.forRoot({
-      provide: TranslateLoader,
-      useFactory: (createTranslateLoader),
-      deps: [Http]
-    })
+      loader: {
+        provide: TranslateLoader,
+          useFactory: customTranslateLoader,
+          deps: [Http]
+        }
+      }
+    ),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
