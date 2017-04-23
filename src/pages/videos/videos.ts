@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController, Platform } from 'ionic-angular';
+import { NavController, Platform, IonicPage } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { YoutubeService } from '../../providers/youtube-service/youtube-service';
-import { GlobalVariable } from '../../globals';
+import { YoutubeService } from '../../app/providers/youtube-service/youtube-service';
+import { GlobalVariable } from '../../app/globals';
 import { Storage } from '@ionic/storage';
 import { GoogleAnalytics } from 'ionic-native';
 
+@IonicPage()
 @Component({
   templateUrl: 'videos.html'
 })

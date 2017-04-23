@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { NavController, Platform } from 'ionic-angular';
+import { NavController, Platform, IonicPage  } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { GlobalVariable } from '../../globals';
-import { YoutubeServiceLive } from '../../providers/youtube-service-live/youtube-service-live';
+import { GlobalVariable } from '../../app/globals';
+import { YoutubeServiceLive } from '../../app/providers/youtube-service-live/youtube-service-live';
 import { InAppBrowser, GoogleAnalytics } from 'ionic-native';
 
 declare var AndroidNativePdfViewer: any;
 
+@IonicPage()
 @Component({
   templateUrl: 'live.html'
 })

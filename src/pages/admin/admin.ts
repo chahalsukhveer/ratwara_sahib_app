@@ -1,17 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, MenuController } from 'ionic-angular';
+import { NavController, MenuController, IonicPage } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
-import { AuthService } from '../../providers/auth/auth.service';
+import { AuthService } from '../../app/providers/auth/auth.service';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import { GlobalVariable } from '../../globals';
+import { GlobalVariable } from '../../app/globals';
 import { Platform } from 'ionic-angular';
 
-/*
-  Generated class for the AdminPage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+@IonicPage()
 @Component({
   selector: 'page-admin',
   templateUrl: 'admin.html'
@@ -33,7 +28,7 @@ export class AdminPage {
 
   closeMenu() {
     this.menu.close();
-    console.log("Close page event admin page")
+    console.log("Close page event admin page");
     this.navCtrl.setRoot(TabsPage);
   }
 

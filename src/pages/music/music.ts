@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, Platform } from 'ionic-angular';
+import { NavController, Platform, IonicPage } from 'ionic-angular';
 import { AudioListPage } from '../audio-list/audio-list';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
@@ -17,6 +17,7 @@ export class AudioKey {
   }
 }
 
+@IonicPage()
 @Component({
   selector: 'page-music',
   templateUrl: 'music.html'

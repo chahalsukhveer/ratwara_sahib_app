@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Platform } from 'ionic-angular';
-import { AudioProvider } from '../../ionic-audio';
+import { NavController, NavParams, Platform, IonicPage } from 'ionic-angular';
+import { AudioProvider } from '../../app/ionic-audio';
 
+@IonicPage()
 @Component({
   selector: 'page-audio-list',
   templateUrl: 'audio-list.html'

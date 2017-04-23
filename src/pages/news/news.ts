@@ -1,11 +1,12 @@
+import { NavController, IonicPage, Platform } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { NewsItemPage } from '../news-item/news-item';
-import { NavController, Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { GoogleAnalytics } from 'ionic-native';
 
+@IonicPage()
 @Component({
     selector: 'page-news',
     templateUrl: 'news.html'
