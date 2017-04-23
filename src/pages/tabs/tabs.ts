@@ -6,8 +6,8 @@ import { VideosPage } from '../videos/videos';
 import { LivePage } from '../live/live';
 import { ContactPage } from '../contact/contact';
 import { MusicPage } from '../music/music';
-import { TranslateService } from '@ngx-translate/core';
-import { defaultLanguage } from '../../app/i18n.constants';
+// import { TranslateService } from '@ngx-translate/core';
+// import { defaultLanguage } from '../../app/i18n.constants';
 
 @IonicPage()
 @Component({
@@ -24,10 +24,10 @@ export class TabsPage {
   music: any = MusicPage;
 
   constructor( platform: Platform,
-               translate: TranslateService,
+              //  translate: TranslateService,
                private nav: NavController ){
     platform.ready().then(() => {
-      translate.setDefaultLang(defaultLanguage);
+      // translate.setDefaultLang(defaultLanguage);
     });
   }
 }
