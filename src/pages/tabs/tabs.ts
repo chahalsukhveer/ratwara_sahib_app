@@ -16,12 +16,12 @@ import { defaultLanguage } from '../../app/i18n.constants';
 })
 export class TabsPage {
 
-  tab1Root: any = HomePage;
-  tab2Root: any = NewsPage;
-  tab3Root: any = VideosPage;
-  tab4Root: any = LivePage;
-  tab5Root: any = ContactPage;
-  tab6Root: any = MusicPage;
+  home: any = HomePage;
+  news: any = NewsPage;
+  videos: any = VideosPage;
+  live: any = LivePage;
+  contact: any = ContactPage;
+  music: any = MusicPage;
 
   constructor( platform: Platform,
                translate: TranslateService,
