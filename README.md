@@ -1,4 +1,16 @@
-# Ionic 2 Ratwara Sahib app for Android/IOS
+# Ionic 3 Ratwara Sahib app for Android/IOS
+
+## features
+- for IOS & Android
+- lazy loading
+- i18n internalization
+- native google maps
+- playing audio
+- displaying youtube and live videos
+- news based on wordpress
+- push notifications and integration with ionic cloud & google firebase
+- display pdf's
+- page google analytics
 
 ## android & ios Apps
 - https://play.google.com/store/apps/details?id=io.ionic.ratwara.sahib&hl=en
