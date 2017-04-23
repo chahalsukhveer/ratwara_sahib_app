@@ -2,7 +2,6 @@ import { NavController, IonicPage, Platform } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { NewsItemPage } from '../news-item/news-item';
 import { Storage } from '@ionic/storage';
 import { GoogleAnalytics } from 'ionic-native';
 
@@ -18,7 +17,6 @@ export class NewsPage {
 
     constructor(public navCtrl: NavController,
                 private http: Http,
-                private nav: NavController,
                 private storage: Storage, 
                 public platform: Platform ) {
 
@@ -62,7 +60,7 @@ export class NewsPage {
     }
 
     itemTapped(event, item) {
-        this.nav.push(NewsItemPage, {
+        this.navCtrl.push("NewsItemPage", {
             item: item
         });
     }

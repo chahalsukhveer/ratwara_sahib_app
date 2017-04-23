@@ -42,6 +42,7 @@
 - ionic emulate ios -l -c -s
 - ionic build ios
 - ionic emulate ios --target="iPhone-7-Plus"
+- ionic emulate ios --target="iPhone-7"
 - cordova emulate ios --target="iPad-Air"
 - cordova emulate ios --target="iPhone-7" --provisioningProfile="AppStore.Ratwara" --codeSignIdentity="iPhone Distribution: Edwin Biemond (4VKB92ESAR)"
 - ionic run ios

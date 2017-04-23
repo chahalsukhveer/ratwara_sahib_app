@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, Platform, IonicPage } from 'ionic-angular';
-import { AudioListPage } from '../audio-list/audio-list';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { GoogleAnalytics } from 'ionic-native';
@@ -32,7 +31,7 @@ export class MusicPage {
   radioMap = [];
   folderList = [];
 
-  audioListPage = AudioListPage;
+  // audioListPage = AudioListPage;
 
   constructor(private navCtrl: NavController,
               public http: Http,
@@ -186,7 +185,7 @@ export class MusicPage {
     let entries = this.audioMap.filter(
       audio => audio.key === event
     );
-    this.navCtrl.push(this.audioListPage, { audioList: entries, title: event });
+    this.navCtrl.push("AudioListPage", { audioList: entries, title: event });
   }
 
   showSongCounter(event) {

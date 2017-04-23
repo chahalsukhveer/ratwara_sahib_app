@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController, IonicPage } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
 import { AuthService } from '../../app/providers/auth/auth.service';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { GlobalVariable } from '../../app/globals';
@@ -29,7 +28,7 @@ export class AdminPage {
   closeMenu() {
     this.menu.close();
     console.log("Close page event admin page");
-    this.navCtrl.setRoot(TabsPage);
+    this.navCtrl.push("TabsPage");
   }
 
   ionViewWillEnter() {

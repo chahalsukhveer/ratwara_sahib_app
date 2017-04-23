@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController, IonicPage } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
 import { Platform } from 'ionic-angular';
 
 @IonicPage()
@@ -20,9 +19,10 @@ export class AboutPage {
   ionViewDidLoad() {
     console.log('Hello About Page');
   }
+
   closeMenu() {
     this.menu.close();
     console.log("Close page event admin page")
-    this.navCtrl.setRoot(TabsPage);
+    this.navCtrl.push("TabsPage");
   }
 }

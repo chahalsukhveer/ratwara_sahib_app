@@ -2,26 +2,25 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav, MenuController } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
-import { TabsPage } from '../pages/tabs/tabs';
-import { AdminPage } from '../pages/admin/admin';
-import { AboutPage } from '../pages/about/about';
 import { Push, PushToken } from '@ionic/cloud-angular';
 import { GoogleAnalytics } from 'ionic-native';
 import { TranslateService } from '@ngx-translate/core';
 import { defaultLanguage } from './i18n.constants';
+import { Storage } from '@ionic/storage';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage = TabsPage;
+  rootPage = "TabsPage";
   pages: Array<{ title: string, component: any }>;
 
   constructor(platform: Platform, 
               public menu: MenuController, 
               public push: Push,
-              translate: TranslateService ){
+              public translate: TranslateService,
+              private storage: Storage ){
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -33,6 +32,19 @@ export class MyApp {
       }).catch(e => console.log('Error starting GoogleAnalytics', e));
       StatusBar.styleDefault();
       translate.setDefaultLang(defaultLanguage);
+    });
+
+    storage.ready().then(() => {
+        var locale_item = storage.get('locale');
+        if (locale_item) {
+            locale_item.then((val) => {
+                if (val != null) {
+                    console.log('retrieved from cache');
+                    console.log(val);
+                    this.translate.use(val);
+                } 
+            });
+        } 
     });
 
     this.push.register().then((t: PushToken) => {
@@ -47,19 +59,22 @@ export class MyApp {
       });
 
     this.pages = [
-      { title: 'ADMIN', component: AdminPage },
-      { title: 'ABOUT', component: AboutPage },
+      { title: 'ADMIN', component: "AdminPage" },
+      { title: 'ABOUT', component: "AboutPage" },
     ];
   }
 
+  changeLanguage(key) {
+		this.translate.use(key);
+    this.storage.set('locale', key);
+	}
+
   openPage(page) {
     this.menu.close();
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.push(page);
   }
   closeMenu() {
     this.menu.close();
-    this.nav.setRoot(TabsPage);
+    this.nav.push("TabsPage");
   }
 }

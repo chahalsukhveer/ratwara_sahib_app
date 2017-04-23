@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, Platform, IonicPage } from 'ionic-angular';
 import { GoogleAnalytics } from 'ionic-native';
-import { TranslateService } from '@ngx-translate/core';
-import { defaultLanguage } from '../../app/i18n.constants';
-import { Storage } from '@ionic/storage';
 
 export class ImageKey {
   img: string;
   text: string;
   constructor(_img: string, _text: string) {
-     // assign local variables to class members
      this.img = _img;
      this.text = _text;
   }
@@ -22,34 +18,8 @@ export class ImageKey {
 })
 export class HomePage {
   constructor(private navCtrl: NavController, 
-              public platform: Platform,
-              private translate: TranslateService,
-              private storage: Storage ) {
-    platform.ready().then(() => {
-        translate.setDefaultLang(defaultLanguage);
-    });
-
-    storage.ready().then(() => {
-        var locale_item = storage.get('locale');
-        if (locale_item) {
-            locale_item.then((val) => {
-                if (val != null) {
-                    console.log('retrieved from cache');
-                    console.log(val);
-                    this.translate.use(val);
-                } else {
-                } 
-            });
-        } else {
-        }
-    });
+              public platform: Platform) {
   }
-
-  changeLanguage(key) {
-		this.translate.use(key);
-    this.storage.set('locale', key);
-    // this.addImages();
-	}
 
   ionViewDidEnter() {
     this.platform.ready().then(() => {

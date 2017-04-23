@@ -7,11 +7,29 @@
 
   <ion-content>
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title | translate }}
+      <ion-item-divider color="light">{{ 'SUB_PAGES' | translate }}</ion-item-divider>
+      <button ion-item *ngFor="let p of pages" (click)="openPage(p.component)">
+        <ion-label>{{p.title | translate }}</ion-label>
       </button>
+      <ion-item-divider color="light">{{ 'CHANGE_LANG' | translate }}</ion-item-divider>
+      <button ion-item (click)="changeLanguage('en')" class="button button-icon icon ion-alert-circled">
+        <ion-avatar item-left>
+          <img src="assets/icon/english.png">
+        </ion-avatar>
+        <ion-label>English</ion-label>
+      </button>
+      <button ion-item (click)="changeLanguage('nl_NL')" class="button button-icon icon ion-alert-circled">
+        <ion-avatar item-left>
+          <img  src="assets/icon/dutch.png">
+        </ion-avatar>
+        <ion-label>Nederlands</ion-label>
+      </button>
+      <!--<button ion-button primary (click)="changeLanguage('pa_IN')">
+				<img src="assets/icon/sikh.png">
+     </button>-->
     </ion-list>
-     <button ion-button detail-none (click)="closeMenu()">{{ 'CLOSE' | translate }}</button>
+    <button ion-button detail-none (click)="closeMenu()">{{ 'CLOSE' | translate }}</button>
+ 
   </ion-content>
 
 </ion-menu>
