@@ -25,9 +25,9 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      GoogleAnalytics.startTrackerWithId('UA-2832203-9').then(() => {
+      GoogleAnalytics.startTrackerWithId('UA-2832203-9', 5 ).then(() => {
          console.log('Google analytics is ready now');
-        //  GoogleAnalytics.debugMode();
+         // GoogleAnalytics.debugMode();
          GoogleAnalytics.setAllowIDFACollection(false);
          // Tracker is ready
          // You can now track pages or set additional information such as AppVersion or UserId
