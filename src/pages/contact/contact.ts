@@ -25,6 +25,7 @@ export class ContactPage {
     this.platform.ready().then(() => {
           // Okay, so the platform is ready and our plugins are available.
           GoogleAnalytics.trackView("Contact Page");
+          console.log("Contact Page enter");
     });
   }
 

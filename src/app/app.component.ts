@@ -27,6 +27,8 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       GoogleAnalytics.startTrackerWithId('UA-2832203-9').then(() => {
          console.log('Google analytics is ready now');
+        //  GoogleAnalytics.debugMode();
+         GoogleAnalytics.setAllowIDFACollection(false);
          // Tracker is ready
          // You can now track pages or set additional information such as AppVersion or UserId
       }).catch(e => console.log('Error starting GoogleAnalytics', e));

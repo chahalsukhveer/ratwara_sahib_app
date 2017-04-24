@@ -116,6 +116,7 @@ export class MusicPage {
     this.platform.ready().then(() => {
           // Okay, so the platform is ready and our plugins are available.
           GoogleAnalytics.trackView("Music Page");
+          console.log("Music Page enter");
     });
   }
 
@@ -181,7 +182,7 @@ export class MusicPage {
   }
 
   showSongList(event) {
-    console.log("Clicked now is " + event);
+    // console.log("Clicked now is " + event);
     let entries = this.audioMap.filter(
       audio => audio.key === event
     );
@@ -189,7 +190,7 @@ export class MusicPage {
   }
 
   showSongCounter(event) {
-    console.log("Clicked now is " + event);
+    // console.log("Clicked now is " + event);
     let entries = this.audioMap.filter(
       audio => audio.key === event
     );

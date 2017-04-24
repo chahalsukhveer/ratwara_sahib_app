@@ -45,6 +45,7 @@ export class LivePage {
     this.platform.ready().then(() => {
           // Okay, so the platform is ready and our plugins are available.
           GoogleAnalytics.trackView("Live Page");
+          console.log("Live Page enter");
     });
   }
 

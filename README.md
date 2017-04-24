@@ -40,7 +40,7 @@
 - ionic platform add android
 - ionic platform add ios
 - ionic plugin add cordova-plugin-inappbrowser
-- ionic plugin add cordova-plugin-google-analytics@1.0.0
+- ionic plugin add cordova-plugin-google-analytics
 
 ### icon android bug
 - cordova platform update android@https://github.com/apache/cordova-android
@@ -101,7 +101,7 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 - cd platforms/ios
 - pod install
 - npm install -g cocoapods-cli
-- cordova plugin add phonegap-plugin-push --variable SENDER_ID=xxx --save
+- ionic plugin add phonegap-plugin-push --variable SENDER_ID=xxx --save
 
 ## audio
 - ionic plugin add nl.kingsquare.cordova.background-audio

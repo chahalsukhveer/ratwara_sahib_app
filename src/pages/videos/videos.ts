@@ -55,6 +55,7 @@ export class VideosPage {
     this.platform.ready().then(() => {
           // Okay, so the platform is ready and our plugins are available.
           GoogleAnalytics.trackView("Videos Page");
+          console.log("Videos Page enter");
     });
   }
 

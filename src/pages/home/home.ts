@@ -25,6 +25,7 @@ export class HomePage {
     this.platform.ready().then(() => {
           // Okay, so the platform is ready and our plugins are available.
           GoogleAnalytics.trackView("Home Page");
+          console.log("Home Page enter");
     });
   }
 
