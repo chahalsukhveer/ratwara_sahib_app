@@ -3,11 +3,12 @@
     <ion-title>{{'AUDIO' | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+
+<ion-content>
   <ion-list>
     <button *ngFor="let sub of folderList | orderBy : '+'" ion-item (click)="showSongList(sub)">
       <ion-icon name='musical-notes' item-left style="color: #d03e84"></ion-icon>
-       {{ sub }}
+      <ion-label>{{ sub }}</ion-label> 
       <ion-badge item-right>{{showSongCounter(sub)}}</ion-badge>
     </button>
   </ion-list>
