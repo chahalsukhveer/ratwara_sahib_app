@@ -17,18 +17,25 @@ export class ContactPage {
   constructor(public navCtrl: NavController, 
               public platform: Platform) {
     platform.ready().then(() => {
-      this.loadMap();
     });
   }
 
   ionViewDidEnter() {
     this.platform.ready().then(() => {
           // Okay, so the platform is ready and our plugins are available.
+          this.loadMap();
           GoogleAnalytics.trackView("Contact Page");
           console.log("Contact Page enter");
     });
   }
 
+  ionViewDidLeave() {
+    this.map.remove()
+  }
+  
+  ionViewWillLeave() {
+    this.map.remove()
+  }
 
   loadMap() {
     let location = new GoogleMapsLatLng(this.lat, this.lng);

@@ -96,12 +96,14 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 - ionic io init
 
 ###IOS phonegap-plugin-push latest
-- gem install cocoapods
-- pod setup
-- cd platforms/ios
-- pod install
-- npm install -g cocoapods-cli
-- ionic plugin add phonegap-plugin-push --variable SENDER_ID=xxx --save
+```
+gem install cocoapods
+pod setup
+cd platforms/ios
+pod install
+npm install -g cocoapods-cli
+ionic plugin add phonegap-plugin-push --variable SENDER_ID=xxx --save
+```
 
 ## audio
 - ionic plugin add nl.kingsquare.cordova.background-audio
