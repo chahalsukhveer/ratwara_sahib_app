@@ -30,15 +30,17 @@ export class HomePage {
   }
 
   images = [
-    { img: "assets/images/samagam04.jpg", 
+    { img: "assets/images/pic1.jpeg", 
       text: "HOME_TEXT_1" },
-    { img: "assets/images/samagam.jpg", 
+    { img: "assets/images/pic2.jpeg", 
       text: "HOME_TEXT_2"},
-    { img: "assets/images/samagam02.jpg", 
+    { img: "assets/images/pic3.jpeg", 
       text: "HOME_TEXT_3" },
-    { img: "assets/images/samagam03.jpg", 
+    { img: "assets/images/pic4.jpeg", 
       text: "HOME_TEXT_4" },
-    { img: "assets/images/samagam01.jpg", 
-      text: "HOME_TEXT_5" }
+    { img: "assets/images/pic5.jpeg", 
+      text: "HOME_TEXT_5" },
+    { img: "assets/images/pic6.jpeg", 
+      text: "HOME_TEXT_3" }
   ];
 }
