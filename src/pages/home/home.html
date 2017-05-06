@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-	<ion-slides pager="true" pagination="true" autoplay="5000" loop="true">
+	<ion-slides pager="true" pagination="true" autoplay="5000" loop="true" speed="1000">
 		<ion-slide *ngFor="let image of images">
 			<img [src]="image.img">
 			<p translate>{{ image.text }}</p>
