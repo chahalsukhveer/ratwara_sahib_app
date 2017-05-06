@@ -11,7 +11,7 @@
 	<ion-slides pager="true" pagination="true" autoplay="5000" loop="true">
 		<ion-slide *ngFor="let image of images">
 			<img [src]="image.img">
-			<p>{{ image.text | translate }}</p>
+			<p translate>{{ image.text }}</p>
 		</ion-slide>
 	</ion-slides>
 </ion-content>
