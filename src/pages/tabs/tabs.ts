@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { defaultLanguage } from '../../app/i18n.constants';
 import { Storage } from '@ionic/storage';
 
-@IonicPage()
+@IonicPage( { priority: 'high'} )
 @Component({
   selector: 'page-tabs',
   templateUrl: 'tabs.html',

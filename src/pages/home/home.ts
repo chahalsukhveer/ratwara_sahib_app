@@ -11,7 +11,7 @@ export class ImageKey {
   }
 }
 
-@IonicPage()
+@IonicPage( { priority: 'high'} )
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
