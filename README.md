@@ -46,18 +46,18 @@
 - cordova platform update android@https://github.com/apache/cordova-android
 
 ## default IOS
-- ionic emulate ios
+- ionic cordova emulate ios
 
 ## particular IOS device
 - ios-sim showdevicetypes
 - xcrun simctl list devicetypes
-- ionic emulate ios -l -c -s
-- ionic build ios
-- ionic emulate ios --target="iPhone-7-Plus"
-- ionic emulate ios --target="iPhone-7"
+- ionic cordova emulate ios -l -c -s
+- ionic cordova build ios
+- ionic cordova emulate ios --target="iPhone-7-Plus"
+- ionic cordova emulate ios --target="iPhone-7"
 - cordova emulate ios --target="iPad-Air"
 - cordova emulate ios --target="iPhone-7" --provisioningProfile="AppStore.Ratwara" --codeSignIdentity="iPhone Distribution: Edwin Biemond (4VKB92ESAR)"
-- ionic run ios
+- ionic cordova run ios
 - rvm use system
 - cordova run ios --provisioningProfile="AppStore.Ratwara" --codeSignIdentity="iPhone Distribution: Edwin Biemond (4VKB92ESAR)" --device
 
@@ -71,7 +71,7 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 
 ##Publish IOS
 - rvm use system
-- ionic build ios --prod --release
+- ionic cordova build ios --prod --release
 - open xcode 
 - open workspace , not project
 - select generic IOS device
