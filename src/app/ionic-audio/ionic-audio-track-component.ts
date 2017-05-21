@@ -5,6 +5,7 @@ import {CordovaAudioTrack} from './ionic-audio-cordova-track';
 
 import {Component, DoCheck, EventEmitter, Output, Input} from '@angular/core';
 
+
 /**
  * # ```<audio-track>``` 
  * 
@@ -66,7 +67,7 @@ export class AudioTrackComponent implements DoCheck {
     // update input track parameter with track is so we pass it to WebAudioProvider if needed
     this.track.id = this._audioTrack.id; 
   }
-  
+
   play() {
     if( this._audioProvider.current !=undefined ) {
       this._audioProvider.pause(this._audioProvider.current);
