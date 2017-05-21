@@ -16,7 +16,7 @@ export class AudioKey {
   }
 }
 
-@IonicPage()
+@IonicPage( { priority: 'high'} )
 @Component({
   selector: 'page-music',
   templateUrl: 'music.html'
