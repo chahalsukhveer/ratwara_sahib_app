@@ -18,7 +18,7 @@
     <button ion-button block (click)="auth.login()">{{ 'LOGIN' | translate }}</button>
   </div>
 
-  <div *ngIf="auth.isAuthenticated() ">
+  <div *ngIf="auth.isAuthenticated()">
     <ion-card>
 
       <ion-item *ngIf="auth.user">

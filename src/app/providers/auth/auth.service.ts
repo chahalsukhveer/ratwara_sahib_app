@@ -2,7 +2,6 @@ import { Injectable, NgZone } from '@angular/core';
 import * as Auth0Cordova from '@auth0/cordova';
 import * as Auth0 from 'auth0-js';
 import { GlobalVariable } from '../../globals';
-// import { Storage } from '@ionic/storage';
 
 const auth0Config = {
   // needed for auth0
@@ -27,33 +26,9 @@ export class AuthService {
         this.idToken = this.getStorageVariable('id_token');
         console.log(this.user);
         console.log(this.idToken);
-        // this.storage.ready().then(() => {
-        //   console.log("storage ready");
-        //     // this.user = this.getStorageVariable('profile');
-        //     // this.idToken = this.getStorageVariable('id_token');
-        // });
+
   }
 
-  // private getStorageVariable(name) {
-  //     var token = this.storage.get(name);
-  //     if (token) {
-  //         token.then((val) => {
-  //             if (val != null) {
-  //                 console.log(val);
-  //                 return JSON.parse(val);
-  //             } else {
-  //                 return null;
-  //             }
-  //         });
-  //     } else {
-  //         return null;
-  //     }
-  // }
-
-  // private setStorageVariable(name, data) {
-  //   console.log(name + "-" + data);
-  //   this.storage.set(name, JSON.stringify(data));
-  // }
 
  private getStorageVariable(name) {
     console.log(name);

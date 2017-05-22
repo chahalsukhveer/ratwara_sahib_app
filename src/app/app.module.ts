@@ -3,10 +3,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { ErrorHandler, NgModule } from '@angular/core';
-
 import { Http, HttpModule } from '@angular/http';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
-
 import { IonicStorageModule } from '@ionic/storage';
 import { BrowserModule } from '@angular/platform-browser';
 import { WindowRef } from './providers/window-ref';

@@ -7,7 +7,7 @@ import { GoogleAnalytics } from 'ionic-native';
 import { TranslateService } from '@ngx-translate/core';
 import { defaultLanguage } from './i18n.constants';
 import { Storage } from '@ionic/storage';
-import { Auth0Cordova } from '@auth0/cordova';
+import * as Auth0Cordova from '@auth0/cordova';
 
 @Component({
   templateUrl: 'app.html'

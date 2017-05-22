@@ -16,7 +16,7 @@ import { AuthService } from '../../app/providers/auth/auth.service';
     AdminPage
   ],
   providers: [
-    AuthService
-  ]  
+      AuthService
+    ]
 })
 export class AdminModule {}
