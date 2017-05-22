@@ -14,9 +14,11 @@
 
 <ion-content padding>
 
-  <button *ngIf="!auth.authenticated()" ion-button block (click)="auth.login()">{{ 'LOGIN' | translate }}</button>
+  <div *ngIf="!auth.isAuthenticated()">
+    <button ion-button block (click)="auth.login()">{{ 'LOGIN' | translate }}</button>
+  </div>
 
-  <div *ngIf="auth.authenticated() ">
+  <div *ngIf="auth.isAuthenticated() ">
     <ion-card>
 
       <ion-item *ngIf="auth.user">
@@ -54,7 +56,8 @@
       </ion-row>
 
     </div>
+    <button ion-button block (click)="auth.logout()">{{ 'LOGOUT' | translate }}</button>
+
   </div>
-  <button ion-button block (click)="auth.logout()" *ngIf="auth.authenticated()">{{ 'LOGOUT' | translate }}</button>
 
 </ion-content>

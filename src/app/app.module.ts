@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
+
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
-import { AuthConfig, AuthHttp } from 'angular2-jwt';
-import { AuthService } from './providers/auth/auth.service';
+import { ErrorHandler, NgModule } from '@angular/core';
+
 import { Http, HttpModule } from '@angular/http';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
@@ -32,10 +32,6 @@ const cloudSettings: CloudSettings = {
     }
   }
 };
-
-export function getAuthHttp(http) {
-  return new AuthHttp(new AuthConfig(), http);
-}
 
 export function customTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -68,12 +64,8 @@ export function customTranslateLoader(http: Http) {
     MyApp
   ],
   providers: [
-      { provide: AuthHttp, 
-        useFactory: getAuthHttp,
-        deps: [Http]
-      },
-      AuthService,
       WindowRef,
+      { provide: ErrorHandler, useClass: IonicErrorHandler },
       YoutubeService,
       YoutubeServiceLive
     ]

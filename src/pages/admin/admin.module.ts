@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { AdminPage } from './admin';
 import { TranslateModule } from '@ngx-translate/core';
+import { AuthService } from '../../app/providers/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,9 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   exports: [
     AdminPage
-  ]
+  ],
+  providers: [
+    AuthService
+  ]  
 })
 export class AdminModule {}

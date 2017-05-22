@@ -99,6 +99,7 @@
     <preference name="SplashScreenBackgroundColor" value="0xFFFFFFFF" />
     <preference name="SplashScreen" value="screen" />
     <preference name="StatusBarBackgroundColor" value="orange" />
+    <preference name="AndroidLaunchMode" value="singleTask" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
@@ -115,7 +116,6 @@
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="~2.2.1" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
-    <plugin name="cordova-plugin-inappbrowser" spec="~1.7.0" />
     <plugin name="cordova-sqlite-storage" spec="~2.0.2" />
     <plugin name="nl.kingsquare.cordova.background-audio" spec="~1.0.1" />
     <plugin name="cordova-plugin-google-analytics" spec="~1.7.11" />
@@ -128,4 +128,13 @@
         <variable name="NSLOCATIONWHENINUSEUSAGEDESCRIPTION" value="Show your location on the map" />
         <variable name="NSLOCATIONALWAYSUSAGEDESCRIPTION" value="Trace your location on the map" />
     </plugin>
+    <plugin name="cordova-plugin-customurlscheme" spec="~4.2.0">
+        <variable name="URL_SCHEME" value="io.ionic.ratwara.sahib" />
+        <variable name="ANDROID_SCHEME" value="io.ionic.ratwara.sahib" />
+        <variable name="ANDROID_HOST" value="biemond.eu.auth0.com" />
+        <variable name="ANDROID_PATHPREFIX" value="/cordova/io.ionic.ratwara.sahib/callback" />
+    </plugin>
+    <plugin name="cordova-plugin-safariviewcontroller" spec="~1.4.7" />
+    <engine name="ios" spec="~4.4.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="~1.7.1" />
 </widget>

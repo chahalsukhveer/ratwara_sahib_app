@@ -7,6 +7,7 @@ import { GoogleAnalytics } from 'ionic-native';
 import { TranslateService } from '@ngx-translate/core';
 import { defaultLanguage } from './i18n.constants';
 import { Storage } from '@ionic/storage';
+import { Auth0Cordova } from '@auth0/cordova';
 
 @Component({
   templateUrl: 'app.html'
@@ -34,6 +35,10 @@ export class MyApp {
       }).catch(e => console.log('Error starting GoogleAnalytics', e));
       StatusBar.styleDefault();
       translate.setDefaultLang(defaultLanguage);
+      // This function is part of "Set Up Auth0-Cordova"
+      (<any>window).handleOpenURL = (url) => {
+        Auth0Cordova.onRedirectUri(url);
+      };
     });
 
     storage.ready().then(() => {

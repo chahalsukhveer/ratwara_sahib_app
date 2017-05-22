@@ -10,6 +10,7 @@ import { Platform } from 'ionic-angular';
   selector: 'page-admin',
   templateUrl: 'admin.html'
 })
+
 export class AdminPage {
   url: string = 'https://api.ionic.io/push/notifications?page_size=5&page=1';
   urlPush: string = 'https://api.ionic.io/push/notifications?send_to_all=true';
@@ -22,6 +23,7 @@ export class AdminPage {
               public http: Http,
               platform: Platform ) {
     platform.ready().then(() => {
+
     });
   }
 
@@ -74,4 +76,3 @@ export class AdminPage {
     );
   }
 }
-
