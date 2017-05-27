@@ -97,11 +97,6 @@ export class AuthService {
   }
 
   public logout() {
-    // this.storage.remove('profile');
-    // this.storage.remove('access_token');
-    // this.storage.remove('id_token');
-    // this.storage.remove('expires_at');
-
     window.localStorage.removeItem('profile');
     window.localStorage.removeItem('access_token');
     window.localStorage.removeItem('id_token');
