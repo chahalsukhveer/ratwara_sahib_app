@@ -37,7 +37,9 @@ export class MyApp {
       translate.setDefaultLang(defaultLanguage);
       // This function is part of "Set Up Auth0-Cordova"
       (<any>window).handleOpenURL = (url) => {
-        Auth0Cordova.onRedirectUri(url);
+        (<any>window).setTimeout(function () {
+          Auth0Cordova.onRedirectUri(url);
+        }, 100);
       };
     });
 
