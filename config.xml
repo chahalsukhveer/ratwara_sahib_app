@@ -110,7 +110,6 @@
     </feature>
     <icon src="resources/ios/icon/icon-small@3x.png" />
     <engine name="android" spec="^6.2.3" />
-    <engine name="ios" spec="~4.4.0" />
     <plugin name="cordova-plugin-compat" spec="~1.1.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.5" />
     <plugin name="cordova-plugin-customurlscheme" spec="^4.2.0">
@@ -136,7 +135,7 @@
     <plugin name="cordova-sqlite-storage" spec="~2.0.2" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <plugin name="nl.kingsquare.cordova.background-audio" spec="~1.0.1" />
-    <plugin name="phonegap-plugin-push" spec="~1.10.2">
+    <plugin name="phonegap-plugin-push" spec="~1.10.5">
         <variable name="SENDER_ID" value="169616509593" />
     </plugin>
 </widget>
