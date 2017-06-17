@@ -17,6 +17,7 @@ export class TabsPage {
   live: any = "LivePage";
   contact: any = "ContactPage";
   music: any = "MusicPage";
+  instagram: any = "InstagramPage";
 
   constructor( platform: Platform,
                private nav: NavController,
