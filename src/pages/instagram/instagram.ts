@@ -55,7 +55,6 @@ export class InstagramPage {
     console.log(url);
     this.platform.ready().then(() => {
         let browser = new InAppBrowser(url, "_system", "location=true");
-        browser.show();
     });
   }
 
