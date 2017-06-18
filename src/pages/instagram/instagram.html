@@ -9,7 +9,7 @@
     <ion-card-header *ngIf="photo.caption">
       {{photo.caption.text}}
     </ion-card-header>
-    <button ion-button (click)="openpic(photo.link)">
+    <button (click)="openpic(photo.link)">
       <img [src]="photo.images.low_resolution.url" >
     </button>
     <ion-row>
