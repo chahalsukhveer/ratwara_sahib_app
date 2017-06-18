@@ -5,7 +5,40 @@
 </ion-header>
 
 <ion-content center text-center>
-  <ion-card *ngFor="let photo of photos">
+
+  <ion-list [virtualScroll]="photos" approxItemHeight="360px">
+
+    <ion-item *virtualItem="let photo">
+      <h2 *ngIf="photo.caption">
+        {{photo.caption.text}}
+      </h2>
+      <button (click)="openpic(photo.link)">
+        <img [src]="photo.images.low_resolution.url" width="320" height="320" />
+      </button>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+        <ion-icon name="heart" item-left style="color: #d03e84"></ion-icon>
+        <div>{{photo.likes.count}}</div>
+      </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>{{photo.comments.count}} Comments</div>
+      </button>
+        </ion-col>
+        <ion-col center text-center>
+          <button ion-button icon-left clear small>
+          <div>{{photo.created_time * 1000 | date}}</div>
+        </button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+  </ion-list>
+
+  <!--<ion-card *ngFor="let photo of photos">
     <ion-card-header *ngIf="photo.caption">
       {{photo.caption.text}}
     </ion-card-header>
@@ -27,9 +60,9 @@
       </ion-col>
       <ion-col center text-center>
         <button ion-button icon-left clear small>
-        <div>{{photo.created_time * 1000 | date}}</div>
+          <div>{{photo.created_time * 1000 | date}}</div>
         </button>
       </ion-col>
     </ion-row>
-  </ion-card>
+  </ion-card>-->
 </ion-content>

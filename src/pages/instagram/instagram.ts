@@ -13,7 +13,7 @@ import 'rxjs/add/operator/catch';
 })
 export class InstagramPage {
     url: string = 'https://igapi.ga/ratwarasahib/media/?callback=JSONP_CALLBACK';
-    photos: any;
+    photos: any = [];
 
     constructor(public platform: Platform, 
                 private http: Http,
