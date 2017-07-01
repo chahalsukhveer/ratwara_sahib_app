@@ -111,6 +111,9 @@ ionic plugin add phonegap-plugin-push --variable SENDER_ID=xxx --save
 ## pdf android
 -  ionic plugin add cordova-plugin-android-native-pdfviewer
 
+## google analytics
+http://masteringionic.com/blog/2017-03-20-resolving-the-itunes-connect-idfa-warning-when-using-the-cordova-google-analytics-plugin/
+
 ## auth0
 - ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=io.ionic.ratwara.sahib --variable ANDROID_SCHEME=io.ionic.ratwara.sahib --variable ANDROID_HOST=biemond.eu.auth0.com --variable ANDROID_PATHPREFIX=/cordova/io.ionic.ratwara.sahib/callback
 - ionic cordova plugin add cordova-plugin-safariviewcontroller
