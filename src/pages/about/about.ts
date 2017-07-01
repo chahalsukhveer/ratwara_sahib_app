@@ -17,12 +17,10 @@ export class AboutPage {
   }
 
   ionViewDidLoad() {
-    console.log('Hello About Page');
   }
 
   closeMenu() {
     this.menu.close();
-    console.log("Close page event admin page")
     this.navCtrl.push("TabsPage");
   }
 }

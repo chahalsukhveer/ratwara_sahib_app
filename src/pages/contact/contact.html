@@ -1,6 +1,14 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{'CONTACT' | translate}}</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'CONTACT' | translate }}</ion-title>
+    <ion-buttons end>
+      <button ion-button primary (click)="closeMenu()">
+      <ion-icon name="close"></ion-icon>
+    </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -26,6 +34,10 @@
     <ion-item>
       <ion-icon name="logo-youtube" item-left></ion-icon>
       <a href="https://www.youtube.com/user/babalakhbirsingh">Youtube babalakhbirsingh</a>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="logo-instagram" item-left></ion-icon>
+      <a href="https://www.instagram.com/ratwarasahib">Instagram</a>
     </ion-item>
     <ion-item>
       <ion-icon name="logo-whatsapp" item-left></ion-icon>

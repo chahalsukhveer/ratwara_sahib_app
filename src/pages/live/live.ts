@@ -66,7 +66,6 @@ export class LivePage {
                 });
       } else {
         let browser = new InAppBrowser(url, "_system", "location=true");
-        browser.show();
       }
     });
   }

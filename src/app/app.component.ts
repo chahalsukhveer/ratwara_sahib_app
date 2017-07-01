@@ -35,6 +35,7 @@ export class MyApp {
       }).catch(e => console.log('Error starting GoogleAnalytics', e));
       StatusBar.styleDefault();
       translate.setDefaultLang(defaultLanguage);
+
       // This function is part of "Set Up Auth0-Cordova"
       (<any>window).handleOpenURL = (url) => {
         (<any>window).setTimeout(function () {
@@ -56,20 +57,23 @@ export class MyApp {
         } 
     });
 
-    this.push.register().then((t: PushToken) => {
-      return this.push.saveToken(t);
-    }).then((t: PushToken) => {
-      console.log('Token saved:', t.token);
-    });
-
-    this.push.rx.notification()
-      .subscribe((msg) => {
-        alert(msg.title + ': ' + msg.text);
+    if (platform.is('cordova')) {
+      this.push.register().then((t: PushToken) => {
+        return this.push.saveToken(t);
+      }).then((t: PushToken) => {
+        console.log('Token saved:', t.token);
       });
+
+      this.push.rx.notification()
+        .subscribe((msg) => {
+          alert(msg.title + ': ' + msg.text);
+        });
+    }
 
     this.pages = [
       { title: 'ADMIN', component: "AdminPage" },
-      { title: 'ABOUT', component: "AboutPage" },
+      { title: 'CONTACT', component: "ContactPage" },
+      { title: 'ABOUT', component: "AboutPage" }
     ];
   }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, Platform, IonicPage } from 'ionic-angular';
+import { NavController, Platform, IonicPage, MenuController } from 'ionic-angular';
 import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng, GoogleMapsMarkerOptions, GoogleMapsMarker, GoogleAnalytics } from 'ionic-native';
 
 @IonicPage()
@@ -14,7 +14,8 @@ export class ContactPage {
   lat: number = 30.79519;
   lng: number = 76.7267223;
 
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController,
+              public menu: MenuController, 
               public platform: Platform) {
     platform.ready().then(() => {
     });
@@ -22,19 +23,25 @@ export class ContactPage {
 
   ionViewDidEnter() {
     this.platform.ready().then(() => {
-          // Okay, so the platform is ready and our plugins are available.
+        // Okay, so the platform is ready and our plugins are available.
+        if (this.platform.is('cordova')) {
           this.loadMap();
-          GoogleAnalytics.trackView("Contact Page");
-          console.log("Contact Page enter");
+        }
+        GoogleAnalytics.trackView("Contact Page");
+        console.log("Contact Page enter");
     });
   }
 
   ionViewDidLeave() {
-    this.map.remove()
+    if (this.platform.is('cordova')) {
+       this.map.remove()
+    }
   }
   
   ionViewWillLeave() {
-    this.map.remove()
+    if (this.platform.is('cordova')) {
+       this.map.remove()
+    }
   }
 
   loadMap() {
@@ -70,4 +77,10 @@ export class ContactPage {
        });
     });
   }
+
+  closeMenu() {
+    this.menu.close();
+    this.navCtrl.push("TabsPage");
+  }
+
 }
