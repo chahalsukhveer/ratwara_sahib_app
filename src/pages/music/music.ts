@@ -122,24 +122,24 @@ export class MusicPage {
 
   retrieveAwdio(){
     // console.log("my awdio list new", this.awdioDataList);
-    this.http.get(this.awdioUrl).map(res => res.json()).subscribe(data => {
-      this.awdioDataList = data.query.results;
-      for (let item2 of this.awdioDataList.item) {
-        // console.log(item);
-        if (item2.keywords == null) {
-          var key = 'Not Categorized';
-          this.storeEntry(item2.enclosure.url, item2.title, key )
-          this.storeKey(key);
-        }
-        else {
-          var fields = item2.keywords.split(',');
-          for (let key of fields) {
-            this.storeEntry(item2.enclosure.url, item2.title, key.trim() )
-            this.storeKey(key.trim());
-          }
-        }
-      }
-    });      
+    // this.http.get(this.awdioUrl).map(res => res.json()).subscribe(data => {
+    //   this.awdioDataList = data.query.results;
+    //   for (let item2 of this.awdioDataList.item) {
+    //     // console.log(item);
+    //     if (item2.keywords == null) {
+    //       var key = 'Not Categorized';
+    //       this.storeEntry(item2.enclosure.url, item2.title, key )
+    //       this.storeKey(key);
+    //     }
+    //     else {
+    //       var fields = item2.keywords.split(',');
+    //       for (let key of fields) {
+    //         this.storeEntry(item2.enclosure.url, item2.title, key.trim() )
+    //         this.storeKey(key.trim());
+    //       }
+    //     }
+    //   }
+    // });      
   }
 
   retrieveDropBox() {

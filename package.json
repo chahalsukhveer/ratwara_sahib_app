@@ -49,7 +49,7 @@
     "cordova-sqlite-storage": "~2.0.2",
     "es6-shim": "0.35.1",
     "ionic": "3.1.2",
-    "ionic-angular": "3.5.0",
+    "ionic-angular": "3.5.3",
     "ionic-plugin-keyboard": "~2.2.1",
     "ionicons": "3.0.0",
     "ngx-pagination": "^3.0.0",
