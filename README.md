@@ -18,9 +18,11 @@
 
 ## npm
 - npm uninstall -g ionic
-- npm install -g cordova
-- npm install -g ionic
+- npm install -g cordova@latest
+- npm install -g ionic@latest
+- npm i --save-dev --save-exact ionic@latest
 - npm install @ionic/app-scripts@latest --save-dev
+- npm install ionic-angular@latest --save
 - cordova plugin add cordova-sqlite-storage --save
 - ionic info
 - npm info cordova
@@ -117,3 +119,7 @@ http://masteringionic.com/blog/2017-03-20-resolving-the-itunes-connect-idfa-warn
 ## auth0
 - ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=io.ionic.ratwara.sahib --variable ANDROID_SCHEME=io.ionic.ratwara.sahib --variable ANDROID_HOST=biemond.eu.auth0.com --variable ANDROID_PATHPREFIX=/cordova/io.ionic.ratwara.sahib/callback
 - ionic cordova plugin add cordova-plugin-safariviewcontroller
+
+## version
+- ionic cordova plugin add cordova-plugin-app-version
+- npm install @ionic-native/app-version

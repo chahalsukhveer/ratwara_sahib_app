@@ -1,5 +1,8 @@
 {
   "name": "ionic2-ratwara.sahib",
   "app_id": "ad8d2b4e",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }
