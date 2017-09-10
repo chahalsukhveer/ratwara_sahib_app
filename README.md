@@ -20,9 +20,8 @@
 - npm uninstall -g ionic
 - npm install -g cordova@latest
 - npm install -g ionic@latest
-- npm i --save-dev --save-exact ionic@latest
-- npm install @ionic/app-scripts@latest --save-dev
-- npm install ionic-angular@latest --save
+- npm install @ionic/app-scripts@2.1.4 --save-dev
+- npm install ionic-angular@3.6.1 --save
 - cordova plugin add cordova-sqlite-storage --save
 - ionic info
 - npm info cordova
