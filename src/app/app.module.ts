@@ -25,7 +25,8 @@ const cloudSettings: CloudSettings = {
         'sound': true
       },
       'android': {
-        'iconColor': '#343434'
+        "iconColor": "gray",
+        "icon": "icon_notification"
       }
     }
   }

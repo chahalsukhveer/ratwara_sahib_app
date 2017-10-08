@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.ratwara.sahib" version="0.0.34" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="io.ionic.ratwara.sahib" version="0.0.35" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Ratwara Sahib Ji</name>
     <description>Ratwara Sahib Mobile App</description>
     <author email="chahal.sukhveer@gmail" href="http://ratwarasahib.in/">Sukhveer</author>
@@ -84,6 +84,8 @@
         <splash height="1024" src="resources/ios/splash/Default-Portrait~ipad.png" width="768" />
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
+        <icon height="1024" src="resources/ios/icon/icon-1024.png" width="1024" />
+        <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
     <platform name="wp8">
         <icon height="99" src="resources/wp8/icon/ApplicationIcon.png" width="99" />
@@ -111,6 +113,7 @@
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     </feature>
     <icon src="resources/ios/icon/icon-small@3x.png" />
+    <preference name="SplashShowOnlyFirstTime" value="false" />
     <engine name="android" spec="^6.2.3" />
     <engine name="ios" spec="^4.5.1" />
     <plugin name="cordova-plugin-app-version" spec="^0.1.9" />

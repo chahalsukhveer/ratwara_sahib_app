@@ -16,3 +16,4 @@ www/*
 src/app/globals.ts
 .io-config.json
 .sourcemaps
+*.md5
