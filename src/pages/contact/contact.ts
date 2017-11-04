@@ -11,8 +11,8 @@ export class ContactPage {
 
   map: GoogleMap;
 
-  lat: number = 30.79519;
-  lng: number = 76.7267223;
+  lat: number = 30.7933726;
+  lng: number = 76.73437360000003;
 
   constructor(public navCtrl: NavController,
               public menu: MenuController, 
