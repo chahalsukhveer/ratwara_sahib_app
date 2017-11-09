@@ -3,6 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { InstagramPage } from './instagram';
 import { TranslateModule } from '@ngx-translate/core';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { HTTP } from '@ionic-native/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,9 @@ import { HttpModule, JsonpModule } from '@angular/http';
   ],
   exports: [
     InstagramPage
+  ],
+  providers: [
+    HTTP
   ]
 })
 export class InstagramModule {}

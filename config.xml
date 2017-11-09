@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.ratwara.sahib" version="0.0.36" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="io.ionic.ratwara.sahib" version="0.0.37" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Ratwara Sahib Ji</name>
     <description>Ratwara Sahib Mobile App</description>
     <author email="chahal.sukhveer@gmail" href="http://ratwarasahib.in/">Sukhveer</author>
@@ -115,7 +115,7 @@
     <icon src="resources/ios/icon/icon-small@3x.png" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <engine name="android" spec="^6.2.3" />
-    <engine name="ios" spec="^4.5.1" />
+    <plugin name="cordova-plugin-advanced-http" spec="^1.8.1" />
     <plugin name="cordova-plugin-app-version" spec="^0.1.9" />
     <plugin name="cordova-plugin-compat" spec="^1.1.0" />
     <plugin name="cordova-plugin-customurlscheme" spec="^4.3.0">
@@ -144,4 +144,5 @@
     <plugin name="phonegap-plugin-push" spec="^1.10.5">
         <variable name="SENDER_ID" value="169616509593" />
     </plugin>
+    <engine name="ios" spec="~4.5.3" />
 </widget>

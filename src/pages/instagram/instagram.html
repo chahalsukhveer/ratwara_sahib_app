@@ -10,27 +10,27 @@
 
     <ion-item *virtualItem="let photo">
       <h2 *ngIf="photo.caption">
-        {{photo.caption.text}}
+        {{photo.caption}}
       </h2>
-      <button (click)="openpic(photo.link)">
-        <img [src]="photo.images.low_resolution.url" width="320" height="320" />
+      <button (click)="openpic(photo.code)">
+        <img [src]="photo.thumbnail_src" width="320" height="320" />
       </button>
       <ion-row>
         <ion-col>
           <button ion-button icon-left clear small>
-        <ion-icon name="heart" item-left style="color: #d03e84"></ion-icon>
-        <div>{{photo.likes.count}}</div>
-      </button>
+            <ion-icon name="heart" item-left style="color: #d03e84"></ion-icon>
+            <div>{{photo.likes.count}}</div>
+          </button>
         </ion-col>
         <ion-col>
           <button ion-button icon-left clear small>
-        <ion-icon name="text"></ion-icon>
-        <div>{{photo.comments.count}} Comments</div>
-      </button>
+            <ion-icon name="text"></ion-icon>
+            <div>{{photo.comments.count}} Comments</div>
+          </button>
         </ion-col>
         <ion-col center text-center>
           <button ion-button icon-left clear small>
-          <div>{{photo.created_time * 1000 | date}}</div>
+          <div>{{photo.date * 1000 | date}}</div>
         </button>
         </ion-col>
       </ion-row>
