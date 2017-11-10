@@ -38,13 +38,11 @@
 - npm install -g ios-deploy
 
 ## Add platforms
-- ionic platform add android
-- ionic platform add ios
+- ionic cordova platform add android@6.4.0
+- ionic cordova platform add ios
 - ionic plugin add cordova-plugin-inappbrowser
 - ionic plugin add cordova-plugin-google-analytics
 
-### icon android bug
-- cordova platform update android@https://github.com/apache/cordova-android
 
 ## default IOS
 - ionic cordova emulate ios
@@ -94,7 +92,7 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 
 ## Push
 - npm install @ionic/cloud-angular --save
-- ionic io init
+
 
 ###IOS phonegap-plugin-push latest
 ```
@@ -105,6 +103,13 @@ pod install
 npm install -g cocoapods-cli
 ionic plugin add phonegap-plugin-push --variable SENDER_ID=xxx --save
 ```
+
+###Android phonegap-plugin-push latest
+ionic cordova plugin add phonegap-plugin-push@2.1.0
+
+Go to platform->android->project.properties and assign a version number for com.google.android.gms:play-services-base:11.0.1 (I matched it to the firebase-messaging version)
+If you recompile now, it will complain about google-services.json file. You can create and download it from https://developers.google.com/mobile/add?refresh=1. Save that file in the root folder of your ionic project.
+It should recompile now without errors.
 
 ## audio
 - ionic plugin add nl.kingsquare.cordova.background-audio
