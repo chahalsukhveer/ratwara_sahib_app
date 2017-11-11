@@ -1,6 +1,15 @@
 import { Component } from '@angular/core';
 import { NavController, Platform, IonicPage, MenuController } from 'ionic-angular';
-import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng, GoogleMapsMarkerOptions, GoogleMapsMarker, GoogleAnalytics } from 'ionic-native';
+import {
+  GoogleMaps,
+  GoogleMap,
+  GoogleMapsEvent,
+  GoogleMapOptions,
+  CameraPosition,
+  MarkerOptions,
+  Marker
+ } from '@ionic-native/google-maps';
+ import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 @IonicPage()
 @Component({
@@ -16,19 +25,19 @@ export class ContactPage {
 
   constructor(public navCtrl: NavController,
               public menu: MenuController, 
-              public platform: Platform) {
-    platform.ready().then(() => {
-    });
+              public platform: Platform,
+              private ga: GoogleAnalytics,
+              private googleMaps: GoogleMaps) {
   }
 
   ionViewDidEnter() {
     this.platform.ready().then(() => {
         // Okay, so the platform is ready and our plugins are available.
+        this.ga.trackView("Contact Page");
+        console.log("Contact Page enter");
         if (this.platform.is('cordova')) {
           this.loadMap();
         }
-        GoogleAnalytics.trackView("Contact Page");
-        console.log("Contact Page enter");
     });
   }
 
@@ -45,42 +54,49 @@ export class ContactPage {
   }
 
   loadMap() {
-    let location = new GoogleMapsLatLng(this.lat, this.lng);
-
-    this.map = new GoogleMap('map', {
-      backgroundColor: 'white',
-      fullscreenControl: true,
-      zoomControl: true,
-      controls: {
-        compass: true,
-        myLocationButton: true,
-        indoorPicker: true,
-        zoom: true
-      },
-      camera: {
-        latLng: location,
-        tilt: 30,
-        zoom: 14,
-        bearing: 50
-      }
-    });
-
-    let markerOptions: GoogleMapsMarkerOptions = {
-      title: 'Gurdwara Ratwara Sahib Mullanpur',
-      position: location
+    let mapOptions: GoogleMapOptions = {
+        controls: {
+          compass: true,
+          myLocationButton: true,
+          indoorPicker: true,
+          zoom: true
+        },
+        camera: {
+          target: {
+            lat: this.lat,
+            lng: this.lng
+          },
+          tilt: 30,
+          zoom: 14,
+          bearing: 50
+        }
     };
+    
+    this.map = this.googleMaps.create('map', mapOptions);
 
-    this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
+    this.map.one(GoogleMapsEvent.MAP_READY).then(() => {
       console.log('Map is ready!');
-      this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
-        marker.showInfoWindow();
-       });
-    });
+
+      // Now you can use all methods safely.
+      this.map.addMarker({
+        title: 'Gurdwara Ratwara Sahib Mullanpur',
+        icon: 'blue',
+        animation: 'DROP',
+        position: {
+          lat: this.lat,
+          lng: this.lng
+        }
+      }).then(marker => {
+        marker.on(GoogleMapsEvent.MARKER_CLICK)
+          .subscribe(() => {
+            marker.showInfoWindow();
+          });
+      });
+    });        
   }
 
   closeMenu() {
     this.menu.close();
     this.navCtrl.push("TabsPage");
   }
-
 }

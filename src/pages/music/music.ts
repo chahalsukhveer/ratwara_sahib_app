@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, Platform, IonicPage } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
-import { GoogleAnalytics } from 'ionic-native';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 export class AudioKey {
   src: string;
@@ -36,7 +36,8 @@ export class MusicPage {
   constructor(private navCtrl: NavController,
               public http: Http,
               private storage: Storage, 
-              public platform: Platform ) {
+              public platform: Platform,
+              private ga: GoogleAnalytics ) {
 
     platform.ready().then(() => {
     });
@@ -96,9 +97,9 @@ export class MusicPage {
             }
           } else {
             // no refresh time found, just set new time and do refresh 
-            var displayDate = new Date().toISOString().substring(0, 10);
-            console.log('set refresh time '+ displayDate);
-            this.storage.set('audioRefresh',displayDate);
+            var displayDate2 = new Date().toISOString().substring(0, 10);
+            console.log('set refresh time '+ displayDate2);
+            this.storage.set('audioRefresh',displayDate2);
             this.retrieveDropBox();
             this.retrieveAwdio();
           }  
@@ -115,7 +116,7 @@ export class MusicPage {
   ionViewDidEnter() {
     this.platform.ready().then(() => {
           // Okay, so the platform is ready and our plugins are available.
-          GoogleAnalytics.trackView("Music Page");
+          this.ga.trackView("Music Page");
           console.log("Music Page enter");
     });
   }

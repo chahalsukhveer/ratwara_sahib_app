@@ -4,7 +4,8 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { GlobalVariable } from '../../app/globals';
 import { YoutubeServiceLive } from '../../app/providers/youtube-service-live/youtube-service-live';
-import { InAppBrowser, GoogleAnalytics } from 'ionic-native';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 declare var AndroidNativePdfViewer: any;
 
@@ -27,7 +28,9 @@ export class LivePage {
   constructor(public http: Http, 
               public nav: NavController, 
               public ytPlayer: YoutubeServiceLive, 
-              public platform: Platform ) {
+              public platform: Platform,
+              private iab: InAppBrowser,
+              private ga: GoogleAnalytics ) {
     platform.ready().then(() => {
     });
   
@@ -44,7 +47,7 @@ export class LivePage {
   ionViewDidEnter() {
     this.platform.ready().then(() => {
           // Okay, so the platform is ready and our plugins are available.
-          GoogleAnalytics.trackView("Live Page");
+          this.ga.trackView("Live Page");
           console.log("Live Page enter");
     });
   }
@@ -65,7 +68,7 @@ export class LivePage {
                   console.log("It didn't work!")
                 });
       } else {
-        let browser = new InAppBrowser(url, "_system", "location=true");
+        let browser = this.iab.create(url, "_system", "location=true");
       }
     });
   }

@@ -2,7 +2,8 @@ import { IonicPage, Platform } from 'ionic-angular';
 import { Component } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { Http, Jsonp } from '@angular/http';
-import { InAppBrowser, GoogleAnalytics } from 'ionic-native';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import { HTTP } from '@ionic-native/http';
@@ -21,7 +22,9 @@ export class InstagramPage {
     constructor(public platform: Platform, 
                 private http: Http,
                 private httpPlugin: HTTP,
-                private jsonp: Jsonp) {
+                private jsonp: Jsonp,
+                private iab: InAppBrowser,
+                private ga: GoogleAnalytics) {
         platform.ready().then(() => {
             this.refreshData2();
         });
@@ -30,7 +33,7 @@ export class InstagramPage {
     ionViewDidEnter() {
        this.platform.ready().then(() => {
          // Okay, so the platform is ready and our plugins are available.
-         GoogleAnalytics.trackView("Instagram Page");
+         this.ga.trackView("Instagram Page");
          console.log("Instagram Page enter");
        });
     }
@@ -54,7 +57,7 @@ export class InstagramPage {
     openpic(code): void {
         console.log(code);
         this.platform.ready().then(() => {
-            let browser = new InAppBrowser("https://www.instagram.com/p/" + code, "_system", "location=true");
+            let browser = this.iab.create("https://www.instagram.com/p/" + code, "_system", "location=true");
         });
     }
 

@@ -5,7 +5,8 @@ import 'rxjs/add/operator/map';
 import { YoutubeService } from '../../app/providers/youtube-service/youtube-service';
 import { GlobalVariable } from '../../app/globals';
 import { Storage } from '@ionic/storage';
-import { GoogleAnalytics } from 'ionic-native';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
+
 
 @IonicPage()
 @Component({
@@ -26,7 +27,8 @@ export class VideosPage {
               public nav: NavController,
               public ytPlayer: YoutubeService,
               private storage: Storage,
-              public platform: Platform ) {
+              public platform: Platform ,
+              private ga: GoogleAnalytics ) {
 
     platform.ready().then(() => {
     });
@@ -54,7 +56,7 @@ export class VideosPage {
   ionViewDidEnter() {
     this.platform.ready().then(() => {
           // Okay, so the platform is ready and our plugins are available.
-          GoogleAnalytics.trackView("Videos Page");
+          this.ga.trackView("Videos Page");
           console.log("Videos Page enter");
     });
   }

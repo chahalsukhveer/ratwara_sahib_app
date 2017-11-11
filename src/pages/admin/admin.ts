@@ -12,8 +12,8 @@ import { Platform } from 'ionic-angular';
 })
 
 export class AdminPage {
-  url: string = 'https://api.ionic.io/push/notifications?page_size=5&page=1';
-  urlPush: string = 'https://api.ionic.io/push/notifications?send_to_all=true';
+  url: string = 'https://onesignal.com/api/v1/notifications?app_id=300a91d7-fd7d-4325-b98c-d63e1aadb6c6&limit=5';
+  urlPush: string = 'https://onesignal.com/api/v1/notifications';
   notifications: any = [];
   title: string = '';
   message: string = '';
@@ -23,7 +23,7 @@ export class AdminPage {
               public http: Http,
               platform: Platform ) {
     platform.ready().then(() => {
-
+      this.listNotifications();
     });
   }
 
@@ -39,34 +39,37 @@ export class AdminPage {
 
   listNotifications() {
     console.log("Notifications here");
-    var token = GlobalVariable.PUSH_TOKEN;
+    var token = GlobalVariable.ONE_SIGNAL;
     let headers = new Headers({ 'Accept': 'application/json' });
-    headers.append('Authorization', `Bearer ${token}`);
+    headers.append('Authorization', `Basic ${token}`);
     let options = new RequestOptions({ headers: headers });
     this.http.get(this.url, options).map(res => res.json()).subscribe(data => {
-      console.log("Notifications::  ", data.data);
-      this.notifications = data.data;
+      console.log("Notifications::  ", data);
+      this.notifications = data;
     });
   }
+
   sendNotifications() {
     console.log(this.title);
     console.log(this.message);
-    let notify = JSON.stringify({
-      "profile": "prod",
-      "notification": {
-        title: this.title, message: this.message
-      }
+    var token = GlobalVariable.ONE_SIGNAL;
+    let notify = JSON.stringify(
+    { 
+      "app_id": "300a91d7-fd7d-4325-b98c-d63e1aadb6c6",
+      "headings": {"en": this.title},
+      "contents": {"en": this.message},
+      "included_segments": ["All"]
     });
-    var token = GlobalVariable.PUSH_TOKEN;
+    
     let headers = new Headers({ 'Accept': 'application/json' });
     headers.append("Content-Type", 'application/json');
-    headers.append('Authorization', `Bearer ${token}`);
+    headers.append('Authorization', `Basic ${token}`);
     let options = new RequestOptions({ headers: headers });
     this.http.post(this.urlPush, notify, options).subscribe(
       data => {
         console.log('After push ', data);
         this.title='';
-         this.message='';
+        this.message='';
       },
       err => (err.json().message),
       () => {

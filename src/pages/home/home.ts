@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, Platform, IonicPage } from 'ionic-angular';
-import { GoogleAnalytics } from 'ionic-native';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 export class ImageKey {
   img: string;
   text: string;
-  constructor(_img: string, _text: string) {
+  constructor(_img: string, _text: string ) {
      this.img = _img;
      this.text = _text;
   }
@@ -18,13 +18,14 @@ export class ImageKey {
 })
 export class HomePage {
   constructor(private navCtrl: NavController, 
-              public platform: Platform) {
+              public platform: Platform,
+              private ga: GoogleAnalytics ) {
   }
 
   ionViewDidEnter() {
     this.platform.ready().then(() => {
           // Okay, so the platform is ready and our plugins are available.
-          GoogleAnalytics.trackView("Home Page");
+          this.ga.trackView("Home Page");
           console.log("Home Page enter");
     });
   }

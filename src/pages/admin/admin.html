@@ -47,12 +47,12 @@
       <ion-col><b>Tile</b></ion-col>
       <ion-col width-60><b>Message</b></ion-col>
     </ion-row>
-    <div *ngFor="let noti of notifications">
+    <div *ngFor="let noti of notifications.notifications">
 
       <ion-row class="header">
-        <ion-col>{{noti.created | date:'medium'}}</ion-col>
-        <ion-col>{{noti.config.notification.title}}</ion-col>
-        <ion-col width-60> {{noti.config.notification.message}}</ion-col>
+        <ion-col>{{noti.send_after * 1000 | date}}</ion-col>
+        <ion-col>{{noti.headings.en}}</ion-col>
+        <ion-col width-60> {{noti.contents.en}}</ion-col>
       </ion-row>
 
     </div>

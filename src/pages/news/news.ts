@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
-import { GoogleAnalytics } from 'ionic-native';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 @IonicPage()
 @Component({
@@ -18,7 +18,8 @@ export class NewsPage {
     constructor(public navCtrl: NavController,
                 private http: Http,
                 private storage: Storage, 
-                public platform: Platform ) {
+                public platform: Platform ,
+                private ga: GoogleAnalytics ) {
 
         platform.ready().then(() => {
         });
@@ -45,7 +46,7 @@ export class NewsPage {
     ionViewDidEnter() {
        this.platform.ready().then(() => {
          // Okay, so the platform is ready and our plugins are available.
-         GoogleAnalytics.trackView("News Page");
+         this.ga.trackView("News Page");
          console.log("News Page enter");
        });
     }

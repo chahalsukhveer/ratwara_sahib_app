@@ -111,6 +111,11 @@ Go to platform->android->project.properties and assign a version number for com.
 If you recompile now, it will complain about google-services.json file. You can create and download it from https://developers.google.com/mobile/add?refresh=1. Save that file in the root folder of your ionic project.
 It should recompile now without errors.
 
+##one-sginal
+- ionic cordova plugin add onesignal-cordova-plugin --save
+- npm install --save @ionic-native/onesignal
+
+
 ## audio
 - ionic plugin add nl.kingsquare.cordova.background-audio
 
