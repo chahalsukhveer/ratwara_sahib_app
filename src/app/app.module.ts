@@ -1,7 +1,6 @@
 
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { AgmCoreModule } from 'angular2-google-maps/core';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { Http, HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
@@ -29,7 +28,6 @@ export function customTranslateLoader(http: Http) {
     IonicModule.forRoot(MyApp, {
         preloadModules: true
       }),
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyBzH2CivhtNDuhHBQfQCNihnQVqlfaeW9o' }),
     IonicStorageModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
