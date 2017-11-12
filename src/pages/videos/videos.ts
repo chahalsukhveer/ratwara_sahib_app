@@ -71,7 +71,7 @@ export class VideosPage {
 
   fetchData(): void {
     let url = 'https://www.googleapis.com/youtube/v3/search?part=id,snippet&channelId=' + this.channelID +
-      '&type=video&order=date&maxResults=' + this.maxResults + '&key=' + this.googleToken + '&eventType=' + this.eventType + '&safeSearch=strict';
+      '&type=video&order=date&maxResults=' + this.maxResults + '&key=' + this.googleToken + '&safeSearch=strict';
 
     if (this.pageToken) {
       url += '&pageToken=' + this.pageToken;
