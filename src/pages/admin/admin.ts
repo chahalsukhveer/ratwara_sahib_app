@@ -58,7 +58,9 @@ export class AdminPage {
       "app_id": "300a91d7-fd7d-4325-b98c-d63e1aadb6c6",
       "headings": {"en": this.title},
       "contents": {"en": this.message},
-      "included_segments": ["All"]
+      "included_segments": ["All"],
+      "large_icon": "icon_notification",
+      "android_accent_color": "ffa500"
     });
     
     let headers = new Headers({ 'Accept': 'application/json' });

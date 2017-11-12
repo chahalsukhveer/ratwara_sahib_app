@@ -65,8 +65,8 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 
 ##Publish android
 - ionic cordova build android --prod --release
-- jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/android-release-unsigned.apk suk_keye
-- C:\Users\chaha\AppData\Local\Android\sdk\build-tools\24.0.1\zipalign -v 4 c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/android-release-unsigned.apk c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/ratwara_sahib_app-release.apk
+- jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/release/android-release-unsigned.apk suk_keye
+- C:\Users\chaha\AppData\Local\Android\sdk\build-tools\27.0.1\zipalign -v 4 c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/release/android-release-unsigned.apk c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/release/ratwara_sahib_app-release.apk
 
 ##Publish IOS
 - rvm use system
