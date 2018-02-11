@@ -101,15 +101,7 @@ pod setup
 cd platforms/ios
 pod install
 npm install -g cocoapods-cli
-ionic plugin add phonegap-plugin-push --variable SENDER_ID=xxx --save
 ```
-
-###Android phonegap-plugin-push latest
-ionic cordova plugin add phonegap-plugin-push@2.1.0
-
-Go to platform->android->project.properties and assign a version number for com.google.android.gms:play-services-base:11.0.1 (I matched it to the firebase-messaging version)
-If you recompile now, it will complain about google-services.json file. You can create and download it from https://developers.google.com/mobile/add?refresh=1. Save that file in the root folder of your ionic project.
-It should recompile now without errors.
 
 ##one-sginal
 - ionic cordova plugin add onesignal-cordova-plugin --save
