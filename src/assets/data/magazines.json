@@ -4,6 +4,16 @@
             "label": "2018",
             "editions": [
                 {
+                    "link": "http://www.ratwarasahib.com/Atammargmagazine/2018/06%20June%202018.pdf",
+                    "description": "June",
+                    "img": "http://www.ratwarasahib.com/AtamMargMagazine/2018/Image/06%20June%202018.jpg"
+                },
+                {
+                    "link": "http://www.ratwarasahib.com/Atammargmagazine/2018/05%20May%202018.pdf",
+                    "description": "May",
+                    "img": "http://www.ratwarasahib.com/AtamMargMagazine/2018/Image/05%20May%202018.jpg"
+                },
+                {
                     "link": "http://www.ratwarasahib.com/Atammargmagazine/2018/04%20April%202018.pdf",
                     "description": "April",
                     "img": "http://www.ratwarasahib.com/AtamMargMagazine/2018/Image/04%20April%202018.jpg"

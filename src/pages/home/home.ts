@@ -55,15 +55,15 @@ export class HomePage {
       text: "HOME_TEXT_4",
       text_en: "Started publishing monthly magazine ATAM MARG in 1995"
     },
-    { img: "assets/images/pic11.jpeg", 
+    { img: "assets/images/pic7.jpg", 
     text: "HOME_TEXT_2",
     text_en: "The Samparada is linked with Bhai Sahib Bhai Daya Singh Ji, Leading Piara of the Five, selected by Guru Gobind Singh Ji."
    },
-    { img: "assets/images/pic8.jpeg", 
+    { img: "assets/images/pic8.jpg", 
       text: "HOME_TEXT_5",
       text_en: "published books and produced videos"
     },
-    { img: "assets/images/pic9.jpeg", 
+    { img: "assets/images/pic9.jpg", 
       text: "HOME_TEXT_3",
       text_en: "Sant Maharaj Ji founded Gurmat Parchar Centre, Gurudwara Isher Parkash at Ratwara Sahib in 1986 for spreading Gurmat (Sikh Teachings) in India and abroad"
     }
