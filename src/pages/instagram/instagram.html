@@ -10,10 +10,10 @@
 
     <ion-item *virtualItem="let photo">
       <h2 *ngIf="photo.caption">
-        {{photo.caption}}
+        {{photo.caption.text}}
       </h2>
-      <button (click)="openpic(photo.code)">
-        <img [src]="photo.thumbnail_src" width="320" height="320" />
+      <button (click)="openpic(photo.link)">
+        <img [src]="photo.images.low_resolution.url" width="320" height="320" />
       </button>
       <ion-row>
         <ion-col>
@@ -30,7 +30,7 @@
         </ion-col>
         <ion-col center text-center>
           <button ion-button icon-left clear small>
-          <div>{{photo.date * 1000 | date}}</div>
+          <div>{{photo.created_time * 1000 | date}}</div>
         </button>
         </ion-col>
       </ion-row>

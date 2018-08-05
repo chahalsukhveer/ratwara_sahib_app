@@ -90,9 +90,6 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 ## maps
 - ionic plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="" --variable API_KEY_FOR_IOS=""
 
-## Push
-- npm install @ionic/cloud-angular --save
-
 
 ###IOS phonegap-plugin-push latest
 ```
@@ -124,3 +121,7 @@ http://masteringionic.com/blog/2017-03-20-resolving-the-itunes-connect-idfa-warn
 ## version
 - ionic cordova plugin add cordova-plugin-app-version
 - npm install @ionic-native/app-version
+
+
+## instagram
+http://www.ucodice.com/articles/how-to-display-instagram-uploaded-images-on-website/

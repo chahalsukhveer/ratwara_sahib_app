@@ -1,12 +1,10 @@
 import { IonicPage, Platform } from 'ionic-angular';
 import { Component } from '@angular/core';
 import 'rxjs/add/operator/map';
-import { Http, Jsonp } from '@angular/http';
+import { Http } from '@angular/http';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { Observable } from 'rxjs/Rx';
-import 'rxjs/add/operator/catch';
-import { HTTP } from '@ionic-native/http';
+import { GlobalVariable } from '../../app/globals';
 
 @IonicPage()
 @Component({
@@ -14,15 +12,12 @@ import { HTTP } from '@ionic-native/http';
     templateUrl: 'instagram.html'
 })
 export class InstagramPage {
-    // url: string = 'https://igpi.ga/ratwarasahib/media/?callback=JSONP_CALLBACK';
-    url2: string = 'https://igpi.ga/ratwarasahib/?__a=1';
+    url: string = 'https://api.instagram.com/v1/users/self/media/recent/?access_token='+GlobalVariable.INSTAGRAM;
     
     photos: any = [];
 
     constructor(public platform: Platform, 
                 private http: Http,
-                private httpPlugin: HTTP,
-                private jsonp: Jsonp,
                 private iab: InAppBrowser,
                 private ga: GoogleAnalytics) {
         platform.ready().then(() => {
@@ -39,25 +34,17 @@ export class InstagramPage {
     }
 
     refreshData2(){
-        this.httpPlugin.get(this.url2, {}, { "Referer": "https://github.com/whizzzkid/instagram-reverse-proxy/issues/15"})
-        .then(data => {
-          console.log(data.status);
-          var jsonData = JSON.parse(data.data);
-          this.photos = jsonData.user.media.nodes
-        })
-        .catch(error => {
-      
-          console.log(error.status);
-          console.log(error.error); // error message as string
-          console.log(error.headers);
-      
-        });
+            this.http.get(this.url)
+              .map(res => res.json())
+              .subscribe(data => {
+                  this.photos = data.data;
+              });
     }
 
-    openpic(code): void {
-        console.log(code);
+    openpic(link): void {
+        console.log(link);
         this.platform.ready().then(() => {
-            let browser = this.iab.create("https://www.instagram.com/p/" + code, "_system", "location=true");
+            let browser = this.iab.create(link, "_system", "location=true");
         });
     }
 
