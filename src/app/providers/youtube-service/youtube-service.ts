@@ -21,6 +21,8 @@ export class YoutubeService {
   }
 
   window: any;
+  done: boolean;
+  
 
   constructor( private winRef: WindowRef) {
     var tag = document.createElement('script');
@@ -63,7 +65,11 @@ export class YoutubeService {
   onPlayerReady(): void {
     console.log("player ready evt");
   }
+  stopVideo(): void {
+    console.log("Call function to stop video");
+    this.youtube.player.stopVideo();
 
+  }
   setupPlayer() {
     // in production mode, the youtube iframe api script tag is loaded
     // before the bundle.js, so the 'onYouTubeIfarmeAPIReady' has

@@ -131,13 +131,9 @@ export class VideosPage {
     console.log("TODO: Implement loadMore()");
   }
 
-  stopVideo(): void {
-    console.log("Call function to stop video");
-
-  }
-
   ionViewWillLeave() {
     console.log("leaving now video");
     this.ytPlayer.pausePlayer();
+    setTimeout(this.ytPlayer.stopVideo(), 6000);
   }
 }
