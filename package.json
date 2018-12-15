@@ -18,7 +18,7 @@
     "@angular/http": "4.4.4",
     "@angular/platform-browser": "4.4.4",
     "@angular/platform-browser-dynamic": "4.4.4",
-    "@auth0/cordova": "^0.1.0",
+    "@auth0/cordova": "^0.3.0",
     "@ionic-native/app-version": "4.3.3",
     "@ionic-native/core": "4.3.3",
     "@ionic-native/google-analytics": "4.3.3",
@@ -45,7 +45,6 @@
     "cordova-plugin-file": "^5.0.0",
     "cordova-plugin-google-analytics": "^1.7.11",
     "cordova-plugin-googlemaps": "^2.1.1",
-    "cordova-plugin-googlemaps-sdk": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps-sdk.git",
     "cordova-plugin-safariviewcontroller": "^1.4.7",
     "cordova-plugin-splashscreen": "^4.1.0",
     "cordova-plugin-statusbar": "^2.4.2",
@@ -62,8 +61,8 @@
     "zone.js": "^0.8.18"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "3.1.0",
-    "ionic": "4.0.3",
+    "@ionic/app-scripts": "^3.2.1",
+    "ionic": "^4.5.0",
     "typescript": "2.3.4"
   },
   "cordova": {
