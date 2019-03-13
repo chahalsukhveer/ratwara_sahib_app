@@ -32,6 +32,7 @@
     "@ionic/storage": "2.0.1",
     "@ngx-translate/core": "^6.0.1",
     "@ngx-translate/http-loader": "0.0.3",
+    "android-versions": "^1.4.0",
     "angular2-jwt": "0.2.3",
     "auth0-js": "^8.11.3",
     "cordova-android": "6.4.0",
@@ -60,10 +61,13 @@
     "nl.kingsquare.cordova.background-audio": "^1.0.1",
     "rxjs": "^5.4.3",
     "sw-toolbox": "3.6.0",
-    "zone.js": "^0.8.18"
+    "version": "^0.1.2",
+    "zone.js": "^0.8.18",
+    "onesignal-cordova-plugin": "^2.2.2",
+    "cordova-plugin-inappbrowser": "^3.0.0"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "^3.2.0",
+    "@ionic/app-scripts": "3.2.3",
     "ionic": "4.0.3",
     "typescript": "2.3.4"
   },
