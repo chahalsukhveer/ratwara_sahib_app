@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, Platform, IonicPage } from 'ionic-angular';
+import { NavController, Platform, IonicPage, LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { YoutubeService } from '../../app/providers/youtube-service/youtube-service';
 import { GlobalVariable } from '../../app/globals';
 import { Storage } from '@ionic/storage';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
 
 @IonicPage()
@@ -22,36 +23,43 @@ export class VideosPage {
   onPlaying: boolean = false;
   eventType: string = 'completed';
   videoSyndicated: boolean = true;
-
+  loader: any;
+  no_result:boolean;
   constructor(public http: Http,
               public nav: NavController,
-              public ytPlayer: YoutubeService,
+              public loading: LoadingController,
+              public youtube: YoutubeVideoPlayer,
               private storage: Storage,
               public platform: Platform ,
               private ga: GoogleAnalytics ) {
 
     platform.ready().then(() => {
     });
-
-    console.log("constructor for youtube videos.ts");
-    this.storage.ready().then(() => {
-        var video_items = this.storage.get('videoList');
-        if (video_items) {
-            video_items.then((val) => {
-                if (val != null) {
-                    console.log('retrieved from cache');
-                    console.log(val);
-                    this.posts = val;
-                    this.loadSettings();
-                } else {
-                    this.loadSettings();
-                }
-            });
-        } else {
-            this.loadSettings();
-        }
+    this.loader = this.loading.create({
+       // content: 'retrieving videos'
     });
-  }
+    this.loader.present().then(() => {
+      this.loadSettings();
+    });
+    console.log("constructor for youtube videos.ts");
+    // this.storage.ready().then(() => {
+    //     var video_items = this.storage.get('videoList');
+    //     if (video_items) {
+    //         video_items.then((val) => {
+    //             if (val != null) {
+    //                 console.log('retrieved from cache');
+    //                 console.log(val);
+    //                 this.posts = val;
+    //                 this.loadSettings();
+    //             } else {
+    //                 this.loadSettings();
+    //             }
+    //         });
+    //     } else {
+    //         this.loadSettings();
+    //     }
+    // });
+  } 
 
   ionViewDidEnter() {
     this.platform.ready().then(() => {
@@ -61,9 +69,9 @@ export class VideosPage {
     });
   }
 
-  launchYTPlayer(id, title): void {
-    this.ytPlayer.launchPlayer(id, title);
-  }
+  // launchYTPlayer(id, title): void {
+  //   this.ytPlayer.launchPlayer(id, title);
+  // }
 
   loadSettings(): void {
     this.fetchData();
@@ -81,8 +89,16 @@ export class VideosPage {
       // console.log(data.items);
       this.posts = data.items;
       console.log('set new cache');
-      this.storage.set('videoList', this.posts);
-    });
+      //this.storage.set('videoList', this.posts);
+    },
+    (error =>{
+      this.no_result = true;
+      this.loader.dismiss();
+    }),
+    () => {
+      this.loader.dismiss();
+    }
+  );
   }
 
   searchVideos(searchTerm): void {
@@ -124,16 +140,16 @@ export class VideosPage {
   playVideo(e, post): void {
     console.log(post);
     this.onPlaying = true;
-    this.ytPlayer.launchPlayer(post.id, post.snippet.title);
+    this.youtube.openVideo(post.id);
   }
 
   loadMore(): void {
     console.log("TODO: Implement loadMore()");
   }
 
-  ionViewWillLeave() {
-    console.log("leaving now video");
-    this.ytPlayer.pausePlayer();
-    setTimeout(this.ytPlayer.stopVideo(), 6000);
-  }
+  // ionViewWillLeave() {
+  //   console.log("leaving now video");
+  //   this.ytPlayer.pausePlayer();
+  //   setTimeout(this.ytPlayer.stopVideo(), 6000);
+  // }
 }

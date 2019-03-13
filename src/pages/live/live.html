@@ -10,7 +10,7 @@
 
 <ion-content>
 
-  <ion-refresher (ionRefresh)="doRefresh($event)">
+ <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-dropdown" [pullingText]="'PULL' | translate" refreshingSpinner="circles" [refreshingText]="'REFRESH' | translate">
     </ion-refresher-content>
   </ion-refresher>
@@ -27,7 +27,7 @@
         <h4>{{'LIVE_WAIT' | translate }}</h4>
       </div>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
   <div>
     <ion-list *ngFor="let mag of issuesCloud">
       <ion-list-header>

@@ -41,7 +41,7 @@ export class LivePage {
       console.log("my list ", this.issuesCloud);
     });
 
-    this.loadSettings();
+   // this.loadSettings();
   }
 
   ionViewDidEnter() {
