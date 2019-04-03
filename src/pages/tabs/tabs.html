@@ -2,8 +2,13 @@
   <ion-tab [root]="home" [tabTitle]="'HOME' | translate" tabIcon="home"></ion-tab>
   <!-- <ion-tab [root]="news" [tabTitle]="'NEWS' | translate" tabIcon="logo-wordpress"></ion-tab> -->
   <ion-tab [root]="instagram" [tabTitle]="'INSTAGRAM' | translate" tabIcon="logo-instagram"></ion-tab>
-  <!--<ion-tab [root]="videos" [tabTitle]="'VIDEOS' | translate" tabIcon="ios-film"></ion-tab> -->
-  <ion-tab [root]="live" [tabTitle]="'MAGAZINE' | translate" tabIcon="ios-videocam"></ion-tab>
+  <!-- <div *ngIf="showVideos"> -->
+    <ion-tab [root]="videos" [tabTitle]="'VIDEOS' | translate" tabIcon="ios-film"></ion-tab>
+    <ion-tab [root]="live" [tabTitle]="'LIVE/MAGAZINE' | translate" tabIcon="ios-videocam"></ion-tab>
+  <!-- </div>
+  <div *ngIf="!showVideos">
+      <ion-tab [root]="live" [tabTitle]="'MAGAZINE' | translate" tabIcon="ios-videocam"></ion-tab>
+    </div> -->
   <!--<ion-tab [root]="contact" [tabTitle]="'CONTACT' | translate" tabIcon="contacts" ></ion-tab>-->
   <ion-tab [root]="music" [tabTitle]="'AUDIO' | translate" tabIcon="musical-notes"></ion-tab>
 </ion-tabs>

@@ -18,13 +18,19 @@ export class TabsPage {
   contact: any = "ContactPage";
   music: any = "MusicPage";
   instagram: any = "InstagramPage";
+  showVideos: boolean = true;
 
-  constructor( platform: Platform,
+  constructor( public platform: Platform,
                private nav: NavController,
                private translate: TranslateService,
                private storage: Storage ){
     platform.ready().then(() => {
         translate.setDefaultLang(defaultLanguage);
+        if (platform.is("android")) {
+           this.showVideos = false;
+        } else {
+           this.showVideos = true;
+        }
     });
     storage.ready().then(() => {
         var locale_item = storage.get('locale');

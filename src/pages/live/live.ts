@@ -41,7 +41,9 @@ export class LivePage {
       console.log("my list ", this.issuesCloud);
     });
 
-   // this.loadSettings();
+    if ( !this.platform.is('android') ) {  
+      this.loadSettings();
+    }
   }
 
   ionViewDidEnter() {

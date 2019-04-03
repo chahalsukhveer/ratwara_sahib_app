@@ -24,6 +24,21 @@
             "label": "2018",
             "editions": [
                 {
+                    "link": "http://roohaniupdesh.com/Content/Data/Atammarg/Dec2018Atammarg.pdff",
+                    "description": "December",
+                    "img": "http://roohaniupdesh.com/Content/Data/Atammarg/Dec2018Atammarg.jpg"
+                },
+                {
+                    "link": "http://roohaniupdesh.com/Content/Data/Atammarg/Nov2018Atammarg.pdf",
+                    "description": "November",
+                    "img": "http://roohaniupdesh.com/Content/Data/Atammarg/Nov2018Atammarg.jpg"
+                },
+                {
+                    "link": "http://roohaniupdesh.com/Content/Data/Atammarg/Oct2018Atammarg.pdf",
+                    "description": "October",
+                    "img": "http://roohaniupdesh.com/Content/Data/Atammarg/Oct2018Atammarg.jpg"
+                },
+                {
                     "link": "http://www.ratwarasahib.com/Atammargmagazine/2018/09%20September%202018.pdf",
                     "description": "September",
                     "img": "http://www.ratwarasahib.com/AtamMargMagazine/2018/Image/09%20September%202018.jpg"

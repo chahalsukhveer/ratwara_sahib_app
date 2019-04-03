@@ -1,33 +1,33 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{'LIVE' | translate}}
-      <!--Live
-      <div>{{title}}</div>-->
+    <ion-title>
+           {{'LIVE' | translate}}
     </ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content>
+  <div *ngIf="!platform.is('android')">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" [pullingText]="'PULL' | translate" refreshingSpinner="circles" [refreshingText]="'REFRESH' | translate">
+        </ion-refresher-content>
+    </ion-refresher>
 
- <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingIcon="arrow-dropdown" [pullingText]="'PULL' | translate" refreshingSpinner="circles" [refreshingText]="'REFRESH' | translate">
-    </ion-refresher-content>
-  </ion-refresher>
+    <ion-list>
+        <ion-item-divider>{{'LIVE_VIDEO' | translate}}</ion-item-divider>
 
-  <ion-list>
-    <ion-item-divider>{{'LIVE_VIDEO' | translate}}</ion-item-divider>
-
-    <ion-item>
-      <div id="playerlive" class="embed-responsive embed-responsive-16by9">
-        <div id="placeholderlive" style="width: 100%;  max-width: 480px; max-height: 360px" class="embed-responsive-item"></div>
-        <div *ngIf="!onPlayingLive" class="embed-responsive-item" style="width: 100%; z-index: 90; background-color: black; background-image: url(assets/images/liveRS.png); "></div>
-      </div>
-      <div *ngIf="!onPlayingLive">
-        <h4>{{'LIVE_WAIT' | translate }}</h4>
-      </div>
-    </ion-item>
-  </ion-list> -->
+        <ion-item>
+          <div id="playerlive" class="embed-responsive embed-responsive-16by9">
+            <div id="placeholderlive" style="width: 100%;  max-width: 480px; max-height: 360px" class="embed-responsive-item"></div>
+            <div *ngIf="!onPlayingLive" class="embed-responsive-item" style="width: 100%; z-index: 90; background-color: black; background-image: url(assets/images/liveRS.png); "></div>
+          </div>
+          <div *ngIf="!onPlayingLive">
+            <h4>{{'LIVE_WAIT' | translate }}</h4>
+          </div>
+        </ion-item>
+    </ion-list>
+  </div> 
   <div>
     <ion-list *ngFor="let mag of issuesCloud">
       <ion-list-header>
