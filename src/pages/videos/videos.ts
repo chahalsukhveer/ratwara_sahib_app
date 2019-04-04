@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, Platform, IonicPage, LoadingController } from 'ionic-angular';
+import { NavController, Platform, IonicPage } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { YoutubeService } from '../../app/providers/youtube-service/youtube-service';

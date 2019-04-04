@@ -5,7 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { defaultLanguage } from './i18n.constants';
 import { Storage } from '@ionic/storage';
-import * as Auth0Cordova from '@auth0/cordova';
+import Auth0Cordova from '@auth0/cordova';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 @Component({
@@ -53,12 +53,17 @@ export class MyApp {
       statusBar.styleDefault();
       translate.setDefaultLang(defaultLanguage);
 
-      // This function is part of "Set Up Auth0-Cordova"
-      (<any>window).handleOpenURL = (url) => {
-        (<any>window).setTimeout(function () {
-          Auth0Cordova.onRedirectUri(url);
-        }, 100);
-      };
+
+      // Redirect back to app after authenticating
+      (window as any).handleOpenURL = (url: string) => {
+        Auth0Cordova.onRedirectUri(url);
+      }      
+      // // This function is part of "Set Up Auth0-Cordova"
+      // (<any>window).handleOpenURL = (url) => {
+      //   (<any>window).setTimeout(function () {
+      //     Auth0Cordova.onRedirectUri(url);
+      //   }, 100);
+      // };
     });
 
     storage.ready().then(() => {

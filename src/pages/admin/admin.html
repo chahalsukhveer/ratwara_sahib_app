@@ -14,11 +14,11 @@
 
 <ion-content padding>
 
-  <div *ngIf="!auth.isAuthenticated()">
+  <div *ngIf="!auth.loggedIn">
     <button ion-button block (click)="auth.login()">{{ 'LOGIN' | translate }}</button>
   </div>
 
-  <div *ngIf="auth.isAuthenticated()">
+  <div *ngIf="auth.loggedIn">
     <ion-card>
 
       <ion-item *ngIf="auth.user">
