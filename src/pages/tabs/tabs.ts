@@ -18,7 +18,7 @@ export class TabsPage {
   contact: any = "ContactPage";
   music: any = "MusicPage";
   instagram: any = "InstagramPage";
-  showVideos: boolean = true;
+  showLiveVideos: boolean = true;
 
   constructor( public platform: Platform,
                private nav: NavController,
@@ -27,9 +27,9 @@ export class TabsPage {
     platform.ready().then(() => {
         translate.setDefaultLang(defaultLanguage);
         if (platform.is("android")) {
-           this.showVideos = false;
+           this.showLiveVideos = true;
         } else {
-           this.showVideos = true;
+           this.showLiveVideos = true;
         }
     });
     storage.ready().then(() => {

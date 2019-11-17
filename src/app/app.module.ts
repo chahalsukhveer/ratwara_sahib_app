@@ -14,8 +14,9 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { StatusBar } from '@ionic-native/status-bar';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import {HttpClientModule, HttpClient } from '@angular/common/http';
 
-export function customTranslateLoader(http: Http) {
+export function customTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 
@@ -26,6 +27,7 @@ export function customTranslateLoader(http: Http) {
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp, {
         preloadModules: true
       }),
@@ -34,7 +36,7 @@ export function customTranslateLoader(http: Http) {
       loader: {
         provide: TranslateLoader,
           useFactory: customTranslateLoader,
-          deps: [Http]
+          deps: [HttpClient]
         }
       }
     ),
@@ -46,8 +48,6 @@ export function customTranslateLoader(http: Http) {
   providers: [
       WindowRef,
       { provide: ErrorHandler, useClass: IonicErrorHandler },
-      YoutubeService,
-      YoutubeServiceLive,
       YoutubeVideoPlayer,
       GoogleAnalytics,
       InAppBrowser,

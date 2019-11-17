@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, Platform, IonicPage } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { YoutubeService } from '../../app/providers/youtube-service/youtube-service';
 import { GlobalVariable } from '../../app/globals';
 import { Storage } from '@ionic/storage';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-// import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
 
 @IonicPage()
@@ -27,7 +26,7 @@ export class VideosPage {
   no_result:boolean;
   constructor(public http: Http,
               public nav: NavController,
-              public ytPlayer: YoutubeService,
+              public ytPlayer: YoutubeVideoPlayer,
               private storage: Storage,
               public platform: Platform ,
               private ga: GoogleAnalytics ) {
@@ -36,7 +35,7 @@ export class VideosPage {
     });
 
     console.log("constructor for youtube videos.ts");
-    if (!platform.is("android")) {
+   // if (!platform.is("android")) {
       this.storage.ready().then(() => {
           var video_items = this.storage.get('videoList');
           if (video_items) {
@@ -54,7 +53,7 @@ export class VideosPage {
               this.loadSettings();
           }
       });
-    }
+   // }
   } 
 
   ionViewDidEnter() {
@@ -65,8 +64,8 @@ export class VideosPage {
     });
   }
 
-  launchYTPlayer(id, title): void {
-    this.ytPlayer.launchPlayer(id, title);
+  launchYTPlayer(id): void {
+    this.ytPlayer.openVideo(id);
   }
 
   loadSettings(): void {
@@ -74,6 +73,7 @@ export class VideosPage {
   }
 
   fetchData(): void {
+    console.log('Fetch data');
     let url = 'https://www.googleapis.com/youtube/v3/search?part=id,snippet&channelId=' + this.channelID +
       '&type=video&order=date&maxResults=' + this.maxResults + '&key=' + this.googleToken + '&safeSearch=strict';
 
@@ -82,7 +82,7 @@ export class VideosPage {
     }
 
     this.http.get(url).map(res => res.json()).subscribe(data => {
-      // console.log(data.items);
+      console.log(data.items);
       this.posts = data.items;
       console.log('set new cache');
       this.storage.set('videoList', this.posts);
@@ -126,9 +126,9 @@ export class VideosPage {
   }
 
   playVideo(e, post): void {
-    console.log(post);
+    console.log("MY VIDEO IS ",post.id.videoId);
     this.onPlaying = true;
-    this.ytPlayer.launchPlayer(post.id, post.snippet.title);
+    this.ytPlayer.openVideo(post.id.videoId);
   }
 
   loadMore(): void {
@@ -137,7 +137,7 @@ export class VideosPage {
 
   ionViewWillLeave() {
     console.log("leaving now video");
-    this.ytPlayer.pausePlayer();
-    setTimeout(this.ytPlayer.stopVideo(), 6000);
+   // this.ytPlayer.pausePlayer();
+    //setTimeout(this.ytPlayer.stopVideo(), 6000);
   }
 }

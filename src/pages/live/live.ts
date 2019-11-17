@@ -3,9 +3,10 @@ import { NavController, Platform, IonicPage  } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { GlobalVariable } from '../../app/globals';
-import { YoutubeServiceLive } from '../../app/providers/youtube-service-live/youtube-service-live';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+
 
 declare var AndroidNativePdfViewer: any;
 
@@ -27,7 +28,7 @@ export class LivePage {
 
   constructor(public http: Http, 
               public nav: NavController, 
-              public ytPlayer: YoutubeServiceLive, 
+              public ytPlayer: YoutubeVideoPlayer, 
               public platform: Platform,
               private iab: InAppBrowser,
               private ga: GoogleAnalytics ) {
@@ -41,9 +42,8 @@ export class LivePage {
       console.log("my list ", this.issuesCloud);
     });
 
-    if ( !this.platform.is('android') ) {  
       this.loadSettings();
-    }
+    
   }
 
   ionViewDidEnter() {
@@ -75,8 +75,8 @@ export class LivePage {
     });
   }
 
-  launchYTPlayer(id, title): void {
-    this.ytPlayer.launchPlayer(id, title);
+  launchYTPlayer(id): void {
+    this.ytPlayer.openVideo(id);
   }
   fetchData(): void {
     let url = 'https://www.googleapis.com/youtube/v3/search?part=id,snippet&channelId=' + this.channelID + '&type=video&order=viewCount&maxResults=' + this.maxResults + '&key=' + this.googleToken + '&eventType=' + this.eventType;
@@ -88,7 +88,7 @@ export class LivePage {
       console.log(data.items);
       this.posts = this.posts.concat(data.items);
       if (data.items.length > 0) {
-        this.playVideo(null, this.posts[0]);
+        this.playVideo(this.posts[0]);
       }
     });
   }
@@ -98,11 +98,11 @@ export class LivePage {
   openSettings(): void {
     console.log("TODO: Implement openSettings()");
   }
-  playVideo(e, post): void {
-    console.log(post);
+  playVideo(post): void {
+    console.log("MY VIDEO IS ",post.id.videoId);
     this.onPlayingLive = true;
     this.title = post.snippet.title;
-    this.ytPlayer.postValue(post.id, post.snippet.title);
+    this.ytPlayer.openVideo(post.id.videoId);
   }
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);

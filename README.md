@@ -21,7 +21,7 @@
 - npm install -g cordova@latest
 - npm install -g ionic@latest
 - npm install @ionic/app-scripts@2.1.4 --save-dev
-- npm install ionic-angular@3.7.1 --save
+- npm install ionic-angular@3.9.9 --save
 - cordova plugin add cordova-sqlite-storage --save
 - ionic info
 - npm info cordova
@@ -65,8 +65,8 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 
 ##Publish android
 - ionic cordova build android --prod --release
-- jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/release/android-release-unsigned.apk suk_keye
-- C:\Users\chaha\AppData\Local\Android\sdk\build-tools\28.0.3\zipalign -v 4 c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/release/android-release-unsigned.apk c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/release/ratwara_sahib_app-release.apk
+- jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore C:\projects\ratwara_sahib_app\platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk suk_keye
+- C:\Users\chaha\AppData\Local\Android\sdk\build-tools\28.0.3\zipalign -v 4 c:/projects/ratwara_sahib_app/platforms/android/build/outputs/apk/release/app-release-unsigned.apk C:\projects\ratwara_sahib_app\platforms\android\app\build\outputs\apk\release\ratwara_sahib_app-release.apk
 
 ##Publish IOS
 - rvm use system

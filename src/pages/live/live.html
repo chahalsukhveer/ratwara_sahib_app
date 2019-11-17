@@ -8,7 +8,6 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="!platform.is('android')">
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content pullingIcon="arrow-dropdown" [pullingText]="'PULL' | translate" refreshingSpinner="circles" [refreshingText]="'REFRESH' | translate">
         </ion-refresher-content>
@@ -27,7 +26,6 @@
           </div>
         </ion-item>
     </ion-list>
-  </div> 
   <div>
     <ion-list *ngFor="let mag of issuesCloud">
       <ion-list-header>
