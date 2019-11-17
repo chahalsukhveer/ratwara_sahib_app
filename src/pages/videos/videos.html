@@ -1,19 +1,18 @@
 <ion-header>
   <ion-navbar>
     <ion-title>{{ 'VIDEOS' | translate }}</ion-title>
-    <!--<div class="embed-responsive-item" style="width: 100%; z-index: 90; background-color: black;background-size:cover;" *ngIf="!onPlaying"></div>-->
   </ion-navbar>
 
 </ion-header>
 <ion-content center text-center class="card-background">
   <ion-item-divider letf text-left>{{'OUR_VIDEOS' | translate}}</ion-item-divider>
 
-  <div>
+  <!-- <div>
     <div id="player" class="embed-responsive embed-responsive-16by9">
       <div id="placeholder" style="width: 100%;  max-width: 480px; max-height: 360px" class="embed-responsive-item"></div>
       <div class="embed-responsive-item" style="width: 100%;max-width: 711px; max-height: 400px; z-index: 90; background-color: black; background-size:cover;" *ngIf="!onPlaying"></div>
     </div>
-  </div>
+  </div> -->
 
 
   <ion-searchbar (input)="searchVideos($event)" [placeholder]="'SEARCH' | translate" ></ion-searchbar>

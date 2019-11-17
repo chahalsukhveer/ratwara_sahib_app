@@ -52,9 +52,9 @@
 - xcrun simctl list devicetypes
 - ionic cordova emulate ios -l -c -s
 - ionic cordova build ios
-- ionic cordova emulate ios --target="iPhone-7-Plus"
-- ionic cordova emulate ios --target="iPhone-7"
-- cordova emulate ios --target="iPad-Air"
+- ionic cordova emulate --list
+- ios-sim showdevicetypes
+- ionic cordova emulate ios --target="94F76B82-58B2-4CE6-A373-A0E9FBC54A80"
 - cordova emulate ios --target="iPhone-7" --provisioningProfile="AppStore.Ratwara" --codeSignIdentity="iPhone Distribution: Edwin Biemond (4VKB92ESAR)"
 - ionic cordova run ios
 - rvm use system
@@ -97,7 +97,7 @@ gem install cocoapods
 pod setup
 cd platforms/ios
 pod install
-npm install -g cocoapods-cli
+sudo npm install -g cocoapods-cli
 ```
 
 ##one-sginal

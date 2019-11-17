@@ -134,7 +134,6 @@
     </plugin>
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
-    <plugin name="cordova-plugin-youtube-video-player" spec="^2.0.0" />
     <plugin name="cordova-plugin-safariviewcontroller" spec="^1.5.4" />
     <plugin name="cordova-plugin-customurlscheme" spec="4.4.0">
         <variable name="URL_SCHEME" value="io.ionic.ratwara.sahib" />
@@ -143,5 +142,5 @@
         <variable name="ANDROID_PATHPREFIX" value="/cordova/io.ionic.ratwara.sahib/callback" />
     </plugin>
     <engine name="android" spec="^8.1.0" />
-    <engine name="ios" spec="^4.5.5" />
+    <engine name="ios" spec="^5.0.1" />
 </widget>

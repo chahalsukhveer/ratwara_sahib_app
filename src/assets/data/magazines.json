@@ -4,6 +4,46 @@
             "label": "2019",
             "editions": [
                 {
+                    "link": "http://www.ratwarasahib.com/Atammargmagazine/2019/11%20November%202019.pdf",
+                    "description": "November",
+                    "img": "http://www.ratwarasahib.com/AtamMargMagazine/2019/Image/11%20November%202019.jpg"
+                },
+                {
+                    "link": "http://www.ratwarasahib.com/Atammargmagazine/2019/10%20October%202019.pdf",
+                    "description": "October",
+                    "img": "http://www.ratwarasahib.com/AtamMargMagazine/2019/Image/10%20October%202019.jpg"
+                },
+                {
+                    "link": "http://www.ratwarasahib.com/Atammargmagazine/2019/09%20September%202019.pdf",
+                    "description": "September",
+                    "img": "http://www.ratwarasahib.com/AtamMargMagazine/2019/Image/09%20September%202019.jpg"
+                },
+                {
+                    "link": "http://www.ratwarasahib.com/Atammargmagazine/2019/08%20August%202019.pdf",
+                    "description": "August",
+                    "img": "http://www.ratwarasahib.com/AtamMargMagazine/2019/Image/08%20August%202019.jpg"
+                },
+                {
+                    "link": "http://www.ratwarasahib.com/Atammargmagazine/2019/07%20July%202019.pdf",
+                    "description": "July",
+                    "img": "http://www.ratwarasahib.com/AtamMargMagazine/2019/Image/07%20July%202019.jpg"
+                },                                                
+                {
+                    "link": "http://www.ratwarasahib.com/Atammargmagazine/2019/06%20June%202019.pdf",
+                    "description": "June",
+                    "img": "http://www.ratwarasahib.com/AtamMargMagazine/2019/Image/06%20June%202019.jpg"
+                },  
+                {
+                    "link": "http://www.ratwarasahib.com/Atammargmagazine/2019/05%20May%202019.pdf",
+                    "description": "May",
+                    "img": "http://www.ratwarasahib.com/AtamMargMagazine/2019/Image/05%20May%202019.jpg"
+                },  
+                {
+                    "link": "http://www.ratwarasahib.com/Atammargmagazine/2019/04%20April%202019.pdf",
+                    "description": "April",
+                    "img": "http://www.ratwarasahib.com/AtamMargMagazine/2019/Image/04%20April%202019.jpg"
+                },                                  
+                {
                     "link": "http://www.ratwarasahib.com/Atammargmagazine/2019/03%20March%202019.pdf",
                     "description": "March",
                     "img": "assets/images/atam_marg/03 March 2019.jpg"
