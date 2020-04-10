@@ -33,7 +33,7 @@
     "@ngx-translate/core": "^9.1.1",
     "@ngx-translate/http-loader": "2.0.1",
     "android-versions": "^1.5.0",
-    "auth0-js": "^9.11.3",
+    "auth0-js": "^9.13.2",
     "cordova-android": "^8.1.0",
     "cordova-ios": "^5.0.1",
     "cordova-plugin-advanced-http": "^1.11.1",
