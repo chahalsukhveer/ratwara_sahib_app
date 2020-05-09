@@ -81,11 +81,8 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 - Upload
 - goto https://itunesconnect.apple.com/
 
-##Ionic.io
-- ionic package build ios/android --profile dev
-- ionic package build ios/android --profile prod --release
-- ionic package list
-- ionic package info x
+
+
 
 ## maps
 - ionic plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="" --variable API_KEY_FOR_IOS=""
