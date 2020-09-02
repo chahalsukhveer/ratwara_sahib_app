@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+           {{'MAGAZINE' | translate }}
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-list *ngFor="let mag of issuesCloud">
+      <ion-list-header>
+        {{'MAG_YEAR' | translate }} {{mag.label}}
+      </ion-list-header>
+      <button ion-item *ngFor="let issue of mag.editions" (click)="openPDF(issue.link)">
+      <ion-thumbnail item-left>
+        <img src="{{issue.img}}">
+      </ion-thumbnail> 
+      {{issue.description | translate }}    
+    </button>
+    </ion-list>
+  </div>
+</ion-content>

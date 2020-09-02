@@ -12,13 +12,13 @@ import { Storage } from '@ionic/storage';
 export class TabsPage {
 
   home: any = "HomePage";
-  news: any = "NewsPage";
+  magazine: any = "MagazinePage";
   videos: any = "VideosPage";
   live: any = "LivePage";
   contact: any = "ContactPage";
   music: any = "MusicPage";
   instagram: any = "InstagramPage";
-  showLiveVideos: boolean = true;
+  showMag: boolean = true;
 
   constructor( public platform: Platform,
                private nav: NavController,
@@ -27,9 +27,9 @@ export class TabsPage {
     platform.ready().then(() => {
         translate.setDefaultLang(defaultLanguage);
         if (platform.is("android")) {
-           this.showLiveVideos = true;
+           this.showMag = false;
         } else {
-           this.showLiveVideos = true;
+           this.showMag = true;
         }
     });
     storage.ready().then(() => {

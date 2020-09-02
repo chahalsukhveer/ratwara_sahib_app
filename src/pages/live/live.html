@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-           {{'LIVE' | translate}}
+           {{'LIVE_VIDEO' | translate }}
     </ion-title>
   </ion-navbar>
 
@@ -14,8 +14,9 @@
     </ion-refresher>
 
     <ion-list>
+      <!--
         <ion-item-divider>{{'LIVE_VIDEO' | translate}}</ion-item-divider>
-
+-->
         <ion-item>
           <div id="playerlive" class="embed-responsive embed-responsive-16by9">
             <div id="placeholderlive" style="width: 100%;  max-width: 480px; max-height: 360px" class="embed-responsive-item"></div>
@@ -26,6 +27,7 @@
           </div>
         </ion-item>
     </ion-list>
+    <!--
   <div>
     <ion-list *ngFor="let mag of issuesCloud">
       <ion-list-header>
@@ -39,5 +41,5 @@
     </button>
     </ion-list>
   </div>
-
+-->
 </ion-content>
