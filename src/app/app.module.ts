@@ -6,8 +6,6 @@ import { Http, HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { BrowserModule } from '@angular/platform-browser';
 import { WindowRef } from './providers/window-ref';
-import { YoutubeService } from './providers/youtube-service/youtube-service';
-import { YoutubeServiceLive } from './providers/youtube-service-live/youtube-service-live';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';

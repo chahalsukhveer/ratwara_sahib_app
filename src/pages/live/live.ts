@@ -36,14 +36,7 @@ export class LivePage {
     });
   
     console.log("constructor for youtube videos.ts");
-
-    this.http.get('assets/data/magazines.json').map(res => res.json()).subscribe(data => {
-      this.issuesCloud = data.magazines;
-      console.log("my list ", this.issuesCloud);
-    });
-
       this.loadSettings();
-    
   }
 
   ionViewDidEnter() {
@@ -51,27 +44,6 @@ export class LivePage {
           // Okay, so the platform is ready and our plugins are available.
           this.ga.trackView("Live Page");
           console.log("Live Page enter");
-    });
-  }
-
-  openPDF(url): void {
-    console.log(url);
-    this.platform.ready().then(() => {
-      if ( this.platform.is('android') ) { 
-        var options = { 
-                headerColor:"#000000",
-                showScroll:true, 
-                swipeHorizontal:false 
-              };
-        AndroidNativePdfViewer.openPdfUrl(url, 'magazine', options,
-                function(success){
-                  console.log(url)
-                }, function(error){
-                  console.log("It didn't work!")
-                });
-      } else {
-        let browser = this.iab.create(url, "_system", "location=true");
-      }
     });
   }
 

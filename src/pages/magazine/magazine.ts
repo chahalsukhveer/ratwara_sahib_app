@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, Platform, IonicPage  } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { GlobalVariable } from '../../app/globals';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
