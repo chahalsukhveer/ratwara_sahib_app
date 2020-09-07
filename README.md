@@ -85,7 +85,7 @@ See http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-accoun
 
 
 ## maps
-- ionic plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="" --variable API_KEY_FOR_IOS=""
+- ionic cordovaS plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="" --variable API_KEY_FOR_IOS=""
 
 
 ###IOS phonegap-plugin-push latest

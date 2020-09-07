@@ -17,7 +17,6 @@ export class TabsPage {
   live: any = "LivePage";
   contact: any = "ContactPage";
   music: any = "MusicPage";
-  instagram: any = "InstagramPage";
   showMag: boolean = true;
 
   constructor( public platform: Platform,
