@@ -40,8 +40,8 @@
 ## Add platforms
 - ionic cordova platform add android@6.4.0
 - ionic cordova platform add ios
-- ionic plugin add cordova-plugin-inappbrowser
-- ionic plugin add cordova-plugin-google-analytics
+- ionic cordova plugin add cordova-plugin-inappbrowser
+- ionic cordova plugin add cordova-plugin-google-analytics
 
 
 ## default IOS

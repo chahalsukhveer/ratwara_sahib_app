@@ -17,3 +17,4 @@ src/app/globals.ts
 .io-config.json
 .sourcemaps
 *.md5
+.gradle
